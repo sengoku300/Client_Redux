@@ -10,7 +10,6 @@
       VerticalAlignment="Stretch"
       Height="Auto"
       Width="Auto"
-      d:DesignHeight="450"
       Title="LoginPage"
       Style="{StaticResource {x:Type Page}}">
     <Page.Resources>
@@ -127,7 +126,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0"
+                <TextBlock MouseDown="TextBlock_MouseDown" Grid.Column="0"
                            Style="{StaticResource linkText}"
                            Text="Забыли пароль?">
                            <Hyperlink/>
@@ -138,14 +137,14 @@
                     Content="Регистрация"
                     FontSize="15"
                     Grid.Column="1"
-                    Style="{StaticResource primaryButton}" />
+                    Style="{StaticResource primaryButton}" Click="Button_Click_1" />
             </Grid>
 
             <Button 
                     Content="Вход"
                     FontSize="25"
                     Grid.Row="4"
-                    Style="{StaticResource primaryButton}" Margin="10" Width="380" Height="80" />
+                    Style="{StaticResource primaryButton}" Margin="10" Width="380" Height="80" Click="Button_Click" />
         </Grid>
     </Grid>
 </Page>

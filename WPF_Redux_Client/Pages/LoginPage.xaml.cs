@@ -24,5 +24,22 @@ namespace WPF_Redux_Client.Pages
         {
             InitializeComponent();
         }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Clicked!");
+        }
     }
 }
