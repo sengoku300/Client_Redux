@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPF_Redux_Client
+namespace WPF_Redux_Client.Pages
 {
     /// <summary>
-    /// Interaction logic for Authorization.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class Authorization : Window
+    public partial class LoginPage : Page
     {
-        public Authorization()
+        public LoginPage()
         {
             InitializeComponent();
-            authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

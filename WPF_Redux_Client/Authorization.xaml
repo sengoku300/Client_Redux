@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Redux_Client"
         mc:Ignorable="d"
-        Title="Authorization" Height="450" Width="800">
+        Height="768"
+        Width="1024"
+        Title="Authorization">
     <Grid>
-        <TextBox x:Name="textBox_Login" HorizontalAlignment="Left" Height="23" Margin="274,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="274,81,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox_Login_Copy" HorizontalAlignment="Left" Height="23" Margin="274,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
+        <Frame x:Name="authMain"/>
+        <!--<TextBox x:Name="textBox_Login" HorizontalAlignment="Left" Height="23" Margin="274,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236"/>
+        <Label Content="E-Mail" HorizontalAlignment="Left" Margin="274,81,0,0" VerticalAlignment="Top"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="274,155,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="282,281,0,0" VerticalAlignment="Top" Width="207" Height="42"/>
+        <Button Content="Вход" HorizontalAlignment="Left" Margin="282,281,0,0" VerticalAlignment="Top" Width="207" Height="42"/>
         <CheckBox Content="Запомнить меня" HorizontalAlignment="Left" Margin="274,222,0,0" VerticalAlignment="Top"/>
         <Label Content="Забыли пароль?" HorizontalAlignment="Left" Margin="411,244,0,0" VerticalAlignment="Top"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="274,186,0,0" VerticalAlignment="Top" Width="236" Height="23"/>
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="282,343,0,0" VerticalAlignment="Top" Width="207" Height="42"/>-->
 
     </Grid>
 </Window>
