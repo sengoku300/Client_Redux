@@ -27,7 +27,31 @@ namespace WPF_Redux_Client.Pages
         {
             InitializeComponent();
 
-            textBox_City.Text = GetCity();
+            city_name.Text = GetCity();
+            country_name.Text = GetCountry();
+        }
+
+        private string GetCountry()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "country_name")
+                    return ipLoc = disc[item].ToString();
+            }
+
+            return ipLoc;
         }
 
         private string GetCity()
