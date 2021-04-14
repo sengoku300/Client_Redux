@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WPF_Redux_Client.Pages
 {
     /// <summary>
@@ -31,6 +32,11 @@ namespace WPF_Redux_Client.Pages
             authoriz.authMain.Navigate(new Uri("Pages/RegPage.xaml", UriKind.RelativeOrAbsolute));
             authoriz.Width = 500;
             authoriz.Height = 830;
+        }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

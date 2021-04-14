@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +26,33 @@ namespace WPF_Redux_Client.Pages
         public RegPage()
         {
             InitializeComponent();
+
+            textBox_City.Text = GetCity();
         }
 
+        private string GetCity()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "city")
+                    return ipLoc = disc[item].ToString();
+            }
+
+            return ipLoc;
+        }  
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
