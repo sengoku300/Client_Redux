@@ -148,6 +148,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
+    
     <Border Height="70" Background="White" CornerRadius="10">
         <Border.Effect>
             <DropShadowEffect BlurRadius="23" ShadowDepth="5" Direction="270"

@@ -16,21 +16,33 @@ using System.Windows.Shapes;
 namespace WPF_Redux_Client.Pages
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for RegPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegPage : Page
     {
-        public LoginPage()
+        public RegPage()
         {
             InitializeComponent();
         }
 
-        Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            authoriz.authMain.Navigate(new Uri("Pages/RegPage.xaml", UriKind.RelativeOrAbsolute));
-            authoriz.Width = 500;
-            authoriz.Height = 830;
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

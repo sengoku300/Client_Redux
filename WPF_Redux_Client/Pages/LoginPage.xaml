@@ -129,7 +129,7 @@
 
                 <TextBlock Grid.Column="0"
                            Style="{StaticResource linkText}"
-                           Text="Забыли пароль?">
+                           Text="Забыли пароль?" Width="120">
                            <Hyperlink/>
                 </TextBlock>
 
@@ -137,8 +137,10 @@
                 <Button 
                     Content="Регистрация"
                     FontSize="15"
+                    Width="160"
+                    Height="60"
                     Grid.Column="1"
-                    Style="{StaticResource primaryButton}" />
+                    Style="{StaticResource primaryButton}" Click="Button_Click" />
             </Grid>
 
             <Button 
