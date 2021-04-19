@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_Redux_Client.Pages" xmlns:CustomControls="clr-namespace:WPF_Redux_Client.CustomControls"
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages" 
+      xmlns:CustomControls="clr-namespace:WPF_Redux_Client.CustomControls"
       mc:Ignorable="d"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
@@ -56,6 +57,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -74,10 +76,37 @@
         <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Name_Family" Grid.Row="1"
                                                    PlaceHolder="Имя и Фамилия"/>
 
-        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday" Grid.Row="2"
-                                                   PlaceHolder="Дата рождения (дд:мм:гг)"/>
+        <TextBlock Text="Дата рождения"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="DemiBold"
+                   FontSize="20"
+                   Grid.Row="2"/>
 
-        <TextBlock Grid.Row="3" Text="Страна: " FontSize="25"
+
+        <Grid Grid.Row="3" Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_DD" 
+                                                   PlaceHolder="День"
+                                                   Grid.Column="0" Width="120"/>
+
+            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_MM" 
+                                                   PlaceHolder="Месяц" Grid.Column="1" Width="120"/>
+
+            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_Year" Grid.Column="2"
+                                                   PlaceHolder="Год" Width="120"/>
+        </Grid>
+
+        <!--<CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday" Grid.Row="2"
+                                                   PlaceHolder="Дата рождения (дд:мм:гг)"/>-->
+
+        <TextBlock Grid.Row="4" Text="Страна: " FontSize="25"
                    FontWeight="DemiBold"
                    Foreground="Black"
                    TextAlignment="Left"
@@ -87,7 +116,7 @@
                  FontWeight="Bold" FontSize="25"/>
         </TextBlock>
 
-        <TextBlock Grid.Row="4" Text="Город: " FontSize="25"
+        <TextBlock Grid.Row="5" Text="Город: " FontSize="25"
                    FontWeight="DemiBold"
                    Foreground="Black"
                    TextAlignment="Center"
@@ -112,7 +141,7 @@
         <!--<TextBlock FontSize="15" FontWeight="Bold" Foreground="Gray" TextAlignment="Center"
                    Text="Пол:" Grid.Row="3" HorizontalAlignment="Center" Margin="0,100.6,0,0" Grid.RowSpan="2" Width="400" Height="21" VerticalAlignment="Top"/>-->
 
-        <Grid Grid.Row="5" Height="69" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+        <Grid Grid.Row="6" Height="69" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -137,19 +166,19 @@
         </Grid>
 
 
-        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Mail" Grid.Row="6"
+        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Mail" Grid.Row="7"
                                                    PlaceHolder="E-Mail" />
 
-        <CustomControls:TextBoxWithPlaceHolder x:Name="passBox" Grid.Row="7"
+        <CustomControls:TextBoxWithPlaceHolder x:Name="passBox" Grid.Row="8"
                                                    PlaceHolder="Пароль" IsPassword="True"/>
 
         <TextBlock Text="Пароль должен содержать не менее 5 символов" TextAlignment="Center"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Foreground="Gray"
-                   Grid.Row="8"/>
+                   Grid.Row="9"/>
 
-        <Button Style="{StaticResource primaryButton}" Height="70" Width="260" Grid.Row="9" Click="Button_Click_3">
+        <Button Style="{StaticResource primaryButton}" Height="70" Width="260" Grid.Row="10" Click="Button_Click_3">
             <StackPanel Orientation="Horizontal">
                 <Image Source="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\bin\Debug\strelka.png"
                            Stretch="Uniform" Height="25"/>
