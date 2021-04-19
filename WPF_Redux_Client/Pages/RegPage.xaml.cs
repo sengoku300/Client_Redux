@@ -31,6 +31,7 @@ namespace WPF_Redux_Client.Pages
             country_name.Text = GetCountry();
         }
 
+        Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
         private string GetCountry()
         {
             string ipLoc = string.Empty;
@@ -94,7 +95,7 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

@@ -38,5 +38,20 @@ namespace WPF_Redux_Client.Pages
         {
 
         }
+
+        private void ContentControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ClickCount == 2)
+            {
+                authoriz.authMain.Navigate(new Uri("Pages/RememberPassPage.xaml", UriKind.RelativeOrAbsolute));
+                authoriz.Height = 600;
+                authoriz.Width = 500;
+            }
+        }
     }
 }
