@@ -37,16 +37,6 @@ namespace WPF_Redux_Client.Pages
             authoriz.Height = 830;
         }
 
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void ContentControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void TextBlock_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             if(e.ClickCount == 2)
