@@ -92,15 +92,17 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_DD" 
+            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_DD_PreviewTextInput" x:Name="textBox_Birthday_DD" 
                                                    PlaceHolder="День"
                                                    Grid.Column="0" Width="120"/>
 
-            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_MM" 
-                                                   PlaceHolder="Месяц" Grid.Column="1" Width="120"/>
+            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_MM_PreviewTextInput" x:Name="textBox_Birthday_MM" 
+                                                   PlaceHolder="Месяц"
+                                                   Grid.Column="1" Width="120"/>
 
-            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday_Year" Grid.Column="2"
-                                                   PlaceHolder="Год" Width="120"/>
+            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_Year_PreviewTextInput" x:Name="textBox_Birthday_Year" Grid.Column="2"
+                                                   PlaceHolder="Год"
+                                                   Width="120"/>
         </Grid>
 
         <!--<CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday" Grid.Row="2"
