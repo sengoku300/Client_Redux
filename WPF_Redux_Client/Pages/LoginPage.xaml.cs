@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Redux_Client.ServiceReference1;
 
 
 namespace WPF_Redux_Client.Pages
@@ -21,6 +22,8 @@ namespace WPF_Redux_Client.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        Service1Client client;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -52,6 +55,27 @@ namespace WPF_Redux_Client.Pages
                 authoriz.Height = 600;
                 authoriz.Width = 500;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (textBox_Email.Text != "" && PassBox.passbox.Password != "")
+            {
+                client = new Service1Client();
+
+                if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
+                {
+                    MainWindow mainWindow = new MainWindow();
+
+                    mainWindow.Show();
+
+                    authoriz.Close();
+                }
+                else
+                    MessageBox.Show("Ошибка! Неверный логин или пароль!");
+            }
+            else
+                MessageBox.Show("Вы оставили какое-то из полей ввода пустым");
         }
     }
 }

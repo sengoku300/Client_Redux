@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       Height="Auto"
       Width="Auto"
-      d:DesignHeight="600" d:DesignWidth="500"
+      d:DesignHeight="700" d:DesignWidth="500"
       Background="WhiteSmoke"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
@@ -59,7 +59,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
@@ -74,7 +74,7 @@
                     HorizontalAlignment="Center">
             <CustomControls:TextBoxWithPlaceHolder PlaceHolder="E-mail"
                                                x:Name="textBox_Email" Width="280"/>
-            <Button FontSize="20" Style="{StaticResource primaryButton}" Height="80" Content="Выслать код" Width="170"/>
+            <Button x:Name="Button_Code" FontSize="20" Style="{StaticResource primaryButton}" Height="80" Content="Выслать код" Width="170" Click="Button_Click_1"/>
         </StackPanel>
 
 
@@ -82,21 +82,31 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     Grid.Row="2">
-            <CustomControls:TextBoxWithPlaceHolder PlaceHolder="Код"
+            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Code_PreviewTextInput"  PlaceHolder="Код"
                                                    x:Name="textBox_Code" Width="280"/>
 
-            <Button FontSize="20" Style="{StaticResource primaryButton}" Height="80" Content="Подтвердить"  Width="170"/>
+            <Button x:Name="Button_Accept_Code" FontSize="20" Style="{StaticResource primaryButton}" Height="80" Content="Подтвердить"  Width="170" Click="Button_Click_2"/>
         </StackPanel>
 
         <CustomControls:TextBoxWithPlaceHolder Width="450" PlaceHolder="Новый пароль"
                                                x:Name="textBox_Password"
                                                IsPassword="True" Grid.Row="3" />
 
-        <CustomControls:TextBoxWithPlaceHolder Width="450" PlaceHolder="Подтверждение нового пароля"
+        <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_AcceptPassword_PreviewTextInput" Width="450" PlaceHolder="Подтверждение нового пароля"
                                                x:Name="textBox_AcceptPassword"
                                                IsPassword="True" Grid.Row="4"/>
 
-        <Button Content="Изменить пароль" Grid.Row="5"
+
+        <TextBlock x:Name="textBlock_Warnings"
+                   FontSize="17"
+                   FontWeight="Bold"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="5"/>
+
+
+        <Button x:Name="Button_Change" Content="Изменить пароль" Grid.Row="6"
                 Style="{StaticResource primaryButton}"
                 Width="350"
                 Height="80"

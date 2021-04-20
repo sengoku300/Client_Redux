@@ -110,11 +110,11 @@
 
             <!--E-Mail TextBox-->
 
-            <CustomControls:TextBoxWithPlaceHolder Grid.Row="1"
+            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Email" Grid.Row="1"
                                                    PlaceHolder="E-Mail"/>
 
             <!--Password TextBox-->
-            <CustomControls:TextBoxWithPlaceHolder Grid.Row="2"
+            <CustomControls:TextBoxWithPlaceHolder x:Name="PassBox" Grid.Row="2"
                                                    PlaceHolder="Password"
                                                    IsPassword="True"/>
 
@@ -149,7 +149,7 @@
                     Content="Вход"
                     FontSize="25"
                     Grid.Row="4"
-                    Style="{StaticResource primaryButton}" Margin="10" Width="380" Height="80" Click="Button_Click" />
+                    Style="{StaticResource primaryButton}" Margin="10" Width="380" Height="80" Click="Button_Click_1" />
         </Grid>
     </Grid>
 </Page>
