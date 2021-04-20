@@ -126,7 +126,7 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock MouseDown="TextBlock_MouseDown" Grid.Column="0"
+                <TextBlock MouseDown="TextBlock_MouseDown_1" Grid.Column="0"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
