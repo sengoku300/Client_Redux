@@ -28,7 +28,13 @@
             </TabItem>
 
             <TabItem Background="White"
-    Header="{materialDesign:PackIcon Kind=AccountGroup, Size=24}"
+    Header="{materialDesign:PackIcon Kind=UsersGroup, Size=24}"
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+
+            </TabItem>
+
+            <TabItem Background="White"
+    Header="{materialDesign:PackIcon Kind=Filter, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
