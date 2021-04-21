@@ -12,27 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_Redux_Client.Pages;
 
-namespace WPF_Redux_Client
+namespace WPF_Redux_Client.CustomControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для HeaderChat.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HeaderChat : UserControl
     {
-        public MainWindow()
+        public HeaderChat()
         {
             InitializeComponent();
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var itemTab = (TabItem)TabControls.SelectedItem;
-            if (itemTab.Name.Equals("chat"))
-            {
-                frame.Navigate(new ListMessagesPage());
-            }
         }
     }
 }
