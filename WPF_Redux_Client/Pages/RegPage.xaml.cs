@@ -46,8 +46,6 @@ namespace WPF_Redux_Client.Pages
         Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
         private string GetCountry()
         {
-            string ipLoc = string.Empty;
-
             var client = new RestClient("https://ipapi.co/json/");
             var request = new RestRequest
             {
@@ -61,10 +59,10 @@ namespace WPF_Redux_Client.Pages
             foreach (var item in disc.Keys)
             {
                 if (item.ToString() == "country_name")
-                    return ipLoc = disc[item].ToString();
+                    return disc[item].ToString();
             }
 
-            return ipLoc;
+            return null;
         }
 
         private string GetCity()
@@ -84,10 +82,10 @@ namespace WPF_Redux_Client.Pages
             foreach (var item in disc.Keys)
             {
                 if (item.ToString() == "city")
-                    return ipLoc = disc[item].ToString();
+                    return disc[item].ToString();
             }
 
-            return ipLoc;
+            return null;
         }  
         
         private void Button_Click_1(object sender, RoutedEventArgs e) => gender = "Мужчина";

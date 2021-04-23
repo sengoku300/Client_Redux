@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Width="800">
+        Title="MainWindow" Height="600" Width="800">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -19,44 +19,51 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
-        <TabControl x:Name="TabControls" Background="AliceBlue" BorderBrush="AliceBlue" SelectionChanged="TabControl_SelectionChanged"
-  Style="{StaticResource MaterialDesignNavigatilRailTabControl}" >
-            <TabItem Background="White" BorderBrush="White" Foreground="White"
+    <Grid Background="WhiteSmoke">
+
+        <TabControl Grid.Column="0" x:Name="TabControls" Background="AliceBlue" BorderBrush="AliceBlue" SelectionChanged="TabControl_SelectionChanged"
+  Style="{StaticResource MaterialDesignNavigatilRailTabControl}" HorizontalAlignment="Left" Width="72" >
+            <TabItem x:Name="my_account" Background="White" BorderBrush="White" Foreground="White"
     Header="{materialDesign:PackIcon Kind=Account, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
             </TabItem>
 
-            <TabItem Background="White"
+            <TabItem x:Name="feed" Background="White"
     Header="{materialDesign:PackIcon Kind=UsersGroup, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
 
-            <TabItem Background="White"
+            <TabItem x:Name="filters" Background="White"
     Header="{materialDesign:PackIcon Kind=Filter, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
 
-            <TabItem Background="White" Name="chat"
+            <TabItem Background="White" x:Name="chat"
     Header="{materialDesign:PackIcon Kind=Chat, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
-            <TabItem Background="White"
+            <TabItem x:Name="likes" Background="White"
     Header="{materialDesign:PackIcon Kind=ThumbUp, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
 
-            <TabItem Background="White"
+            <TabItem x:Name="exit" Background="White"
     Header="{materialDesign:PackIcon Kind=ExitToApp, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
             </TabItem>
         </TabControl>
-        <Frame  x:Name="frame" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="600" Margin="75,0,0,0" VerticalAlignment="Top" Width="725" />
+        
+        <Frame  x:Name="frame" NavigationUIVisibility="Hidden"
+                HorizontalAlignment="Center"
+                Height="571"
+                VerticalAlignment="Center"
+                Width="727"
+                Margin="72,0,-5,0"/>
 
     </Grid>
 </Window>

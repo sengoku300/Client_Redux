@@ -29,9 +29,28 @@ namespace WPF_Redux_Client
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var itemTab = (TabItem)TabControls.SelectedItem;
-            if (itemTab.Name.Equals("chat"))
+
+            switch (itemTab.Name)
             {
-                frame.Navigate(new ListMessagesPage());
+                case "chat":
+                    frame.Navigate(new ListMessagesPage());
+                    break;
+                case "exit":
+                    Authorization authorization = new Authorization();
+                    authorization.Show();
+                    this.Close();
+                    break;
+                case "my_account":
+                    break;
+                case "feed":
+                    break;
+                case "filters":
+                    frame.Navigate(new FiltersPage());
+                    break;
+                case "likes":
+                    break;
+                default:
+                    break;
             }
         }
     }
