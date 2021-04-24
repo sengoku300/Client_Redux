@@ -12,7 +12,8 @@
       Height="Auto"
       Width="Auto"
       Background="WhiteSmoke"
-      Title="FiltersPage">
+      Title="FiltersPage"
+      Style="{StaticResource {x:Type Page}}">
 
     <Page.Resources>
         <ResourceDictionary>

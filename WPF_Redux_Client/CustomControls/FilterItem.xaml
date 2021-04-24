@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
              Width="Auto"
              Height="Auto"
              Background="WhiteSmoke" >
@@ -22,7 +24,7 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="454" Height="470">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="90"/>
@@ -30,6 +32,8 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="65"/>
             </Grid.RowDefinitions>
 
@@ -53,7 +57,68 @@
                                           HorizontalAlignment="Stretch"
                                           VerticalAlignment="Center" Margin="10"/>
 
+            
+            <!--Цвет волос-->
             <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Цвет волос"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                       FontWeight="DemiBold"
+                       FontSize="20"
+                       Foreground="Black"/>
+
+                <ComboBox Grid.Row="1"
+                        Background="#ea90b5"
+                        Foreground="White"
+                x:Name="FilledComboBox"
+                Style="{StaticResource MaterialDesignFilledComboBox}"
+                Width="256"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center">
+                    <ComboBoxItem Content="Блонд"/>
+                    <ComboBoxItem Content="Шатен"/>
+                    <ComboBoxItem Content="Рыжий"/>
+                </ComboBox>
+            </Grid>
+
+
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Цвет глаз"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                       FontWeight="DemiBold"
+                       FontSize="20"
+                       Foreground="Black"/>
+
+                    <ComboBox 
+                        Grid.Row="1"
+                        Background="#ea90b5"
+                        Foreground="White"
+                     x:Name="FilledComboBox_ColorHair"
+                     Style="{StaticResource MaterialDesignFilledComboBox}"
+                     Width="256"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+                    <ComboBoxItem Content="Зелёный"/>
+                    <ComboBoxItem Content="Серый"/>
+                    <ComboBoxItem Content="Каштановый"/>
+                    <ComboBoxItem Content="Голубые"/>
+                </ComboBox>
+            </Grid>
+
+            <Grid Grid.Row="7">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -128,7 +193,7 @@
                 PreviewTextInput="NameAge_PreviewTextInput"
                 x:Name="NameHeight"
                 PlaceHolder="Рост (см)"
-                Grid.Row="3"
+                Grid.Row="6"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="10"/>
 

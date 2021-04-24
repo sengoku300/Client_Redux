@@ -151,7 +151,7 @@
 
             <Button Height="60" Width="170" Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\bin\Debug\icon_man.png"
+                    <Image Source="WPF_Redux_Client/Images/icon_man.png"
                            Stretch="Uniform" Height="25"/>
                     <TextBlock Text="Мужчина"/>
                 </StackPanel>
@@ -159,7 +159,7 @@
 
             <Button Style="{StaticResource primaryButton}" Width="170" Height="60" Grid.Column="1" Click="Button_Click_2">
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\bin\Debug\icon_women.png"
+                    <Image Source="WPF_Redux_Client/Images/icon_women.png"
                            Stretch="Uniform" Height="25"/>
                     <TextBlock Text="Женщина"/>
                 </StackPanel>
@@ -182,7 +182,7 @@
 
         <Button Style="{StaticResource primaryButton}" Height="70" Width="260" Grid.Row="10" Click="Button_Click_3">
             <StackPanel Orientation="Horizontal">
-                <Image Source="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\bin\Debug\strelka.png"
+                <Image Source="WPF_Redux_Client/Images/strelka.png"
                            Stretch="Uniform" Height="25"/>
                 <TextBlock Text="Зарегистрироваться" FontSize="17"/>
             </StackPanel>

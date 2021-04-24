@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Redux_Client.CustomControls;
 
 namespace WPF_Redux_Client.Pages
 {
@@ -23,6 +24,16 @@ namespace WPF_Redux_Client.Pages
         public LikesPages()
         {
             InitializeComponent();
+
+            listLikes.Items.Add(new LikedUser());
+            listLikes.Items.Add(new LikedUser());
+            listLikes.Items.Add(new LikedUser());
+            listLikes.Items.Add(new LikedUser());
+            listLikes.Items.Add(new LikedUser());
+            listLikes.Items.Add(new LikedUser());
+
+
+            listLikes_2.Items.Add(new LikedUser());
         }
     }
 }

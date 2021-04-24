@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="750" Width="1200">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -21,49 +21,59 @@
 
     <Grid Background="WhiteSmoke">
 
-        <TabControl Grid.Column="0" x:Name="TabControls" Background="AliceBlue" BorderBrush="AliceBlue" SelectionChanged="TabControl_SelectionChanged"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Column="0" x:Name="TabControls" Background="AliceBlue" BorderBrush="AliceBlue" SelectionChanged="TabControl_SelectionChanged"
   Style="{StaticResource MaterialDesignNavigatilRailTabControl}" HorizontalAlignment="Left" Width="72" >
-            <TabItem x:Name="my_account" Background="White" BorderBrush="White" Foreground="White"
+                <TabItem x:Name="my_account" Background="White" BorderBrush="White" Foreground="White"
     Header="{materialDesign:PackIcon Kind=Account, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
-            </TabItem>
+                </TabItem>
 
-            <TabItem x:Name="feed" Background="White"
+                <TabItem x:Name="feed" Background="White"
     Header="{materialDesign:PackIcon Kind=UsersGroup, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-            </TabItem>
+                </TabItem>
 
-            <TabItem x:Name="filters" Background="White"
+                <TabItem x:Name="filters" Background="White"
     Header="{materialDesign:PackIcon Kind=Filter, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-            </TabItem>
+                </TabItem>
 
-            <TabItem Background="White" x:Name="chat"
+                <TabItem Background="White" x:Name="chat"
     Header="{materialDesign:PackIcon Kind=Chat, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-            </TabItem>
-            <TabItem x:Name="likes" Background="White"
+                </TabItem>
+                <TabItem x:Name="likes" Background="White"
     Header="{materialDesign:PackIcon Kind=ThumbUp, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-            </TabItem>
+                </TabItem>
 
-            <TabItem x:Name="exit" Background="White"
+                <TabItem x:Name="exit" Background="White"
     Header="{materialDesign:PackIcon Kind=ExitToApp, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-            </TabItem>
-        </TabControl>
-        
-        <Frame  x:Name="frame" NavigationUIVisibility="Hidden"
+                </TabItem>
+            </TabControl>
+
+            <Frame Grid.Column="1" x:Name="frame" NavigationUIVisibility="Hidden"
                 HorizontalAlignment="Center"
-                Height="571"
                 VerticalAlignment="Center"
-                Width="727"
-                Margin="72,0,-5,0"/>
+               />
+
+        </Grid>
+
+       
+        
+       
 
     </Grid>
 </Window>

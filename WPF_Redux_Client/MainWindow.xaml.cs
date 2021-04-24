@@ -48,6 +48,7 @@ namespace WPF_Redux_Client
                     frame.Navigate(new FiltersPage());
                     break;
                 case "likes":
+                    frame.Navigate(new LikesPages());
                     break;
                 default:
                     break;
