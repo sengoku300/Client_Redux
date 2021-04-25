@@ -43,6 +43,7 @@ namespace WPF_Redux_Client
                 case "my_account":
                     break;
                 case "feed":
+                    frame.Navigate(new CardsPage());
                     break;
                 case "filters":
                     frame.Navigate(new FiltersPage());

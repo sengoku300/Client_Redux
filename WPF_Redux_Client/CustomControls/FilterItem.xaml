@@ -29,10 +29,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="90"/>
                 <RowDefinition Height="90"/>
-                <RowDefinition Height="90"/>
-                <RowDefinition Height="90"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="120"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="65"/>
             </Grid.RowDefinitions>
@@ -57,7 +57,7 @@
                                           HorizontalAlignment="Stretch"
                                           VerticalAlignment="Center" Margin="10"/>
 
-            
+
             <!--Цвет волос-->
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -76,11 +76,11 @@
                 <ComboBox Grid.Row="1"
                         Background="#ea90b5"
                         Foreground="White"
+                          Margin="10,0,10,10"
                 x:Name="FilledComboBox"
                 Style="{StaticResource MaterialDesignFilledComboBox}"
-                Width="256"
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center">
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center" Height="50">
                     <ComboBoxItem Content="Блонд"/>
                     <ComboBoxItem Content="Шатен"/>
                     <ComboBoxItem Content="Рыжий"/>
@@ -102,15 +102,15 @@
                        FontSize="20"
                        Foreground="Black"/>
 
-                    <ComboBox 
-                        Grid.Row="1"
-                        Background="#ea90b5"
-                        Foreground="White"
+                <ComboBox 
+                     Grid.Row="1"
+                     Background="#ea90b5"
+                     Foreground="White"
                      x:Name="FilledComboBox_ColorHair"
                      Style="{StaticResource MaterialDesignFilledComboBox}"
-                     Width="256"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center">
+                     Margin="10,0,10,10"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center" Height="50">
                     <ComboBoxItem Content="Зелёный"/>
                     <ComboBoxItem Content="Серый"/>
                     <ComboBoxItem Content="Каштановый"/>
@@ -158,7 +158,7 @@
                            TextAlignment="Center"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
-                
+
                 <Slider
                 Minimum="{Binding ElementName=SliderMin, Path=Value}"
                 Maximum="80"
@@ -189,13 +189,41 @@
 
 
 
-            <local:TextBoxWithPlaceHolder
+            <!--<local:TextBoxWithPlaceHolder
                 PreviewTextInput="NameAge_PreviewTextInput"
                 x:Name="NameHeight"
                 PlaceHolder="Рост (см)"
                 Grid.Row="6"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Center" Margin="10"/>
+                VerticalAlignment="Center" Margin="10"/>-->
+
+            <Grid Grid.Row="6">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Рост"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="25"
+                           FontWeight="DemiBold"
+                           Grid.Row="0"/>
+
+                <Slider
+                    x:Name="SliderHeight"
+                    Minimum="100"
+                    Maximum="230"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Row="1"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    Width="346"/>
+            </Grid>
+
+
 
             <TextBlock Text="Пол" TextAlignment="Center"
                        VerticalAlignment="Center"

@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Width="235"
-             Height="60"
+             Width="Auto"
+             Height="Auto"
              Background="WhiteSmoke"
              d:DesignHeight="60" d:DesignWidth="235">
 
@@ -18,7 +19,7 @@
 
         <Border Grid.Column="0" Grid.Row="0" CornerRadius="80">
             <Border.Background>
-                <ImageBrush ImageSource="WPF_Redux_Client/Images/icon_man.png"/>
+                <ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>
             </Border.Background>
         </Border>
 

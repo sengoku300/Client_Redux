@@ -29,7 +29,7 @@ namespace WPF_Redux_Client.CustomControls
         {
             InitializeComponent();
 
-            NameHeight.email.MaxLength = 3;
+            //NameHeight.email.MaxLength = 3;
         }
 
         private void NameAge_PreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = regex.IsMatch(e.Text);
