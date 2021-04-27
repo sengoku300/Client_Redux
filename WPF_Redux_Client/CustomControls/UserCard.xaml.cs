@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Redux_Client.Pages;
+using System.Windows.Markup;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace WPF_Redux_Client.CustomControls
 {
@@ -20,9 +24,39 @@ namespace WPF_Redux_Client.CustomControls
     /// </summary>
     public partial class UserCard : UserControl
     {
+        public event RoutedEventHandler UserControlLikeClicked;
+
+        public event RoutedEventHandler UserControlDLikeClicked;
+
         public UserCard()
         {
             InitializeComponent();
         }
+
+        private void like_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserControlLikeClicked != null)
+            {
+                UserControlLikeClicked(this, new RoutedEventArgs());
+            }
+        }
+
+        private void close_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserControlDLikeClicked != null)
+            {
+                UserControlDLikeClicked(this, new RoutedEventArgs());
+            }
+        }
+
+        public class User
+        {
+            public string UserName { get; set; }
+            protected string LastName { get; set; }
+            protected string City { get; set; }
+            protected int Kilom { get; set; }
+        }
     }
+
+   
 }

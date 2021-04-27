@@ -23,40 +23,14 @@ namespace WPF_Redux_Client.Pages
     {
         protected Point SwipeStart;
 
-        UserCard one = new UserCard();
-        UserCard two = new UserCard();
-        UserCard three = new UserCard();
-
         public CardsPage()
         {
             InitializeComponent();
+        }
 
-            Panel.SetZIndex(one, 0);
-            Panel.SetZIndex(two, 1);
-            Panel.SetZIndex(three, 2);
-
-            //Style style = new Style(typeof(UserCard));
-            //style.Setters.Add(new Setter(UserCard.ForegroundProperty, Brushes.Green));
-            //style.Setters.Add(new Setter(UserCard.BackgroundProperty, Brushes.Red));
-            //Resources.Add(typeof(UserCard), style);
-
-            one.Margin = new Thickness(56, 0, 0, 30);
-            two.Margin = new Thickness(45, 0, 0, 20);
-            three.Margin = new Thickness(20, 10, 0, 20);
-
-            one.MouseDown += One_MouseDown;
-            one.MouseMove += One_MouseMove;
-            
-            two.MouseDown += One_MouseDown;
-            two.MouseMove += One_MouseMove;
-            
-            three.MouseDown += One_MouseDown;
-            three.MouseMove += One_MouseMove;
-
-
-            grid.Children.Add(one);
-            grid.Children.Add(two);
-            grid.Children.Add(three);
+        private void Like_Click(object sender, RoutedEventArgs e)
+        {
+            items_control.Items.RemoveAt(items_control.Items.Count - 1);
         }
 
         private void One_MouseMove(object sender, MouseEventArgs e)
@@ -68,12 +42,13 @@ namespace WPF_Redux_Client.Pages
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
                     MessageBox.Show("SwipeRight");
-                    grid.Children.Remove((UserCard)sender);
+                    items_control.Items.Remove((UserCard)sender);
                 }
 
                 if (SwipeStart != null && swipe.X < (SwipeStart.X - 200))
                 {
                     MessageBox.Show("SwipeLeft");
+
                 }
             }
         }
@@ -81,6 +56,35 @@ namespace WPF_Redux_Client.Pages
         private void One_MouseDown(object sender, MouseButtonEventArgs e) => SwipeStart = e.GetPosition(this);
 
 
+        private void MergeControls(string name, string lastname, string city,
+            int distance)
+        {
+            UserCard userCard = new UserCard();
+
+            userCard.User_Name.Text = name;
+            userCard.User_LastName.Text = lastname;
+            userCard.User_City.Text = city;
+            userCard.User_Kilometer.Text = distance.ToString();
+
+
+            userCard.UserControlLikeClicked += UserCard_UserControlLikeClicked;
+            userCard.UserControlDLikeClicked += UserCard_UserControlDLikeClicked;
+
+            userCard.MouseDown += One_MouseDown;
+            userCard.MouseMove += One_MouseMove;
+
+            items_control.Items.Add(userCard);
+        }
+
+        private void UserCard_UserControlDLikeClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Dislicked");
+        }
+
+        private void UserCard_UserControlLikeClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show("Like");
+        }
 
         private void Page_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -88,6 +92,13 @@ namespace WPF_Redux_Client.Pages
         }
 
         private void Page_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) => MergeControls("Playboi","Carti", "NY", 10);
+
+        private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)
         {
 
         }
