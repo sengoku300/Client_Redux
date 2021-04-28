@@ -8,9 +8,8 @@
              mc:Ignorable="d"
              Width="Auto"
              Height="Auto"
-             HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch">
-
+             Style="{StaticResource {x:Type UserControl}}">
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -20,6 +19,17 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+
+        <!--<Style TargetType="materialDesign:PackIcon">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="HotPink"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="#fae81b"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
     </UserControl.Resources>
 
     <!--<UserControl.Template>
@@ -191,21 +201,13 @@
                                     </Border.Background>
                                 </Border>
 
-                                <Button Grid.Column="0" Margin="43,258,17,10">
-                                    <Button.Content>
-                                        <Border CornerRadius="10" >
-                                            <materialDesign:PackIcon Kind="ArrowLeft"
+                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
                                          HorizontalAlignment="Left"
-                                         VerticalAlignment="Center"/>
-                                        </Border>
-                                    </Button.Content>
-                                </Button>
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
 
-                                <!--<Border CornerRadius="10" Grid.Column="2" Background="White">
-                                    <materialDesign:PackIcon Kind="ArrowRight"
+                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
                                          HorizontalAlignment="Right"
-                                         VerticalAlignment="Center"/>
-                                </Border>-->
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
                             </Grid>
 
 
@@ -217,14 +219,8 @@
             <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
                             </TextBlock>
 
-                            <Grid Grid.Row="2">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-
                                 <TextBlock FontSize="20"
-                       Grid.Column="0"
+                       Grid.Row="2"
                    Foreground="Gray"
                    FontWeight="DemiBold">
              <Run Foreground="HotPink" x:Name="User_Kilometer"
@@ -232,13 +228,6 @@
             <Run Text="км от вас"/>
                                 </TextBlock>
 
-                                <TextBlock FontSize="20"
-                       x:Name="User_City"
-                       Grid.Column="1"
-                       Foreground="Gray"
-                       FontWeight="DemiBold"
-                       Text="Город"/>
-                            </Grid>
 
                             <Grid Grid.Row="3">
                                 <Grid.ColumnDefinitions>
@@ -246,7 +235,8 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button x:Name="like" Click="like_Click" Grid.Column="0">
+                                <Button x:Name="like" Click="like_Click" 
+                                        VerticalAlignment="Center" materialDesign:ShadowAssist.Darken="True" Grid.Column="0">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="ThumbUp"
                                          HorizontalAlignment="Center"
@@ -254,7 +244,7 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button x:Name="close" Click="close_Click" Grid.Column="1">
+                                <Button x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="Close"
                                          HorizontalAlignment="Center"
@@ -262,15 +252,6 @@
                                     </Button.Content>
                                 </Button>
                             </Grid>
-
-                            <TextBlock FontSize="20"
-                   Foreground="Gray"
-                   Grid.Row="2"
-                   FontWeight="DemiBold">
-        <Run Foreground="HotPink" x:Name="User_Kilometer_2"
-             Text="6"/>
-            <Run Text="км от вас"/>
-                            </TextBlock>
                         </Grid>
                     </Border>
 

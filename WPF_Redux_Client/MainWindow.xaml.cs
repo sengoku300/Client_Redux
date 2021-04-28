@@ -42,6 +42,8 @@ namespace WPF_Redux_Client
                     break;
                 case "my_account":
                     break;
+                case "black_list":
+                    break;
                 case "feed":
                     frame.Navigate(new CardsPage());
                     break;

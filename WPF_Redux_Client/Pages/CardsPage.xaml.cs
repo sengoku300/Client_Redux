@@ -63,7 +63,6 @@ namespace WPF_Redux_Client.Pages
 
             userCard.User_Name.Text = name;
             userCard.User_LastName.Text = lastname;
-            userCard.User_City.Text = city;
             userCard.User_Kilometer.Text = distance.ToString();
 
 

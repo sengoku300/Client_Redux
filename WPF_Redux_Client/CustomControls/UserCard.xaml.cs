@@ -48,14 +48,6 @@ namespace WPF_Redux_Client.CustomControls
                 UserControlDLikeClicked(this, new RoutedEventArgs());
             }
         }
-
-        public class User
-        {
-            public string UserName { get; set; }
-            protected string LastName { get; set; }
-            protected string City { get; set; }
-            protected int Kilom { get; set; }
-        }
     }
 
    
