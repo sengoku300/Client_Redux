@@ -1,0 +1,353 @@
+﻿<UserControl x:Class="WPF_Redux_Client.CustomControls.UserCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Width="Auto"
+             Height="Auto"
+             Style="{StaticResource {x:Type UserControl}}">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+        <!--<Style TargetType="materialDesign:PackIcon">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="HotPink"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="#fae81b"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+    </UserControl.Resources>
+
+    <!--<UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Grid>
+                <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
+                    </Border.Effect>
+                </Border>
+                <Border CornerRadius="10" ClipToBounds="True" Margin="10" BorderThickness=".5" BorderBrush="#FFCDCDCD">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#fae81b"/>
+                            <GradientStop Color="#f9e918" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                             -->
+    <!--Верх-->
+    <!-- 
+                        </StackPanel>
+                        <Border Grid.Row="1" Background="White" BorderThickness="0 1" BorderBrush="#FFE2E2E2">
+                             -->
+    <!--Тело-->
+    <!--
+                            <Border>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="300"/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <Border CornerRadius="0,0,40,40" Grid.Row="0">
+                                        <Border.Background>
+                                            <ImageBrush Stretch="UniformToFill"
+                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+                                        </Border.Background>
+                                    </Border>
+
+                                    <TextBlock FontSize="25"
+                   Grid.Row="1"
+                   FontWeight="DemiBold">
+            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
+            <Run x:Name="User_LastName" Text="Фамилия, " Foreground="HotPink"/>
+            <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
+                                    </TextBlock>
+
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock FontSize="20"
+                       Grid.Column="0"
+                   Foreground="Gray"
+                   FontWeight="DemiBold">
+             <Run Foreground="HotPink" x:Name="User_Kilometer"
+             Text="6"/>
+            <Run Text="км от вас"/>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="20"
+                       x:Name="User_City"
+                       Grid.Column="1"
+                       Foreground="Gray"
+                       FontWeight="DemiBold"
+                       Text="Город"/>
+                                    </Grid>
+
+                                    <Grid Grid.Row="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Button x:Name="like" Click="like_Click" Grid.Column="0">
+                                            <Button.Content>
+                                                <materialDesign:PackIcon Kind="ThumbUp"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+
+                                        <Button x:Name="close" Click="close_Click" Grid.Column="1">
+                                            <Button.Content>
+                                                <materialDesign:PackIcon Kind="Close"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </Grid>
+
+                                    <TextBlock FontSize="20"
+                   Foreground="Gray"
+                   Grid.Row="2"
+                   FontWeight="DemiBold">
+        <Run Foreground="HotPink" x:Name="User_Kilometer_2"
+             Text="6"/>
+            <Run Text="км от вас"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </Border>
+             
+                        <StackPanel Grid.Row="2">
+                             -->
+    <!--Низ-->
+    <!-- 
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>-->
+
+    <Grid>
+        <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
+            </Border.Effect>
+        </Border>
+        <Border CornerRadius="10" ClipToBounds="True" Margin="10" BorderThickness=".5" BorderBrush="#FFCDCDCD">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fae81b"/>
+                    <GradientStop Color="#f9e918" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <!--Верх-->
+                </StackPanel>
+                <Border Grid.Row="1" Background="White" BorderThickness="0 1" BorderBrush="#FFE2E2E2">
+                    <!--Тело-->
+                    <Border>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
+                                    <Border.Background>
+                                        <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
+                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+                                    </Border.Background>
+                                </Border>
+
+                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
+
+                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
+                                         HorizontalAlignment="Right"
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
+                            </Grid>
+
+
+                            <TextBlock FontSize="25"
+                   Grid.Row="1"
+                   FontWeight="DemiBold">
+            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
+            <Run x:Name="User_LastName" Text="Фамилия, " Foreground="HotPink"/>
+            <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
+                            </TextBlock>
+
+                                <TextBlock FontSize="20"
+                       Grid.Row="2"
+                   Foreground="Gray"
+                   FontWeight="DemiBold">
+             <Run Foreground="HotPink" x:Name="User_Kilometer"
+             Text="6"/>
+            <Run Text="км от вас"/>
+                                </TextBlock>
+
+
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button x:Name="like" Click="like_Click" 
+                                        VerticalAlignment="Center" materialDesign:ShadowAssist.Darken="True" Grid.Column="0">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="ThumbUp"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Close"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                                    </Button.Content>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                </Border>
+
+                <StackPanel Grid.Row="2">
+                    <!--Низ-->
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+    <!--<Border>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="0,0,40,40" Grid.Row="0">
+            <Border.Background>
+                <ImageBrush Stretch="UniformToFill"
+                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+            </Border.Background>
+        </Border>
+
+        <TextBlock FontSize="25"
+                   Grid.Row="1"
+                   FontWeight="DemiBold">
+            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
+            <Run x:Name="User_LastName" Text="Фамилия, " Foreground="HotPink"/>
+            <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
+        </TextBlock>
+
+        <Separator
+      Grid.Row="1"
+      Style="{StaticResource MaterialDesignSeparator}"
+      Margin="0,34,0,35" Grid.RowSpan="2" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock FontSize="20"
+                       Grid.Column="0"
+                   Foreground="Gray"
+                   FontWeight="DemiBold">
+             <Run Foreground="HotPink" x:Name="User_Kilometer"
+             Text="6"/>
+            <Run Text="км от вас"/>
+            </TextBlock>
+
+            <TextBlock FontSize="20"
+                       x:Name="User_City"
+                       Grid.Column="1"
+                       Foreground="Gray"
+                       FontWeight="DemiBold"
+                       Text="Город"/>
+        </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="like" Grid.Column="0">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="ThumbUp"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                    </Button.Content>
+                </Button>  
+                
+                <Button x:Name="close" Grid.Column="1">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="Close"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                    </Button.Content>
+                </Button>
+
+            
+            </Grid>
+
+        <TextBlock FontSize="20"
+                   Foreground="Gray"
+                   Grid.Row="2"
+                   FontWeight="DemiBold">
+        <Run Foreground="HotPink" x:Name="User_Kilometer_2"
+             Text="6"/>
+            <Run Text="км от вас"/>
+        </TextBlock>
+    </Grid>
+    </Border>-->
+</UserControl>

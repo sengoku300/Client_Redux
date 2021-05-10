@@ -107,9 +107,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControls\UserCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControls\UserControl1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\UserFullCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -139,13 +147,27 @@
     <Compile Include="CustomControls\TextBoxWithPlaceHolder.xaml.cs">
       <DependentUpon>TextBoxWithPlaceHolder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\UserCard.xaml.cs">
+      <DependentUpon>UserCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\UserFullCard.xaml.cs">
+      <DependentUpon>UserFullCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\BlackListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FiltersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +194,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\BlackListPage.xaml.cs">
+      <DependentUpon>BlackListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CardsPage.xaml.cs">
+      <DependentUpon>CardsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FiltersPage.xaml.cs">
       <DependentUpon>FiltersPage.xaml</DependentUpon>
     </Compile>

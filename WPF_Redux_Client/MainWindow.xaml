@@ -60,6 +60,12 @@
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
                 </TabItem>
+                
+                <TabItem x:Name="black_list" Background="White"
+    Header="{materialDesign:PackIcon Kind=FormatListText, Size=24}"
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+
+                </TabItem>
 
                 <TabItem x:Name="exit" Background="White"
     Header="{materialDesign:PackIcon Kind=ExitToApp, Size=24}"

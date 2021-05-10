@@ -1,0 +1,64 @@
+﻿<Page x:Class="WPF_Redux_Client.Pages.CardsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:WPF_Redux_Client.CustomControls"
+      MouseDown="Page_MouseDown"
+      MouseMove="Page_MouseMove"
+      mc:Ignorable="d"
+      Width="Auto"
+      Height="Auto"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Center"
+      Background="WhiteSmoke"
+      Title="CardsPage"
+      Style="{StaticResource {x:Type Page}}">
+    
+    <Page.Resources>
+       <!--<Style TargetType="{x:Type UserControl}" x:Key="us_cont">
+            <Setter Property="Background" Value="Yellow"/>
+        </Style>-->
+            <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition x:Name="grid_row"/>
+        </Grid.RowDefinitions>
+
+        <Button VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="360"
+                Height="60" Grid.Row="0" Click="Button_Click">
+            <Button.Content>
+                <materialDesign:PackIcon Kind="Refresh" />
+            </Button.Content>
+        </Button>
+
+        <!--<local1:UserCard Grid.Row="1" UserControlLikeClicked="UserCard_UserControlLikeClicked_1" UserControlDLikeClicked="UserCard_UserControlDLikeClicked_1" />-->
+
+        <ItemsControl AlternationCount="2" x:Name="items_control" Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local1:UserCard Width="250" Height="300" Content="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
+    </Grid>
+</Page>
