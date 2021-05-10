@@ -197,7 +197,7 @@
                                 <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
                                     <Border.Background>
                                         <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
-                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+                    ImageSource="C:\Users\Bogdan\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
                                     </Border.Background>
                                 </Border>
 
