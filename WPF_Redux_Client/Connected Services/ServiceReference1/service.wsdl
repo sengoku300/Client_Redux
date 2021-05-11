@@ -5,6 +5,8 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -30,6 +32,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetCode_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DefaultFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultFilter" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DefaultFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DefaultFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLatiTude_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatiTude" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLatiTude_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatiTudeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLongiTude_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongiTude" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLongiTude_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLongiTudeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDistanceBetweenPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceBetweenPoints" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDistanceBetweenPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDistanceBetweenPointsResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_AddAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAccount" />
@@ -59,6 +85,22 @@
     <wsdl:operation name="GetCode">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCode" message="tns:IService1_GetCode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCodeResponse" message="tns:IService1_GetCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DefaultFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DefaultFilter" message="tns:IService1_DefaultFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DefaultFilterResponse" message="tns:IService1_DefaultFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatiTude">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLatiTude" message="tns:IService1_GetLatiTude_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLatiTudeResponse" message="tns:IService1_GetLatiTude_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLongiTude">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLongiTude" message="tns:IService1_GetLongiTude_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLongiTudeResponse" message="tns:IService1_GetLongiTude_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceBetweenPoints">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDistanceBetweenPoints" message="tns:IService1_GetDistanceBetweenPoints_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDistanceBetweenPointsResponse" message="tns:IService1_GetDistanceBetweenPoints_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAccount" message="tns:IService1_AddAccount_InputMessage" />
@@ -100,6 +142,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetCode">
       <soap:operation soapAction="http://tempuri.org/IService1/GetCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DefaultFilter">
+      <soap:operation soapAction="http://tempuri.org/IService1/DefaultFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatiTude">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLatiTude" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLongiTude">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLongiTude" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistanceBetweenPoints">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDistanceBetweenPoints" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Redux_Client.CustomControls;
+using WPF_Redux_Client.ServiceReference1;
 
 namespace WPF_Redux_Client.Pages
 {
@@ -23,8 +24,19 @@ namespace WPF_Redux_Client.Pages
     {
         protected Point SwipeStart;
 
+        private Service1Client client;
+
+        private string email { get; set; }
+
         public CardsPage()
         {
+            InitializeComponent();
+        }
+
+        public CardsPage(string email)
+        {
+            this.email = email;
+
             InitializeComponent();
         }
 
@@ -56,11 +68,12 @@ namespace WPF_Redux_Client.Pages
         private void One_MouseDown(object sender, MouseButtonEventArgs e) => SwipeStart = e.GetPosition(this);
 
 
-        private void MergeControls(string name, string lastname, string city,
-            int distance)
+        private void MergeControls(string name, string lastname,
+            double distance, List<ImageBrush> photos)
         {
             UserCard userCard = new UserCard();
 
+            userCard.photos = photos;
             userCard.User_Name.Text = name;
             userCard.User_LastName.Text = lastname;
             userCard.User_Kilometer.Text = distance.ToString();
@@ -68,11 +81,18 @@ namespace WPF_Redux_Client.Pages
 
             userCard.UserControlLikeClicked += UserCard_UserControlLikeClicked;
             userCard.UserControlDLikeClicked += UserCard_UserControlDLikeClicked;
+            userCard.UserControlFullClicked += UserCard_UserControlFullClicked;
 
             userCard.MouseDown += One_MouseDown;
             userCard.MouseMove += One_MouseMove;
 
             items_control.Items.Add(userCard);
+        }
+
+        private void UserCard_UserControlFullClicked(object sender, RoutedEventArgs e)
+        {
+            UserFull userFull = new UserFull();
+            userFull.ShowDialog();
         }
 
         private void UserCard_UserControlDLikeClicked(object sender, EventArgs e)
@@ -95,7 +115,41 @@ namespace WPF_Redux_Client.Pages
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) => MergeControls("Playboi","Carti", "NY", 10);
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            client = new Service1Client();
+
+            var get_users = client.DefaultFilter(email);
+
+            double user_lati = client.GetLatiTude(email);
+            double user_long = client.GetLongiTude(email);
+
+            List<ImageBrush> images = new List<ImageBrush>();
+
+            foreach (var item in get_users)
+            {
+                if (item.Photos != null)
+                {
+                    foreach (var pictures in item.Photos)
+                    {
+                        images.Add(new ImageBrush(new BitmapImage(
+                            new Uri(pictures, UriKind.Relative))));
+                    }
+                }
+
+                    double lati_ = client.GetLatiTude(item.Email);
+                    double long_ = client.GetLongiTude(item.Email);
+
+                    double distance = client.GetDistanceBetweenPoints(user_lati, user_long, lati_, long_);
+
+                    if (distance > 1000)
+                        distance = distance / 1000;
+
+                    MergeControls(item.Name, item.LastName, distance, images);
+
+                    images.Clear();
+            }
+        }
 
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)
         {

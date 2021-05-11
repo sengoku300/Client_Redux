@@ -57,6 +57,8 @@ namespace WPF_Redux_Client.Pages
                 {
                     MainWindow mainWindow = new MainWindow();
 
+                    mainWindow.email = textBox_Email.Text;
+
                     mainWindow.Show();
 
                     authoriz.Close();

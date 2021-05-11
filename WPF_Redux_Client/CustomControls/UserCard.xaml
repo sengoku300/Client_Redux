@@ -186,6 +186,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0">
@@ -201,11 +202,11 @@
                                     </Border.Background>
                                 </Border>
 
-                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown_1" Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
                                          HorizontalAlignment="Left"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
 
-                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
                                          HorizontalAlignment="Right"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
                             </Grid>
@@ -235,7 +236,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button x:Name="like" Click="like_Click" 
+                                <Button Margin="5" x:Name="like" Click="like_Click" 
                                         VerticalAlignment="Center" materialDesign:ShadowAssist.Darken="True" Grid.Column="0">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="ThumbUp"
@@ -244,7 +245,7 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
+                                <Button Margin="5" x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="Close"
                                          HorizontalAlignment="Center"
@@ -252,6 +253,14 @@
                                     </Button.Content>
                                 </Button>
                             </Grid>
+
+                            <Button Margin="5" Grid.Row="4" Click="Button_Click"  >
+                                <Button.Content>
+                                    <materialDesign:PackIcon  Kind="Fullscreen"
+                                         HorizontalAlignment="Right"
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
+                                </Button.Content>
+                            </Button>
                         </Grid>
                     </Border>
 

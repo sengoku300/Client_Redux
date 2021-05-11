@@ -45,7 +45,7 @@
                        VerticalAlignment="Center"
                        FontSize="20" Grid.Column="0" Grid.Row="1"/>-->
 
-            <TextBlock Text="Максимальная дистанция"
+            <TextBlock Text="Максимальная дистанция (км)"
                        Grid.Row="0"
                        FontSize="20"
                        FontWeight="DemiBold"
@@ -60,8 +60,10 @@
 
             <Slider x:Name="slider_distance" Grid.Row="1"
                     VerticalAlignment="Center"
-                    Maximum="30"
-                    Minimum="1"/>
+                    Maximum="50"
+                    Minimum="1"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"/>
 
 
 

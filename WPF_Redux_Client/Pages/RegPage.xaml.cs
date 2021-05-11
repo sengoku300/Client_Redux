@@ -65,6 +65,52 @@ namespace WPF_Redux_Client.Pages
             return null;
         }
 
+        private double GetLatiTude()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "latitude")
+                    return Convert.ToDouble(disc[item]);
+            }
+
+            return 0;
+        }  
+        
+        private double GetLongiTude()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "longitude")
+                    return Convert.ToDouble(disc[item]);
+            }
+
+            return 0;
+        }
+
         private string GetCity()
         {
             string ipLoc = string.Empty;
@@ -99,6 +145,7 @@ namespace WPF_Redux_Client.Pages
                 && Int32.TryParse(textBox_Birthday_Year.Text, out int year)
                 && textBox_Mail.Text.Contains("@")
                 && !string.IsNullOrEmpty(textBox_Name_Family.Text)
+                && !Int32.TryParse(textBox_Name_Family.Text, out int result)
                 && passBox.passbox.Password != ""
                 && gender != "")
             {
@@ -108,8 +155,13 @@ namespace WPF_Redux_Client.Pages
 
                 DateTime date = DateTime.Parse(birthday);
 
+                double latitude = GetLatiTude();
+
+                double longitude = GetLongiTude();
+
                 client.AddAccount(textBox_Mail.Text, passBox.passbox.Password,
-                    textBox_Name_Family.Text, city_name.Text, country_name.Text, date, gender);
+                    textBox_Name_Family.Text, city_name.Text, country_name.Text,
+                    date, gender, latitude, longitude);
 
                 authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
             }

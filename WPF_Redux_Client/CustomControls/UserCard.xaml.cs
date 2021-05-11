@@ -28,6 +28,14 @@ namespace WPF_Redux_Client.CustomControls
 
         public event RoutedEventHandler UserControlDLikeClicked;
 
+        public event RoutedEventHandler UserControlFullClicked;
+
+        //public Dictionary<int, ImageBrush> dictionary_images = new Dictionary<int, ImageBrush>();
+
+        public List<ImageBrush> photos = new List<ImageBrush>();
+
+        private int count = 1;
+
         public UserCard()
         {
             InitializeComponent();
@@ -46,6 +54,52 @@ namespace WPF_Redux_Client.CustomControls
             if (UserControlDLikeClicked != null)
             {
                 UserControlDLikeClicked(this, new RoutedEventArgs());
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(UserControlFullClicked != null)
+            {
+                UserControlFullClicked(this, new RoutedEventArgs());
+            }
+        }
+
+        // вправо
+        private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            count++;
+
+            if (count > photos.Count)
+            {
+                count = 1;
+            }
+
+            for (int i = 1; i < photos.Count; i++)
+            {
+                if (count == i)
+                {
+                    User_Image.ImageSource = photos[i].ImageSource;
+                }
+            }
+        }
+
+        // влево
+        private void PackIcon_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            count--;
+
+            if (count < 1)
+            {
+                count = photos.Count;
+            }
+
+            for (int i = 1; i < photos.Count; i++)
+            {
+                if(count == i)
+                {
+                    User_Image.ImageSource = photos[i].ImageSource;
+                }
             }
         }
     }

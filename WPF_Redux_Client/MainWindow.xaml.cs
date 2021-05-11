@@ -21,6 +21,8 @@ namespace WPF_Redux_Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string email { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,7 +47,8 @@ namespace WPF_Redux_Client
                 case "black_list":
                     break;
                 case "feed":
-                    frame.Navigate(new CardsPage());
+                    frame.Navigate(new CardsPage(email));
+                    this.Width = 900;
                     break;
                 case "filters":
                     frame.Navigate(new FiltersPage());

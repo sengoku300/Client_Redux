@@ -9,8 +9,8 @@
       mc:Ignorable="d"
       Width="Auto"
       Height="Auto"
-      HorizontalAlignment="Center"
-      VerticalAlignment="Center"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
       Background="WhiteSmoke"
       Title="CardsPage"
       Style="{StaticResource {x:Type Page}}">
