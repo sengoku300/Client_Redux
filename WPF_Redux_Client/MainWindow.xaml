@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1200">
+        Title="MainWindow" WindowStyle="None" AllowsTransparency="True" Height="750" Width="1200">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,7 +18,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
     <Grid Background="WhiteSmoke">
 
         <Grid>

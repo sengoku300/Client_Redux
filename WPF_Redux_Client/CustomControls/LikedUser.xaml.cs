@@ -24,5 +24,35 @@ namespace WPF_Redux_Client.CustomControls
         {
             InitializeComponent();
         }
+
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var bc = new BrushConverter();
+
+            user.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+           
+
+
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            user.Background = new SolidColorBrush(Colors.WhiteSmoke);
+        }
+
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+            image.Cursor = Cursors.Hand;
+        }
+      
+        private void PackIcon_MouseEnter(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void PackIcon_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+           
+        }
     }
 }
