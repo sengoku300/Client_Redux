@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,27 @@ namespace WPF_Redux_Client.Pages
         public LoginPage()
         {
             InitializeComponent();
+
+            if (File.Exists("log.txt"))
+            {
+                string[] account = File.ReadAllLines("log.txt");
+
+                textBox_Email.Text = account[0];
+
+                textBox_Email.FontSize = 20;
+
+                textBox_Email.PlaceHolder = "";
+
+                PassBox.passbox.Password = account[1];
+                
+                PassBox.FontSize = 20;
+
+                PassBox.PlaceHolder = "";
+
+                client = new Service1Client();
+
+                userName.Text = client.GetName(account[0]);
+            }
         }
 
         Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
@@ -55,6 +77,20 @@ namespace WPF_Redux_Client.Pages
 
                 if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
                 {
+                    if (File.Exists("log.txt"))
+                    {
+                        if (!File.ReadAllText("log.txt").Contains(textBox_Email.Text))
+                        {
+                            File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
+                            PassBox.passbox.Password});
+                        }
+                    }
+                    else
+                    {
+                        File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
+                            PassBox.passbox.Password});
+                    }
+                  
                     MainWindow mainWindow = new MainWindow();
 
                     mainWindow.email = textBox_Email.Text;

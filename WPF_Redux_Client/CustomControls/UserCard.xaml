@@ -198,7 +198,7 @@
                                 <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
                                     <Border.Background>
                                         <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
-                    ImageSource="C:\Users\Bogdan\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+                                         ImageSource="hero_ua.jpg"/>
                                     </Border.Background>
                                 </Border>
 
@@ -213,17 +213,20 @@
 
 
                             <TextBlock FontSize="25"
-                   Grid.Row="1"
-                   FontWeight="DemiBold">
-            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
-            <Run x:Name="User_LastName" Text="Фамилия, " Foreground="HotPink"/>
-            <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
+                                       Grid.Row="1"
+                                       FontWeight="DemiBold"
+                                       Foreground="Gray"
+                                       Margin="10">
+            <Run x:Name="User_Name" Text="Имя" />
+            <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
+                                <Run Text="," />
+            <Run x:Name="User_Year" Text="20" />
                             </TextBlock>
 
                                 <TextBlock FontSize="20"
                        Grid.Row="2"
                    Foreground="Gray"
-                   FontWeight="DemiBold">
+                   FontWeight="DemiBold" Margin="10">
              <Run Foreground="HotPink" x:Name="User_Kilometer"
              Text="6"/>
             <Run Text="км от вас"/>

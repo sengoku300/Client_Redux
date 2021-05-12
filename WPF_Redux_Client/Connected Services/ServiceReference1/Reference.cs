@@ -1170,6 +1170,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAccount", ReplyAction="http://tempuri.org/IService1/AddAccountResponse")]
         System.Threading.Tasks.Task AddAccountAsync(string email, string password, string name, string city, string country, System.DateTime birthday, string gender, double latitude, double longitude);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetName", ReplyAction="http://tempuri.org/IService1/GetNameResponse")]
+        string GetName(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetName", ReplyAction="http://tempuri.org/IService1/GetNameResponse")]
+        System.Threading.Tasks.Task<string> GetNameAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         WPF_Redux_Client.ServiceReference1.CompositeType GetDataUsingDataContract(WPF_Redux_Client.ServiceReference1.CompositeType composite);
         
@@ -1274,6 +1280,14 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddAccountAsync(string email, string password, string name, string city, string country, System.DateTime birthday, string gender, double latitude, double longitude) {
             return base.Channel.AddAccountAsync(email, password, name, city, country, birthday, gender, latitude, longitude);
+        }
+        
+        public string GetName(string email) {
+            return base.Channel.GetName(email);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetNameAsync(string email) {
+            return base.Channel.GetNameAsync(email);
         }
         
         public WPF_Redux_Client.ServiceReference1.CompositeType GetDataUsingDataContract(WPF_Redux_Client.ServiceReference1.CompositeType composite) {

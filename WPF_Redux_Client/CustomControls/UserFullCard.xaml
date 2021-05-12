@@ -52,19 +52,22 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="100"/>
                         </Grid.RowDefinitions>
 
                         <Image x:Name="Image_User"
                Stretch="UniformToFill"
-               Source="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\ahmetov.png"
+               Source="ahmetov.png"
                Grid.Row="0"/>
 
                         <TextBlock FontSize="25"
                    Grid.Row="1"
-                   FontWeight="DemiBold">
-            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
+                   FontWeight="DemiBold"
+                                   Foreground="Gray">
+            <Run x:Name="User_Name" Text="Имя" />
             <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
+                            <Run Text=","/>
+                            <Run x:Name="User_Age" Text="10"/>
                         </TextBlock>
 
                         <Separator
@@ -78,7 +81,7 @@
                             <materialDesign:PackIcon Margin="10,7,10,0" Kind="MapMarker" />
                             <TextBlock FontSize="20"
                    Foreground="Gray"
-                   FontWeight="DemiBold"><Run Foreground="HotPink"
+                   FontWeight="DemiBold"><Run x:Name="text_distance" Foreground="HotPink"
              Text="6"/><Run Text=" "/><Run Text="км от вас"/></TextBlock>
                         </StackPanel>
 
@@ -95,11 +98,14 @@
             <Run x:Name="user_description"/>
                         </TextBlock>
 
-                        <TextBlock x:Name="user_city"
+                        <TextBlock
                    Grid.Row="4"
                    Foreground="Gray"
                    FontWeight="DemiBold"
-                   FontSize="15"/>
+                   FontSize="15">
+                            <Run x:Name="user_city" Text="Город: "/>
+                            <Run x:Name="user_country" Text=", Страна: "/>
+                        </TextBlock>
 
                         <StackPanel Grid.Row="5" x:Name="user_hobbies"/>
                     </Grid>

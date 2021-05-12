@@ -26,6 +26,8 @@ namespace WPF_Redux_Client.Pages
 
         private Service1Client client;
 
+        private List<User> users = new List<User>();
+
         private string email { get; set; }
 
         public CardsPage()
@@ -50,6 +52,8 @@ namespace WPF_Redux_Client.Pages
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 var swipe = e.GetPosition(this);
+                object user = (UserCard)sender;
+
 
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
@@ -69,15 +73,21 @@ namespace WPF_Redux_Client.Pages
 
 
         private void MergeControls(string name, string lastname,
-            double distance, List<ImageBrush> photos)
+            double distance, List<ImageBrush> photos, DateTime birthday)
         {
             UserCard userCard = new UserCard();
 
-            userCard.photos = photos;
             userCard.User_Name.Text = name;
             userCard.User_LastName.Text = lastname;
-            userCard.User_Kilometer.Text = distance.ToString();
 
+            if (photos.Count != 0)
+            {
+                userCard.photos = photos;
+                userCard.User_Image.ImageSource = photos[0].ImageSource;
+            }
+
+            userCard.User_Year.Text = GetAge(birthday).ToString();
+            userCard.User_Kilometer.Text = distance.ToString();
 
             userCard.UserControlLikeClicked += UserCard_UserControlLikeClicked;
             userCard.UserControlDLikeClicked += UserCard_UserControlDLikeClicked;
@@ -89,20 +99,73 @@ namespace WPF_Redux_Client.Pages
             items_control.Items.Add(userCard);
         }
 
+        private int GetAge(DateTime birthday)
+        {
+            // Save today date.
+            var today = DateTime.Today;
+
+            // Calculate the age.
+            var age = today.Year - birthday.Year;
+
+            // Go back to the year the person was born in case of a leap year
+            if (birthday > today.AddYears(-age)) age--;
+
+            return age;
+        }
+
         private void UserCard_UserControlFullClicked(object sender, RoutedEventArgs e)
         {
-            UserFull userFull = new UserFull();
-            userFull.ShowDialog();
+            UserCard userCard = ((UserCard)sender);
+
+            foreach (var item in users)
+            {
+                if (item.Name == userCard.User_Name.Text
+                    && item.LastName == userCard.User_LastName.Text)
+                {
+                    UserFull userFull = new UserFull();
+
+                    userFull.Title = item.Name + " " + item.LastName + ", Город: " + item.City;
+                    userFull.User_Card.User_Name.Text = item.Name;
+                    userFull.User_Card.User_LastName.Text = item.LastName;
+                    userFull.User_Card.user_city.Text += item.City;
+                    userFull.User_Card.user_country.Text += item.Country;
+                    userFull.User_Card.text_distance.Text = userCard.User_Kilometer.Text;
+
+                    if (!string.IsNullOrEmpty(item.Description))
+                        userFull.User_Card.user_description.Text = item.Description;
+
+                    userFull.User_Card.User_Age.Text = GetAge(item.Birthday).ToString();
+
+                    if (item.Hobbies != null)
+                    {
+                        if (item.Hobbies.Count() > 0)
+                        {
+                            foreach (var hobbie in item.Hobbies)
+                            {
+                                InterestedBox interestedBox = new InterestedBox();
+
+                                interestedBox.textBlock_Hobbies.Text = hobbie;
+
+                                userFull.User_Card.user_hobbies.Children.Add(interestedBox);
+                            }
+                        }
+                    }
+
+                    userFull.ShowDialog();
+                }
+            }
         }
 
         private void UserCard_UserControlDLikeClicked(object sender, EventArgs e)
         {
             MessageBox.Show("Dislicked");
+            items_control.Items.Remove((UserCard)sender);
         }
 
         private void UserCard_UserControlLikeClicked(object sender, EventArgs e)
         {
             MessageBox.Show("Like");
+            items_control.Items.Remove((UserCard)sender);
         }
 
         private void Page_MouseDown(object sender, MouseButtonEventArgs e)
@@ -118,6 +181,10 @@ namespace WPF_Redux_Client.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             client = new Service1Client();
+
+            if (items_control.Items.Count > 0) items_control.Items.Clear();
+
+            if(users.Count() > 0) users.Clear();
 
             var get_users = client.DefaultFilter(email);
 
@@ -137,18 +204,21 @@ namespace WPF_Redux_Client.Pages
                     }
                 }
 
-                    double lati_ = client.GetLatiTude(item.Email);
-                    double long_ = client.GetLongiTude(item.Email);
 
-                    double distance = client.GetDistanceBetweenPoints(user_lati, user_long, lati_, long_);
+                double lati_ = client.GetLatiTude(item.Email);
+                double long_ = client.GetLongiTude(item.Email);
 
-                    if (distance > 1000)
-                        distance = distance / 1000;
+                double distance = client.GetDistanceBetweenPoints(user_lati, user_long, lati_, long_);
 
-                    MergeControls(item.Name, item.LastName, distance, images);
+                if (distance > 1000)
+                    distance = distance / 1000;
 
-                    images.Clear();
+                MergeControls(item.Name, item.LastName, distance, images, item.Birthday);
+
+                users.Add(item);
+                images.Clear();
             }
+
         }
 
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)

@@ -140,6 +140,7 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+
             if (Int32.TryParse(textBox_Birthday_DD.Text, out int dd)
                 && Int32.TryParse(textBox_Birthday_MM.Text, out int mm)
                 && Int32.TryParse(textBox_Birthday_Year.Text, out int year)
@@ -155,15 +156,22 @@ namespace WPF_Redux_Client.Pages
 
                 DateTime date = DateTime.Parse(birthday);
 
-                double latitude = GetLatiTude();
+                int year_us = DateTime.Now.Year - date.Year;
 
-                double longitude = GetLongiTude();
+                if (year_us >= 18)
+                {
+                    double latitude = GetLatiTude();
 
-                client.AddAccount(textBox_Mail.Text, passBox.passbox.Password,
-                    textBox_Name_Family.Text, city_name.Text, country_name.Text,
-                    date, gender, latitude, longitude);
+                    double longitude = GetLongiTude();
 
-                authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                    client.AddAccount(textBox_Mail.Text, passBox.passbox.Password,
+                        textBox_Name_Family.Text, city_name.Text, country_name.Text,
+                        date, gender, latitude, longitude);
+
+                    authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                }
+                else
+                    MessageBox.Show("Регистрация в приложении доступна с 18-ти лет!");
             }
         }
 

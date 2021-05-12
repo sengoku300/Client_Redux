@@ -87,6 +87,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomControls\InterestedBox.xaml.cs">
+      <DependentUpon>InterestedBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserFull.xaml.cs">
       <DependentUpon>UserFull.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
     <Page Include="CustomControls\HeaderChat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\InterestedBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControls\LikedUser.xaml">
       <SubType>Designer</SubType>
@@ -312,6 +319,24 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hero_ua.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\icon_women.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\icon_man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pages\strelka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\hero_ua.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\ahmetov.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

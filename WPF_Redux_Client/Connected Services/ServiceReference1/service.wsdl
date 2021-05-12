@@ -63,6 +63,12 @@
   <wsdl:message name="IService1_AddAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
   </wsdl:message>
@@ -105,6 +111,10 @@
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAccount" message="tns:IService1_AddAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddAccountResponse" message="tns:IService1_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetName" message="tns:IService1_GetName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNameResponse" message="tns:IService1_GetName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
@@ -187,6 +197,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddAccount">
       <soap:operation soapAction="http://tempuri.org/IService1/AddAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetName">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

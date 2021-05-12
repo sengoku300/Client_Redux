@@ -30,8 +30,6 @@ namespace WPF_Redux_Client.CustomControls
 
         public event RoutedEventHandler UserControlFullClicked;
 
-        //public Dictionary<int, ImageBrush> dictionary_images = new Dictionary<int, ImageBrush>();
-
         public List<ImageBrush> photos = new List<ImageBrush>();
 
         private int count = 1;
@@ -39,7 +37,8 @@ namespace WPF_Redux_Client.CustomControls
         public UserCard()
         {
             InitializeComponent();
-        }
+        } 
+        
 
         private void like_Click(object sender, RoutedEventArgs e)
         {

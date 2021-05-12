@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         xmlns:local1="clr-namespace:WPF_Redux_Client.CustomControls"
         mc:Ignorable="d"
-        Title="UserFull" Height="635.95" Width="290.496">
+        Title="UserFull" Height="635.95" Width="320">
     <Grid>
-        <local1:UserFullCard VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="User_Card" />
+        <local1:UserFullCard VerticalAlignment="Stretch" HorizontalAlignment="Center" x:Name="User_Card" />
     </Grid>
 </Window>
