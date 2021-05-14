@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,8 @@ namespace WPF_Redux_Client.Pages
         public CardsPage()
         {
             InitializeComponent();
+
+            client = new Service1Client();
         }
 
         public CardsPage(string email)
@@ -40,6 +43,8 @@ namespace WPF_Redux_Client.Pages
             this.email = email;
 
             InitializeComponent();
+
+            client = new Service1Client();
         }
 
         private void Like_Click(object sender, RoutedEventArgs e)
@@ -72,21 +77,23 @@ namespace WPF_Redux_Client.Pages
         private void One_MouseDown(object sender, MouseButtonEventArgs e) => SwipeStart = e.GetPosition(this);
 
 
-        private void MergeControls(string name, string lastname,
-            double distance, List<ImageBrush> photos, DateTime birthday)
+        private void MergeControls(User user,
+            double distance, List<ImageBrush> photos)
         {
             UserCard userCard = new UserCard();
 
-            userCard.User_Name.Text = name;
-            userCard.User_LastName.Text = lastname;
+            userCard.User_Name.Text = user.Name;
+            userCard.User_LastName.Text = user.LastName;
 
-            if (photos.Count != 0)
+            if(File.Exists(user.Avatarka))
             {
-                userCard.photos = photos;
-                userCard.User_Image.ImageSource = photos[0].ImageSource;
+                userCard.User_Image.ImageSource = new BitmapImage(new Uri(user.Avatarka, UriKind.RelativeOrAbsolute));
             }
 
-            userCard.User_Year.Text = GetAge(birthday).ToString();
+            if (photos.Count != 0)
+                userCard.photos = photos;
+
+            userCard.User_Year.Text = GetAge(user.Birthday).ToString();
             userCard.User_Kilometer.Text = distance.ToString();
 
             userCard.UserControlLikeClicked += UserCard_UserControlLikeClicked;
@@ -136,15 +143,17 @@ namespace WPF_Redux_Client.Pages
 
                     userFull.User_Card.User_Age.Text = GetAge(item.Birthday).ToString();
 
-                    if (item.Hobbies != null)
+                    var hobbies = client.GetHobbies(item);
+
+                    if (hobbies != null)
                     {
-                        if (item.Hobbies.Count() > 0)
+                        if (hobbies.Count() > 0)
                         {
-                            foreach (var hobbie in item.Hobbies)
+                            foreach (var hobbie in hobbies)
                             {
                                 InterestedBox interestedBox = new InterestedBox();
 
-                                interestedBox.textBlock_Hobbies.Text = hobbie;
+                                interestedBox.textBlock_Hobbies.Text = hobbie.Hobbie;
 
                                 userFull.User_Card.user_hobbies.Children.Add(interestedBox);
                             }
@@ -195,15 +204,18 @@ namespace WPF_Redux_Client.Pages
 
             foreach (var item in get_users)
             {
-                if (item.Photos != null)
+                var photos = client.GetPhotos(item);
+
+                if(photos != null)
                 {
-                    foreach (var pictures in item.Photos)
+                    foreach (var pic in photos)
                     {
-                        images.Add(new ImageBrush(new BitmapImage(
-                            new Uri(pictures, UriKind.Relative))));
+                        ImageBrush image = new ImageBrush(new BitmapImage
+                            (new Uri(pic.Photo, UriKind.RelativeOrAbsolute)));
+
+                           images.Add(image);
                     }
                 }
-
 
                 double lati_ = client.GetLatiTude(item.Email);
                 double long_ = client.GetLongiTude(item.Email);
@@ -213,9 +225,10 @@ namespace WPF_Redux_Client.Pages
                 if (distance > 1000)
                     distance = distance / 1000;
 
-                MergeControls(item.Name, item.LastName, distance, images, item.Birthday);
+                MergeControls(item, distance, images);
 
                 users.Add(item);
+
                 images.Clear();
             }
 

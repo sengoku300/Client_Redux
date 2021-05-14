@@ -1,25 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
-  <xs:complexType name="ArrayOfDatings">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Datings" nillable="true" type="tns:Datings" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDatings" nillable="true" type="tns:ArrayOfDatings" />
-  <xs:complexType name="Datings">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DatingId" type="xs:int" />
-      <xs:element minOccurs="0" name="IsAcсeptedByFirst" type="xs:boolean" />
-      <xs:element minOccurs="0" name="IsAcсeptedBySecond" type="xs:boolean" />
-      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Typeofplace" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="female" nillable="true" type="q1:User" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="male" nillable="true" type="q2:User" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Datings" nillable="true" type="tns:Datings" />
   <xs:complexType name="ArrayOfLikes">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Likes" nillable="true" type="tns:Likes" />
@@ -30,8 +11,8 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Date_Like" type="xs:dateTime" />
       <xs:element minOccurs="0" name="LikeID" type="xs:int" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User_Liked_ID" nillable="true" type="q3:User" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User_Who_Liked_ID" nillable="true" type="q4:User" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User_Liked_ID" nillable="true" type="q1:User" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User_Who_Liked_ID" nillable="true" type="q2:User" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Likes" nillable="true" type="tns:Likes" />
@@ -45,7 +26,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ChatItem" nillable="true" type="tns:ChatItem" />
       <xs:element minOccurs="0" name="ChatItemId" type="xs:int" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User" nillable="true" type="q5:User" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User" nillable="true" type="q3:User" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -74,8 +55,36 @@
       <xs:element minOccurs="0" name="MessageId" type="xs:int" />
       <xs:element minOccurs="0" name="TimeSending" type="xs:dateTime" />
       <xs:element minOccurs="0" name="chatItem" nillable="true" type="tns:ChatItem" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q6:User" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q4:User" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOfPhotos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Photos" nillable="true" type="tns:Photos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhotos" nillable="true" type="tns:ArrayOfPhotos" />
+  <xs:complexType name="Photos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Photos" nillable="true" type="tns:Photos" />
+  <xs:complexType name="ArrayOfHobbies">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Hobbies" nillable="true" type="tns:Hobbies" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHobbies" nillable="true" type="tns:ArrayOfHobbies" />
+  <xs:complexType name="Hobbies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hobbie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HobbieID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Hobbies" nillable="true" type="tns:Hobbies" />
 </xs:schema>
