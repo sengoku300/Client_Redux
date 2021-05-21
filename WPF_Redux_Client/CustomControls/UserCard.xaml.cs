@@ -16,6 +16,8 @@ using WPF_Redux_Client.Pages;
 using System.Windows.Markup;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using WPF_Redux_Client.ServiceReference1;
+using System.IO;
 
 namespace WPF_Redux_Client.CustomControls
 {
@@ -31,6 +33,8 @@ namespace WPF_Redux_Client.CustomControls
         public event RoutedEventHandler UserControlFullClicked;
 
         public List<ImageBrush> photos = new List<ImageBrush>();
+
+        public User user;
 
         private int count = 1;
 

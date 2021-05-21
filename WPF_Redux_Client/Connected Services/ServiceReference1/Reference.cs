@@ -1107,6 +1107,18 @@ namespace WPF_Redux_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPhotos", ReplyAction="http://tempuri.org/IService1/GetPhotosResponse")]
         System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.Photos[]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
+        WPF_Redux_Client.ServiceReference1.User GetUser(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
+        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User> GetUserAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddLike", ReplyAction="http://tempuri.org/IService1/AddLikeResponse")]
+        void AddLike(WPF_Redux_Client.ServiceReference1.User user_u, WPF_Redux_Client.ServiceReference1.User user_who);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddLike", ReplyAction="http://tempuri.org/IService1/AddLikeResponse")]
+        System.Threading.Tasks.Task AddLikeAsync(WPF_Redux_Client.ServiceReference1.User user_u, WPF_Redux_Client.ServiceReference1.User user_who);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetHobbies", ReplyAction="http://tempuri.org/IService1/GetHobbiesResponse")]
         WPF_Redux_Client.ServiceReference1.Hobbies[] GetHobbies(WPF_Redux_Client.ServiceReference1.User user);
         
@@ -1225,6 +1237,22 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.Photos[]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetPhotosAsync(user);
+        }
+        
+        public WPF_Redux_Client.ServiceReference1.User GetUser(string email) {
+            return base.Channel.GetUser(email);
+        }
+        
+        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User> GetUserAsync(string email) {
+            return base.Channel.GetUserAsync(email);
+        }
+        
+        public void AddLike(WPF_Redux_Client.ServiceReference1.User user_u, WPF_Redux_Client.ServiceReference1.User user_who) {
+            base.Channel.AddLike(user_u, user_who);
+        }
+        
+        public System.Threading.Tasks.Task AddLikeAsync(WPF_Redux_Client.ServiceReference1.User user_u, WPF_Redux_Client.ServiceReference1.User user_who) {
+            return base.Channel.AddLikeAsync(user_u, user_who);
         }
         
         public WPF_Redux_Client.ServiceReference1.Hobbies[] GetHobbies(WPF_Redux_Client.ServiceReference1.User user) {

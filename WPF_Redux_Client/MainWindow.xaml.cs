@@ -43,6 +43,8 @@ namespace WPF_Redux_Client
                     this.Close();
                     break;
                 case "my_account":
+                    frame.Navigate(new MainPage());
+                    break;
                     break;
                 case "black_list":
                     break;

@@ -1,0 +1,104 @@
+﻿<Page x:Class="WPF_Redux_Client.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="570" d:DesignWidth="700"
+      Title="MainPage" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Image Grid.Column="0"
+               Grid.Row="0"
+               Source="icon_man.png"/>
+        </Grid>
+       
+
+        <Grid Grid.Column="1"
+              Grid.Row="0" Margin="1,0,-1,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0"
+                   Source="pencil.png"
+                   Cursor="AppStarting"
+                   HorizontalAlignment="Right"/>
+
+            <TextBlock Grid.Row="1"
+                       Margin="5"
+                       x:Name="textBox_Name"
+                       Text="Имя Фамилия"
+                       FontWeight="DemiBold"
+                       VerticalAlignment="Center"
+                       FontSize="25px"/>
+
+            <TextBlock Grid.Row="2"
+                       VerticalAlignment="Center"
+                       FontSize="25px"
+                       Margin="5">
+                <Run Text="Возраст:"/>
+                <Run x:Name="run_age" Text="20"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="3"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+                <Run Text="О себе:"/>
+                <Run x:Name="run_descriptions"/>
+            </TextBlock>  
+            
+            <TextBlock Grid.Row="4"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+                <Run Text="Город:"/>
+                <Run x:Name="user_city"/>
+                <Run Text="Страна:"/>
+                <Run x:Name="user_country"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="5"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+               <Run Text="Образование: "/>
+               <Run x:Name="Run_Eduction"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="6"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+                <Run Text="Хобби:"/>
+                <Run x:Name="User_Hobbies"/>
+            </TextBlock>
+
+            <Button Grid.Row="7"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="40"
+                    Width="450"
+                    Content="Галерея"
+                    FontWeight="DemiBold"
+                    FontSize="20" Click="Button_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

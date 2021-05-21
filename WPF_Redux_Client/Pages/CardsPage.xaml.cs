@@ -57,12 +57,18 @@ namespace WPF_Redux_Client.Pages
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 var swipe = e.GetPosition(this);
-                object user = (UserCard)sender;
-
+                var user = (UserCard)sender;
 
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
                     MessageBox.Show("SwipeRight");
+
+                    var u = client.GetUser(email);
+
+                    var who = ((UserCard)sender).user;
+
+                    client.AddLike(u, who);
+
                     items_control.Items.Remove((UserCard)sender);
                 }
 
@@ -70,6 +76,7 @@ namespace WPF_Redux_Client.Pages
                 {
                     MessageBox.Show("SwipeLeft");
 
+                    items_control.Items.Remove((UserCard)sender);
                 }
             }
         }
@@ -82,12 +89,15 @@ namespace WPF_Redux_Client.Pages
         {
             UserCard userCard = new UserCard();
 
+            userCard.user = user;
+
             userCard.User_Name.Text = user.Name;
             userCard.User_LastName.Text = user.LastName;
 
             if(File.Exists(user.Avatarka))
             {
-                userCard.User_Image.ImageSource = new BitmapImage(new Uri(user.Avatarka, UriKind.RelativeOrAbsolute));
+                userCard.User_Image.ImageSource =
+                    new BitmapImage(new Uri(user.Avatarka, UriKind.RelativeOrAbsolute));
             }
 
             if (photos.Count != 0)
@@ -168,6 +178,8 @@ namespace WPF_Redux_Client.Pages
         private void UserCard_UserControlDLikeClicked(object sender, EventArgs e)
         {
             MessageBox.Show("Dislicked");
+
+
             items_control.Items.Remove((UserCard)sender);
         }
 
