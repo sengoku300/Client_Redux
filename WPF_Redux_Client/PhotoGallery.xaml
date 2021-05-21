@@ -29,7 +29,7 @@
                     HorizontalAlignment="Center"
                     Width="100"
                     Height="30"
-                    Content="Добавить"/>
+                    Content="Добавить" Click="Button_Click"/>
         </Grid>
 
         <ListBox Margin="10" x:Name="listBox_Photos" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">

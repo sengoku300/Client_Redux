@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -150,7 +151,11 @@ namespace WPF_Redux_Client.Pages
                 && passBox.passbox.Password != ""
                 && gender != "")
             {
-                client = new Service1Client();
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
 
                 string birthday = dd + "." + mm + "." + year;
 

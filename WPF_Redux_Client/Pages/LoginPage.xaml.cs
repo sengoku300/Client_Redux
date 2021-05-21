@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,7 +46,11 @@ namespace WPF_Redux_Client.Pages
 
                 PassBox.PlaceHolder = "";
 
-                client = new Service1Client();
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
 
                 userName.Text = client.GetName(account[0]);
             }
@@ -73,7 +78,11 @@ namespace WPF_Redux_Client.Pages
         {
             if (textBox_Email.Text != "" && PassBox.passbox.Password != "")
             {
-                client = new Service1Client();
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
 
                 if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
                 {

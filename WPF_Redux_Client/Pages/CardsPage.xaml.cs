@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,7 +36,11 @@ namespace WPF_Redux_Client.Pages
         {
             InitializeComponent();
 
-            client = new Service1Client();
+            IService1Callback callback = this as IService1Callback;
+
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
         }
 
         public CardsPage(string email)
@@ -44,7 +49,11 @@ namespace WPF_Redux_Client.Pages
 
             InitializeComponent();
 
-            client = new Service1Client();
+            IService1Callback callback = this as IService1Callback;
+
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
         }
 
         private void Like_Click(object sender, RoutedEventArgs e)
@@ -201,7 +210,11 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            client = new Service1Client();
+            IService1Callback callback = this as IService1Callback;
+
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
 
             if (items_control.Items.Count > 0) items_control.Items.Clear();
 

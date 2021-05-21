@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Redux_Client.Pages;
+using WPF_Redux_Client.ServiceReference1;
 
 namespace WPF_Redux_Client
 {
@@ -45,11 +46,10 @@ namespace WPF_Redux_Client
                 case "my_account":
                     frame.Navigate(new MainPage());
                     break;
-                    break;
                 case "black_list":
                     break;
                 case "feed":
-                    frame.Navigate(new CardsPage(email));
+                    frame.Navigate(new CardsPage());
                     this.Width = 900;
                     break;
                 case "filters":
