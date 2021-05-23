@@ -11,7 +11,7 @@
       Height="Auto"
       Width="Auto"
       d:DesignHeight="800" d:DesignWidth="400"
-      Background="WhiteSmoke"
+      Background="WhiteSmoke"  
       Style="{StaticResource {x:Type Page}}"
       Title="RegPage">
 

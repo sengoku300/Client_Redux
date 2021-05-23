@@ -24,14 +24,14 @@ namespace WPF_Redux_Client.Pages
         public ListMessagesPage()
         {
             InitializeComponent();
-            lst1.Items.Add(new CustomControls. UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
+            lst1.Items.Add(new CustomControls. chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
+            lst1.Items.Add(new chatlistitem());
            
         }
     }
