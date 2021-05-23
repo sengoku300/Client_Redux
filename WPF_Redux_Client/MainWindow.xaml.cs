@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Redux_Client.Pages;
+using WPF_Redux_Client.ServiceReference1;
 
 namespace WPF_Redux_Client
 {
@@ -21,6 +22,8 @@ namespace WPF_Redux_Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string email { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,11 +44,13 @@ namespace WPF_Redux_Client
                     this.Close();
                     break;
                 case "my_account":
+                    frame.Navigate(new MainPage());
                     break;
                 case "black_list":
                     break;
                 case "feed":
                     frame.Navigate(new CardsPage());
+                    this.Width = 900;
                     break;
                 case "filters":
                     frame.Navigate(new FiltersPage());

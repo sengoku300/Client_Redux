@@ -186,6 +186,7 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
 
                             <Grid Grid.Row="0">
@@ -197,32 +198,35 @@
                                 <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
                                     <Border.Background>
                                         <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
-                    ImageSource="C:\Users\Bogdan\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
+                                         ImageSource="hero_ua.jpg"/>
                                     </Border.Background>
                                 </Border>
 
-                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown_1" Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
                                          HorizontalAlignment="Left"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
 
-                                <materialDesign:PackIcon Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
                                          HorizontalAlignment="Right"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
                             </Grid>
 
 
                             <TextBlock FontSize="25"
-                   Grid.Row="1"
-                   FontWeight="DemiBold">
-            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
-            <Run x:Name="User_LastName" Text="Фамилия, " Foreground="HotPink"/>
-            <Run x:Name="User_Year" Text="20" Foreground="Gray"/>
+                                       Grid.Row="1"
+                                       FontWeight="DemiBold"
+                                       Foreground="Gray"
+                                       Margin="10">
+            <Run x:Name="User_Name" Text="Имя" />
+            <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
+                                <Run Text="," />
+            <Run x:Name="User_Year" Text="20" />
                             </TextBlock>
 
                                 <TextBlock FontSize="20"
                        Grid.Row="2"
                    Foreground="Gray"
-                   FontWeight="DemiBold">
+                   FontWeight="DemiBold" Margin="10">
              <Run Foreground="HotPink" x:Name="User_Kilometer"
              Text="6"/>
             <Run Text="км от вас"/>
@@ -235,7 +239,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Button x:Name="like" Click="like_Click" 
+                                <Button Margin="5" x:Name="like" Click="like_Click" 
                                         VerticalAlignment="Center" materialDesign:ShadowAssist.Darken="True" Grid.Column="0">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="ThumbUp"
@@ -244,7 +248,7 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
+                                <Button Margin="5" x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
                                     <Button.Content>
                                         <materialDesign:PackIcon Kind="Close"
                                          HorizontalAlignment="Center"
@@ -252,6 +256,14 @@
                                     </Button.Content>
                                 </Button>
                             </Grid>
+
+                            <Button Margin="5" Grid.Row="4" Click="Button_Click"  >
+                                <Button.Content>
+                                    <materialDesign:PackIcon  Kind="Fullscreen"
+                                         HorizontalAlignment="Right"
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
+                                </Button.Content>
+                            </Button>
                         </Grid>
                     </Border>
 

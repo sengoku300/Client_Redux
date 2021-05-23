@@ -9,8 +9,8 @@
       mc:Ignorable="d"
       Width="Auto"
       Height="Auto"
-      HorizontalAlignment="Center"
-      VerticalAlignment="Center"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
       Background="WhiteSmoke"
       Title="CardsPage"
       Style="{StaticResource {x:Type Page}}">
@@ -32,7 +32,7 @@
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition x:Name="grid_row"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Button VerticalAlignment="Center"
@@ -43,8 +43,6 @@
                 <materialDesign:PackIcon Kind="Refresh" />
             </Button.Content>
         </Button>
-
-        <!--<local1:UserCard Grid.Row="1" UserControlLikeClicked="UserCard_UserControlLikeClicked_1" UserControlDLikeClicked="UserCard_UserControlDLikeClicked_1" />-->
 
         <ItemsControl AlternationCount="2" x:Name="items_control" Grid.Row="1">
             <ItemsControl.ItemTemplate>

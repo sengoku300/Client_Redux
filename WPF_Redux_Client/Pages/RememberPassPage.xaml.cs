@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using WPF_Redux_Client.ServiceReference1;
+using System.ServiceModel;
 
 namespace WPF_Redux_Client.Pages
 {
@@ -26,7 +27,7 @@ namespace WPF_Redux_Client.Pages
 
         private int code;
 
-        Service1Client client = new Service1Client();
+        Service1Client client;
 
         public RememberPassPage()
         {
@@ -45,6 +46,12 @@ namespace WPF_Redux_Client.Pages
         {
             if (textBox_Password.passbox.Password == textBox_AcceptPassword.passbox.Password)
             {
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
+
                 client.ChangePassword(textBox_Email.Text, textBox_Password.passbox.Password);
 
                 MessageBox.Show("Пароль успешно изменён!");
@@ -59,6 +66,12 @@ namespace WPF_Redux_Client.Pages
         {
             if (!string.IsNullOrEmpty(textBox_Email.Text))
             {
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
+
                 code = client.GetCode(textBox_Email.Text);
 
                 if (code != 0)

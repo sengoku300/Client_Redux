@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -65,6 +66,52 @@ namespace WPF_Redux_Client.Pages
             return null;
         }
 
+        private double GetLatiTude()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "latitude")
+                    return Convert.ToDouble(disc[item]);
+            }
+
+            return 0;
+        }  
+        
+        private double GetLongiTude()
+        {
+            string ipLoc = string.Empty;
+
+            var client = new RestClient("https://ipapi.co/json/");
+            var request = new RestRequest
+            {
+                Method = Method.GET
+            };
+
+            var response = client.Execute(request);
+
+            var disc = JsonConvert.DeserializeObject<IDictionary>(response.Content);
+
+            foreach (var item in disc.Keys)
+            {
+                if (item.ToString() == "longitude")
+                    return Convert.ToDouble(disc[item]);
+            }
+
+            return 0;
+        }
+
         private string GetCity()
         {
             string ipLoc = string.Empty;
@@ -94,24 +141,42 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+
             if (Int32.TryParse(textBox_Birthday_DD.Text, out int dd)
                 && Int32.TryParse(textBox_Birthday_MM.Text, out int mm)
                 && Int32.TryParse(textBox_Birthday_Year.Text, out int year)
                 && textBox_Mail.Text.Contains("@")
                 && !string.IsNullOrEmpty(textBox_Name_Family.Text)
+                && !Int32.TryParse(textBox_Name_Family.Text, out int result)
                 && passBox.passbox.Password != ""
                 && gender != "")
             {
-                client = new Service1Client();
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
 
                 string birthday = dd + "." + mm + "." + year;
 
                 DateTime date = DateTime.Parse(birthday);
 
-                client.AddAccount(textBox_Mail.Text, passBox.passbox.Password,
-                    textBox_Name_Family.Text, city_name.Text, country_name.Text, date, gender);
+                int year_us = DateTime.Now.Year - date.Year;
 
-                authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                if (year_us >= 18)
+                {
+                    double latitude = GetLatiTude();
+
+                    double longitude = GetLongiTude();
+
+                    client.AddAccount(textBox_Mail.Text, passBox.passbox.Password,
+                        textBox_Name_Family.Text, city_name.Text, country_name.Text,
+                        date, gender, latitude, longitude);
+
+                    authoriz.authMain.Navigate(new Uri("Pages/LoginPage.xaml", UriKind.RelativeOrAbsolute));
+                }
+                else
+                    MessageBox.Show("Регистрация в приложении доступна с 18-ти лет!");
             }
         }
 

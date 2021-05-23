@@ -102,10 +102,10 @@
 
             <TextBlock VerticalAlignment="Center"
                        FontSize="30" HorizontalAlignment="Right" Margin="0,30" Width="400">
-                <Run FontWeight="SemiBold" Text="Hello, "
-                     x:Name="userName"/>
+                <Run FontWeight="SemiBold" Text="Привет, "
+                     />
                 <Run FontWeight="Bold" 
-                     Text="User!"
+                     x:Name="userName"
                      Foreground="#ea90b5"/>
             </TextBlock>
 

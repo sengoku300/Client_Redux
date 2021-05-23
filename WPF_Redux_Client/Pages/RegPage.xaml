@@ -56,24 +56,46 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
+      
+
         <TextBlock Text="Создай свой аккаунт прямо сейчас!" Grid.Row="0" FontSize="20" FontWeight="Bold"
                    VerticalAlignment="Center"
                    TextAlignment="Center"
                    HorizontalAlignment="Center"/>
 
-        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Name_Family" Grid.Row="1"
+        <TextBlock Grid.Row="1" Text="Страна: " FontSize="20"
+                   FontWeight="DemiBold"
+                   Foreground="Black"
+                   TextAlignment="Left"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run x:Name="country_name" Foreground="#ea90b5"
+                 FontWeight="Bold" FontSize="25"/>
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Text="Город: " FontSize="20"
+                   FontWeight="DemiBold"
+                   Foreground="Black"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run x:Name="city_name" Foreground="#ea90b5"
+                 FontWeight="Bold" FontSize="25" />
+        </TextBlock>
+
+        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Name_Family" Grid.Row="3"
                                                    PlaceHolder="Имя и Фамилия"/>
 
         <TextBlock Text="Дата рождения"
@@ -82,10 +104,10 @@
                    VerticalAlignment="Top"
                    FontWeight="DemiBold"
                    FontSize="20"
-                   Grid.Row="2"/>
+                   Grid.Row="4"/>
 
 
-        <Grid Grid.Row="3" Width="400">
+        <Grid Grid.Row="5" Width="400">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -105,65 +127,47 @@
                                                    Width="120"/>
         </Grid>
 
-        <!--<CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Birthday" Grid.Row="2"
-                                                   PlaceHolder="Дата рождения (дд:мм:гг)"/>-->
+        <Grid Grid.Row="6"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Center"
+              Width="400">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="4" Text="Страна: " FontSize="25"
-                   FontWeight="DemiBold"
-                   Foreground="Black"
-                   TextAlignment="Left"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-            <Run x:Name="country_name" Foreground="#ea90b5"
-                 FontWeight="Bold" FontSize="25"/>
-        </TextBlock>
+            <TextBlock Text="Пол" FontSize="20"
+                       FontWeight="DemiBold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="Black"
+                       TextAlignment="Center"/>
 
-        <TextBlock Grid.Row="5" Text="Город: " FontSize="25"
-                   FontWeight="DemiBold"
-                   Foreground="Black"
-                   TextAlignment="Center"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-            <Run x:Name="city_name" Foreground="#ea90b5"
-                 FontWeight="Bold" FontSize="25" />
-        </TextBlock>
-
-        <!--<Grid Grid.Row="3" Width="400" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_City" Width="200" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0"
-                                                   PlaceHolder="Город" Margin="0,0,0,0.4"/>
-
-            <Button Width="180" Style="{StaticResource primaryButton}" HorizontalAlignment="Center" Height="70" Content="Карта" Grid.Column="1" Click="Button_Click"/>
-        </Grid>-->
-
-        <!--<TextBlock FontSize="15" FontWeight="Bold" Foreground="Gray" TextAlignment="Center"
-                   Text="Пол:" Grid.Row="3" HorizontalAlignment="Center" Margin="0,100.6,0,0" Grid.RowSpan="2" Width="400" Height="21" VerticalAlignment="Top"/>-->
-
-        <Grid Grid.Row="6" Height="69" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Button Height="60" Width="170" Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="icon_man.png"
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icon_man.png"
                            Stretch="Uniform" Height="25"/>
-                    <TextBlock Text="Мужчина"/>
-                </StackPanel>
-            </Button>
+                        <TextBlock Text="Мужчина"/>
+                    </StackPanel>
+                </Button>
 
-            <Button Style="{StaticResource primaryButton}" Width="170" Height="60" Grid.Column="1" Click="Button_Click_2">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="icon_women.png"
+                <Button Style="{StaticResource primaryButton}" Grid.Column="1" Click="Button_Click_2">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icon_women.png"
                            Stretch="Uniform" Height="25"/>
-                    <TextBlock Text="Женщина"/>
-                </StackPanel>
-            </Button>
+                        <TextBlock Text="Женщина"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+
 
         </Grid>
 
