@@ -87,8 +87,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CustomControls\Chatlistitem.xaml.cs">
+      <DependentUpon>Chatlistitem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\InterestedBox.xaml.cs">
       <DependentUpon>InterestedBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Mess.xaml.cs">
+      <DependentUpon>Mess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Mymes.xaml.cs">
+      <DependentUpon>Mymes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditUserPage.xaml.cs">
       <DependentUpon>EditUserPage.xaml</DependentUpon>
@@ -106,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControls\Chatlistitem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomControls\FilterItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +134,14 @@
     <Page Include="CustomControls\LikedUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\Mess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\Mymes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\TextBoxWithPlaceHolder.xaml">
       <SubType>Designer</SubType>
