@@ -36,7 +36,7 @@ namespace WPF_Redux_Client.Pages
 
             InitializeComponent();
 
-            this.Resources["user1"] = user;
+            this.DataContext = user;
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)

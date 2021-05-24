@@ -158,7 +158,7 @@
                        FontSize="25px"
                        Margin="5">
                 <Run Text="Дата рождения:"/>
-                <Run x:Name="run_birthday" Text="12.12.1998"/>
+                <Run x:Name="run_birthday"/>
             </TextBlock>
 
             <TextBlock Grid.Row="2"
