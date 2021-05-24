@@ -57,7 +57,11 @@
 
                         <Image x:Name="Image_User"
                Stretch="UniformToFill"
+<<<<<<< HEAD
                Source="ahmetov.png"
+=======
+               Source="hero_ua.jpg"
+>>>>>>> Anton
                Grid.Row="0"/>
 
                         <TextBlock FontSize="25"

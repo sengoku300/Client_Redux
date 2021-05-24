@@ -265,6 +265,7 @@
     </EmbeddedResource>
     <None Include="Connected Services\ServiceReference1\service1.wsdl" />
     <None Include="Connected Services\ServiceReference1\service2.xsd">
+<<<<<<< HEAD
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\service21.xsd">
@@ -273,6 +274,16 @@
     <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.Classes1.xsd">
       <SubType>Designer</SubType>
     </None>
+=======
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.Classes1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+>>>>>>> Anton
     <None Include="Connected Services\ServiceReference1\WcfServiceLibrary21.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -361,6 +372,12 @@
   <ItemGroup>
     <Resource Include="icon_man.png" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <Resource Include="Pages\hero_ua.jpg" />
+  </ItemGroup>
+>>>>>>> Anton
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

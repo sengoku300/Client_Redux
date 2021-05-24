@@ -24,5 +24,19 @@ namespace WPF_Redux_Client.CustomControls
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
+        public Mess(string mes, string time, byte[] imagePath)
+        {
+            Mes = mes;
+            ImagePath = imagePath;
+            TimeSending = time;
+            InitializeComponent();
+
+        }
+        public byte[] ImagePath { get; set; }
+        public string TimeSending { get; set; }
+        public string Mes { get; set; }
+>>>>>>> Anton
     }
 }
