@@ -22,7 +22,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Page, IService1Callback
     {
         Service1Client client;
 
@@ -52,7 +52,9 @@ namespace WPF_Redux_Client.Pages
 
                 client = new Service1Client(context);
 
-                userName.Text = client.GetName(account[0]);
+                string login = client.GetName(account[0]);
+
+                userName.Text = login;
             }
         }
 
@@ -78,11 +80,14 @@ namespace WPF_Redux_Client.Pages
         {
             if (textBox_Email.Text != "" && PassBox.passbox.Password != "")
             {
-                IService1Callback callback = this as IService1Callback;
+                if (client == null)
+                {
+                    IService1Callback callback = this as IService1Callback;
 
-                InstanceContext context = new InstanceContext(callback);
+                    InstanceContext context = new InstanceContext(callback);
 
-                client = new Service1Client(context);
+                    client = new Service1Client(context);
+                }
 
                 if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
                 {
@@ -113,6 +118,16 @@ namespace WPF_Redux_Client.Pages
             }
             else
                 MessageBox.Show("Вы оставили какое-то из полей ввода пустым");
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(string mes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

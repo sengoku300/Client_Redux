@@ -57,7 +57,7 @@
 
                         <Image x:Name="Image_User"
                Stretch="UniformToFill"
-               Source="ahmetov.png"
+               Source="hero_ua.jpg"
                Grid.Row="0"/>
 
                         <TextBlock FontSize="25"

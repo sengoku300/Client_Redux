@@ -5,7 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPF_Redux_Client.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="570" d:DesignWidth="700"
+      Width="Auto"
+      Height="Auto"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
       Title="MainPage" Background="White">
 
     <Grid>
@@ -15,9 +18,12 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Image Grid.Column="0"
+            <Image Stretch="Uniform"
+               Grid.Column="0"
                Grid.Row="0"
-               Source="icon_man.png"/>
+               Source="hero_ua.jpg"
+               VerticalAlignment="Top"
+               Margin="10,40,10,0"/>
         </Grid>
        
 
@@ -31,8 +37,8 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="260"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
             <Image Grid.Row="0"
@@ -92,7 +98,7 @@
 
             <Button Grid.Row="7"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Left"
                     Height="40"
                     Width="450"
                     Content="Галерея"
