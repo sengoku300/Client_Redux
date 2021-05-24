@@ -107,7 +107,7 @@ namespace WPF_Redux_Client.Pages
                   
                     MainWindow mainWindow = new MainWindow();
 
-                    mainWindow.email = textBox_Email.Text;
+                    mainWindow.user = client.GetUser(textBox_Email.Text);
 
                     mainWindow.Show();
 

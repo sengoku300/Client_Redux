@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+  <xs:complexType name="ArrayOfHobbies">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Hobbies" nillable="true" type="tns:Hobbies" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHobbies" nillable="true" type="tns:ArrayOfHobbies" />
+  <xs:complexType name="Hobbies">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hobbie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HobbieID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Hobbies" nillable="true" type="tns:Hobbies" />
   <xs:complexType name="ArrayOfLikes">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Likes" nillable="true" type="tns:Likes" />
@@ -73,18 +87,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Photos" nillable="true" type="tns:Photos" />
-  <xs:complexType name="ArrayOfHobbies">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Hobbies" nillable="true" type="tns:Hobbies" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfHobbies" nillable="true" type="tns:ArrayOfHobbies" />
-  <xs:complexType name="Hobbies">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Hobbie" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="HobbieID" type="xs:int" />
-      <xs:element minOccurs="0" name="UserID" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Hobbies" nillable="true" type="tns:Hobbies" />
 </xs:schema>

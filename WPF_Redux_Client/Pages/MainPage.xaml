@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:WPF_Redux_Client.Pages"
       mc:Ignorable="d" 
       Width="Auto"
@@ -11,24 +12,121 @@
       VerticalAlignment="Stretch"
       Title="MainPage" Background="White">
 
+    <Page.Resources>
+
+
+        <Style x:Key="primaryButton" TargetType="{x:Type Button}">
+            <Setter Property="MinWidth" Value="200"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Background" Value="#ea90b5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bd"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ContentPresenter 
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Image">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.Setters>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Margin" Value="0"/>
+                    </Trigger.Setters>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
     <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
             <Image Stretch="Uniform"
-               Grid.Column="0"
                Grid.Row="0"
                Source="hero_ua.jpg"
-               VerticalAlignment="Top"
-               Margin="10,40,10,0"/>
+               x:Name="user_photo"
+               VerticalAlignment="Center"
+               Margin="10,10,10,0">
+
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="20"
+                                      ShadowDepth="5"
+                                      Opacity="10"
+                                      Color="HotPink"/>
+                </Image.Effect>
+            </Image>
+
+            <Button Grid.Row="1"
+                    Margin="15"
+                    Height="50"
+                    FontSize="20"
+                    FontWeight="DemiBold"
+                    FontStyle="Italic"
+                    ToolTip="Редактирование данных вашей страницы" Click="Button_Click_1">
+
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Редактирование"/>
+                        <materialDesign:PackIcon Kind="Pencil" Margin="9,0,0,0" Height="30" Width="20" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Grid.Row="2"
+                    Margin="15,24,15,187"
+                    FontWeight="DemiBold"
+                    FontSize="20"
+                    Click="Button_Click"
+                    ToolTip="Галерея ваших фотографий" Height="Auto">
+
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Галерея"/>
+                        <materialDesign:PackIcon Kind="ImageAlbum" Margin="9,0,0,0" Height="30" Width="40" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
         </Grid>
-       
+
 
         <Grid Grid.Column="1"
-              Grid.Row="0" Margin="1,0,-1,0">
+              Grid.Row="0" Margin="10">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -37,16 +135,17 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="260"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
 
-            <Image Grid.Row="0"
-                   Source="pencil.png"
-                   Cursor="AppStarting"
-                   HorizontalAlignment="Right"/>
 
-            <TextBlock Grid.Row="1"
+
+
+            <TextBlock Grid.Row="0"
                        Margin="5"
                        x:Name="textBox_Name"
                        Text="Имя Фамилия"
@@ -54,56 +153,86 @@
                        VerticalAlignment="Center"
                        FontSize="25px"/>
 
-            <TextBlock Grid.Row="2"
+            <TextBlock Grid.Row="1"
                        VerticalAlignment="Center"
                        FontSize="25px"
                        Margin="5">
-                <Run Text="Возраст:"/>
-                <Run x:Name="run_age" Text="20"/>
+                <Run Text="Дата рождения:"/>
+                <Run x:Name="run_birthday" Text="12.12.1998"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="2"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+                <Run Text="О себе:"/>
+                <Run x:Name="run_descriptions"/>
             </TextBlock>
 
             <TextBlock Grid.Row="3"
                        VerticalAlignment="Stretch"
                        FontSize="25"
                        Margin="5">
-                <Run Text="О себе:"/>
-                <Run x:Name="run_descriptions"/>
-            </TextBlock>  
-            
+                <Run Text="Город:"/>
+                <Run x:Name="run_city"/>
+                <Run Text="Страна:"/>
+                <Run x:Name="run_country"/>
+            </TextBlock>
+
             <TextBlock Grid.Row="4"
                        VerticalAlignment="Stretch"
                        FontSize="25"
                        Margin="5">
-                <Run Text="Город:"/>
-                <Run x:Name="user_city"/>
-                <Run Text="Страна:"/>
-                <Run x:Name="user_country"/>
+               <Run Text="Образование: "/>
+               <Run x:Name="run_eduction"/>
             </TextBlock>
 
             <TextBlock Grid.Row="5"
                        VerticalAlignment="Stretch"
                        FontSize="25"
                        Margin="5">
-               <Run Text="Образование: "/>
-               <Run x:Name="Run_Eduction"/>
+               <Run Text="Цвет глаз: "/>
+               <Run x:Name="run_ColorEye"/>
             </TextBlock>
 
             <TextBlock Grid.Row="6"
                        VerticalAlignment="Stretch"
                        FontSize="25"
                        Margin="5">
-                <Run Text="Хобби:"/>
-                <Run x:Name="User_Hobbies"/>
+               <Run Text="Цвет волос: "/>
+               <Run x:Name="run_ColorHaircut"/>
             </TextBlock>
 
-            <Button Grid.Row="7"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Height="40"
-                    Width="450"
-                    Content="Галерея"
-                    FontWeight="DemiBold"
-                    FontSize="20" Click="Button_Click"/>
+            <TextBlock Grid.Row="7"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+               <Run Text="Вера: "/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="8"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+               <Run Text="Пол: "/>
+               <Run x:Name="run_gender"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="9"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+               <Run Text="Работа: "/>
+               <Run x:Name="run_job"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="10"
+                       VerticalAlignment="Stretch"
+                       FontSize="25"
+                       Margin="5">
+                <Run Text="Хобби:"/>
+                <Run x:Name="run_Hobbies"/>
+            </TextBlock>
         </Grid>
 
     </Grid>
