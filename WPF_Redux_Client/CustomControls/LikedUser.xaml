@@ -17,10 +17,10 @@
             MouseEnter="UserControl_MouseEnter"
              MouseLeave="UserControl_MouseLeave"
             >
-   
 
-  
-<Grid  x:Name="grid">
+
+
+    <Grid  x:Name="grid" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition/>
@@ -31,7 +31,7 @@
 
                 <ImageBrush ImageSource="D:\browser\2.jpg"/>
 
-                    <!--<ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>-->
+                <!--<ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>-->
             </Border.Background>
         </Border>
 
@@ -46,7 +46,7 @@
                        FontSize="20" FontStyle="Italic"
                        Foreground="#ea90b5"/>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -58,36 +58,23 @@
                            Foreground="Gray"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/> 
-                
+                           VerticalAlignment="Center"/>
+
                 <TextBlock Grid.Column="1"  x:Name="user_city" Text="Киев"
                            Foreground="Gray"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <Border x:Name="borderlike"  Width="auto" Height="auto" Grid.Column="2"  Cursor="Hand" MouseEnter="PackIcon_MouseEnter_1">
-                    <Border.Style>
-                        <Style>
-                           
-                            <Style.Triggers>
-                                <Trigger Property="Border.IsMouseOver" Value="True">
-                                    <Setter Property="Border.Background" Value="#7CFC00" />
-                                </Trigger>
-                                <Trigger Property="Border.IsMouseOver" Value="False">
-                                    <Setter Property="Border.Background" Value="WhiteSmoke" />
-                                </Trigger>
-                               
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
+                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2" Height="30" Width="44" Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter">
 
-                    <materialDesign:PackIcon Name="like" Cursor="Hand"
+
+                    <materialDesign:PackIcon Name="like"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         Kind="Check" />
+                                         Kind="Check"   />
                 </Border>
-                <Border x:Name="borderremove" MouseEnter="PackIcon_MouseEnter" Cursor="Hand" Grid.Column="3">
+                <Border x:Name="borderremove" Background="WhiteSmoke"  Cursor="Hand" Grid.Column="3" MouseLeave="borderremove_MouseLeave" MouseEnter="borderremove_MouseEnter">
                     <materialDesign:PackIcon 
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center" Name="remove"
@@ -99,7 +86,7 @@
             </Grid>
 
         </Grid>
-        
-        
+
+
     </Grid>
 </UserControl>

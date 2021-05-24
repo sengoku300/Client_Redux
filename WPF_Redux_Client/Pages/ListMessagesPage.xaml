@@ -163,12 +163,14 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TextBox}">
-                            <Grid>
+                            <Border BorderBrush="Black" BorderThickness="0,1,0,0">
+                                <Grid >
                                 <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
                                 <Label Height="auto" FontSize="20" HorizontalAlignment="Stretch" Grid.Column="1" Margin="5,0,0,0"    x:Name="WaterMarkLabel" Content="Send a message" VerticalAlignment="Stretch"
                                Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
+    </Grid>
+    </Border>
+    <ControlTemplate.Triggers>
                                 <MultiTrigger>
                                     <MultiTrigger.Conditions>
                                         <Condition Property="Text" Value=""/>
@@ -189,23 +191,45 @@
 
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0"  >
-                    
-                    <ItemsControl x:Name="lst1" Margin="0,5,0,5">
+                    <ScrollViewer Style="{StaticResource ScrollViewer}">
+                        <ItemsControl x:Name="lst1" Margin="0,5,0,5">
 
-                    </ItemsControl>
+                        </ItemsControl>
+                    </ScrollViewer>
                 </Grid>
-                <Grid Grid.Column="1" Background="Red">
+                <Grid Grid.Column="1" Background="WhiteSmoke">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"></RowDefinition>
-                        <RowDefinition Height="659"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="110"></RowDefinition>
+                        <RowDefinition Height="649*"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
                     </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="WhiteSmoke">
+                        <Grid  Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border CornerRadius="80" Grid.Column="0" Margin="0,5,15,10">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="hero_ua.jpg"></ImageBrush>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Grid.Column="1" Text="Igor Kolomoisky" FontSize="33" FontFamily="italic" Margin="15,15,0,55"></TextBlock>
+                            <TextBlock Grid.Column="1" Text="Online" FontSize="33" FontFamily="italic" FontWeight="SemiBold" Foreground="Green" Margin="15,60,0,0"></TextBlock>
+                        </Grid>
+                    </Border>
+                    <ScrollViewer Style="{StaticResource ScrollViewer}">
+                        <ItemsControl Grid.Row="1" Name="messages">
 
-                    <TextBox Grid.Row="2" Background="Transparent" HorizontalAlignment="Stretch"
+                        </ItemsControl>
+                    </ScrollViewer>
+                    <ScrollViewer Grid.Row="2" Style="{StaticResource ScrollViewer}">
+                        <TextBox PreviewKeyDown="sendMsg_TextBox_PreviewKeyDown" Grid.Row="2"  HorizontalAlignment="Stretch"
                                                  MinHeight="40" MaxHeight="200" FontSize="16" Style="{StaticResource BottomTextbox}"
-                                                 x:Name="sendMsg_TextBox" BorderBrush="Black"  AcceptsReturn="True" AcceptsTab="True"  
+                                                 x:Name="sendMsg_TextBox" BorderBrush="Black" BorderThickness="10"  AcceptsReturn="True" AcceptsTab="True"  
                                                  TextWrapping="Wrap"  VerticalAlignment="Bottom"  
-                                                 MaxLength="10000"  />
+                                                 MaxLength="10000" Background="Gray" />
+                    </ScrollViewer>
 
                 </Grid>
             </Grid>

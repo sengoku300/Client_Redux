@@ -123,10 +123,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\HeaderChat.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomControls\InterestedBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,10 +147,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomControls\UserControl1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomControls\UserFullCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,9 +170,6 @@
     <Compile Include="CustomControls\FilterItem.xaml.cs">
       <DependentUpon>FilterItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\HeaderChat.xaml.cs">
-      <DependentUpon>HeaderChat.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CustomControls\LikedUser.xaml.cs">
       <DependentUpon>LikedUser.xaml</DependentUpon>
     </Compile>
@@ -189,9 +178,6 @@
     </Compile>
     <Compile Include="CustomControls\UserCard.xaml.cs">
       <DependentUpon>UserCard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\UserFullCard.xaml.cs">
       <DependentUpon>UserFullCard.xaml</DependentUpon>
