@@ -22,6 +22,7 @@ namespace WPF_Redux_Client.Pages
     public partial class EditUserPage : Page
     {
         private User user;
+        
 
         MainWindow main { get => Application.Current.MainWindow as MainWindow; }
 

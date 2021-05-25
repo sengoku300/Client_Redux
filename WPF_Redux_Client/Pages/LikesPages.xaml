@@ -3,12 +3,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_Redux_Client.Pages"
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages" xmlns:local1="clr-namespace:WPF_Redux_Client.CustomControls"
       mc:Ignorable="d"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
-      Height="750"
-      Width="1200"
+      Height="800"
+      Width="1250"
       Background="WhiteSmoke"
       Title="LikesPages"
       Style="{StaticResource {x:Type Page}}">
@@ -16,21 +16,23 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
+
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        
+
         <Border Grid.Row="0" Background="#e70700">
             <TextBlock FontFamily="Italic" FontStyle="Italic" Foreground="White" Margin="35,0,0,0" FontSize="60" Text="Likes"></TextBlock>
         </Border>
 
-        <ItemsControl Grid.Row="1" HorizontalAlignment="Left" x:Name="listLikes">
+        <ItemsControl Grid.Row="1"  HorizontalAlignment="Left" x:Name="listLikes">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+        <local1:UserFullCard Width="330" Margin="250,0,0,0" HorizontalAlignment="Center" Grid.Row="1" x:Name="User_Card"  />
 
 
     </Grid>
