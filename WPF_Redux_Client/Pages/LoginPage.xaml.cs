@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,13 +22,40 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Page, IService1Callback
     {
         Service1Client client;
 
         public LoginPage()
         {
             InitializeComponent();
+
+            if (File.Exists("log.txt"))
+            {
+                string[] account = File.ReadAllLines("log.txt");
+
+                textBox_Email.Text = account[0];
+
+                textBox_Email.FontSize = 20;
+
+                textBox_Email.PlaceHolder = "";
+
+                PassBox.passbox.Password = account[1];
+                
+                PassBox.FontSize = 20;
+
+                PassBox.PlaceHolder = "";
+
+                IService1Callback callback = this as IService1Callback;
+
+                InstanceContext context = new InstanceContext(callback);
+
+                client = new Service1Client(context);
+
+                string login = client.GetName(account[0]);
+
+                userName.Text = login;
+            }
         }
 
         Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
@@ -51,11 +80,34 @@ namespace WPF_Redux_Client.Pages
         {
             if (textBox_Email.Text != "" && PassBox.passbox.Password != "")
             {
-                client = new Service1Client();
+                if (client == null)
+                {
+                    IService1Callback callback = this as IService1Callback;
+
+                    InstanceContext context = new InstanceContext(callback);
+
+                    client = new Service1Client(context);
+                }
 
                 if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
                 {
+                    if (File.Exists("log.txt"))
+                    {
+                        if (!File.ReadAllText("log.txt").Contains(textBox_Email.Text))
+                        {
+                            File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
+                            PassBox.passbox.Password});
+                        }
+                    }
+                    else
+                    {
+                        File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
+                            PassBox.passbox.Password});
+                    }
+                  
                     MainWindow mainWindow = new MainWindow();
+
+                    mainWindow.user = client.GetUser(textBox_Email.Text);
 
                     mainWindow.Show();
 
@@ -66,6 +118,16 @@ namespace WPF_Redux_Client.Pages
             }
             else
                 MessageBox.Show("Вы оставили какое-то из полей ввода пустым");
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(string mes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

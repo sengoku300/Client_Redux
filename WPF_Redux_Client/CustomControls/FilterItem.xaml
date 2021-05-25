@@ -27,8 +27,8 @@
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="90"/>
-                <RowDefinition Height="90"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="40"/>
@@ -45,17 +45,33 @@
                        VerticalAlignment="Center"
                        FontSize="20" Grid.Column="0" Grid.Row="1"/>-->
 
-            <local:TextBoxWithPlaceHolder PreviewTextInput="NameCountry_PreviewTextInput" x:Name="NameCountry"
+            <TextBlock Text="Максимальная дистанция (км)"
+                       Grid.Row="0"
+                       FontSize="20"
+                       FontWeight="DemiBold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <!--<local:TextBoxWithPlaceHolder PreviewTextInput="NameCountry_PreviewTextInput" x:Name="NameCountry"
                                           PlaceHolder="Страна"
                                           Grid.Row="0"
                                           HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Center" Margin="10"/>
+                                          VerticalAlignment="Center" Margin="10"/>-->
 
-            <local:TextBoxWithPlaceHolder PreviewTextInput="NameCountry_PreviewTextInput" x:Name="NameCity"
+            <Slider x:Name="slider_distance" Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Maximum="50"
+                    Minimum="1"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"/>
+
+
+
+            <!--<local:TextBoxWithPlaceHolder PreviewTextInput="NameCountry_PreviewTextInput" x:Name="NameCity"
                                           PlaceHolder="Город"
                                           Grid.Row="1"
                                           HorizontalAlignment="Stretch"
-                                          VerticalAlignment="Center" Margin="10"/>
+                                          VerticalAlignment="Center" Margin="10"/>-->
 
 
             <!--Цвет волос-->

@@ -6,32 +6,48 @@
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Width="Auto"
-             Height="Auto"
-             Background="WhiteSmoke"
-             d:DesignHeight="60" d:DesignWidth="235">
 
-    <Grid>
+             Width="235"
+             Height="60" Margin="10,5,10,5"
+
+            
+
+             Background="WhiteSmoke"
+             Name="user"
+            MouseEnter="UserControl_MouseEnter"
+             MouseLeave="UserControl_MouseLeave"
+            >
+   
+
+  
+<Grid  x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" Grid.Row="0" CornerRadius="80">
+        <Border x:Name="image" MouseEnter="Border_MouseEnter" Grid.Column="0" Grid.Row="0" CornerRadius="80">
             <Border.Background>
+<<<<<<< HEAD
                 <ImageBrush ImageSource="C:\Users\Setup\Downloads\1.jpg"/>
+=======
+
+                <ImageBrush ImageSource="D:\browser\2.jpg"/>
+
+                    <!--<ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>-->
+>>>>>>> af384fc108a6f604753013c3397898282bfd4c1b
             </Border.Background>
         </Border>
 
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid  Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Example Example"
+            <TextBlock Margin="2,0,0,0" Grid.Row="0" Text="Example Example"
                        FontWeight="DemiBold"
-                       FontSize="20"
+                       FontSize="20" FontStyle="Italic"
                        Foreground="#ea90b5"/>
 
             <Grid Grid.Row="1">
@@ -48,21 +64,39 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/> 
                 
-                <TextBlock Grid.Column="1" x:Name="user_city" Text="Киев"
+                <TextBlock Grid.Column="1"  x:Name="user_city" Text="Киев"
                            Foreground="Gray"
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <materialDesign:PackIcon Grid.Column="2"
+                <Border x:Name="borderlike"  Width="auto" Height="auto" Grid.Column="2"  Cursor="Hand" MouseEnter="PackIcon_MouseEnter_1">
+                    <Border.Style>
+                        <Style>
+                           
+                            <Style.Triggers>
+                                <Trigger Property="Border.IsMouseOver" Value="True">
+                                    <Setter Property="Border.Background" Value="#7CFC00" />
+                                </Trigger>
+                                <Trigger Property="Border.IsMouseOver" Value="False">
+                                    <Setter Property="Border.Background" Value="WhiteSmoke" />
+                                </Trigger>
+                               
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <materialDesign:PackIcon Name="like" Cursor="Hand"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         Kind="ThumbUp" />
-                
-                <materialDesign:PackIcon Grid.Column="3"
+                                         Kind="Check" />
+                </Border>
+                <Border x:Name="borderremove" MouseEnter="PackIcon_MouseEnter" Cursor="Hand" Grid.Column="3">
+                    <materialDesign:PackIcon 
                                          HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"
-                                         Kind="Close" />
+                                         VerticalAlignment="Center" Name="remove"
+                                         Kind="Remove"  />
+                </Border>
 
 
 

@@ -32,7 +32,7 @@ namespace WPF_Redux_Client.Pages
             lst1.Items.Add(new UserControl1());
             lst1.Items.Add(new UserControl1());
             lst1.Items.Add(new UserControl1());
-            header.Items.Add(new HeaderChat());
+           
         }
     }
 }

@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Background="WhiteSmoke" d:DesignWidth="300" Height="600">
+             Width="Auto"
+             Height="Auto"
+             Background="WhiteSmoke">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -19,71 +21,103 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity=".5"/>
+            </Border.Effect>
+        </Border>
+        <Border CornerRadius="10" ClipToBounds="True" Margin="10" BorderThickness=".5" BorderBrush="#FFCDCDCD">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fae81b"/>
+                    <GradientStop Color="#f9e918" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <!--Верх-->
+                </StackPanel>
+                <Border Grid.Row="1" Background="White" BorderThickness="0 1" BorderBrush="#FFE2E2E2">
+                    <!--Тело-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
 
-        <Image x:Name="Image_User"
-               Stretch="Fill"
-               Source="WPF_Redux_Client/Images/ahmetov.png"
+                        <Image x:Name="Image_User"
+               Stretch="UniformToFill"
+               Source="hero_ua.jpg"
                Grid.Row="0"/>
 
-        <TextBlock FontSize="25"
+                        <TextBlock FontSize="25"
                    Grid.Row="1"
-                   FontWeight="DemiBold">
-            <Run x:Name="User_Name" Text="Имя" Foreground="Gray"/>
+                   FontWeight="DemiBold"
+                                   Foreground="Gray">
+            <Run x:Name="User_Name" Text="Имя" />
             <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
-        </TextBlock>
+                            <Run Text=","/>
+                            <Run x:Name="User_Age" Text="10"/>
+                        </TextBlock>
 
-        <Separator
+                        <Separator
       Grid.Row="1"
       Style="{StaticResource MaterialDesignDarkSeparator}"
       Margin="0,38,0,46" Grid.RowSpan="2" />
 
 
-        <StackPanel Grid.Row="2"
+                        <StackPanel Grid.Row="2"
                         Orientation="Horizontal">
-            <materialDesign:PackIcon Margin="10,7,10,0" Kind="MapMarker" />
-            <TextBlock FontSize="20"
+                            <materialDesign:PackIcon Margin="10,7,10,0" Kind="MapMarker" />
+                            <TextBlock FontSize="20"
                    Foreground="Gray"
-                   FontWeight="DemiBold"><Run Foreground="HotPink"
+                   FontWeight="DemiBold"><Run x:Name="text_distance" Foreground="HotPink"
              Text="6"/><Run Text=" "/><Run Text="км от вас"/></TextBlock>
-        </StackPanel>
+                        </StackPanel>
 
-        <Grid>
+                        <Grid>
 
-        </Grid>
+                        </Grid>
 
-        <TextBlock
+                        <TextBlock
                    Grid.Row="3"
                    Foreground="Gray"
                    FontWeight="DemiBold"
                    FontSize="15">
             <Run Text="О себе"/>
             <Run x:Name="user_description"/>
-        </TextBlock>
+                        </TextBlock>
 
-        <TextBlock x:Name="user_city"
+                        <TextBlock
                    Grid.Row="4"
                    Foreground="Gray"
                    FontWeight="DemiBold"
-                   FontSize="15"/>
+                   FontSize="15">
+                            <Run x:Name="user_city" Text="Город: "/>
+                            <Run x:Name="user_country" Text=", Страна: "/>
+                        </TextBlock>
 
-        <StackPanel Grid.Row="5" x:Name="user_hobbies"/>
+                        <StackPanel Grid.Row="5" x:Name="user_hobbies"/>
+                    </Grid>
 
-        <!--<TextBlock FontSize="20"
-                   Foreground="Gray"
-                   Grid.Row="2"
-                   FontWeight="DemiBold">
-        <Run Foreground="HotPink" x:Name="User_Kilometer"
-             Text="6"/>
-            <Run Text="км от вас"/>
-        </TextBlock>-->
+
+                </Border>
+
+                <StackPanel Grid.Row="2">
+                    <!--Низ-->
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
+
 </UserControl>

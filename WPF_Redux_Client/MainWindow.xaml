@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1200">
+        Title="MainWindow" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Height="800"
+        Width="1250">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -18,7 +23,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
     <Grid Background="WhiteSmoke">
 
         <Grid>
@@ -56,6 +65,12 @@
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
                 </TabItem>
+                
+                <TabItem x:Name="black_list" Background="White"
+    Header="{materialDesign:PackIcon Kind=FormatListText, Size=24}"
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+
+                </TabItem>
 
                 <TabItem x:Name="exit" Background="White"
     Header="{materialDesign:PackIcon Kind=ExitToApp, Size=24}"
@@ -65,8 +80,8 @@
             </TabControl>
 
             <Frame Grid.Column="1" x:Name="frame" NavigationUIVisibility="Hidden"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
                />
 
         </Grid>

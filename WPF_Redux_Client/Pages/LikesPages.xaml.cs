@@ -33,7 +33,7 @@ namespace WPF_Redux_Client.Pages
             listLikes.Items.Add(new LikedUser());
 
 
-            listLikes_2.Items.Add(new LikedUser());
+           
         }
     }
 }
