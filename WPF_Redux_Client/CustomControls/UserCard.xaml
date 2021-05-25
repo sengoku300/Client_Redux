@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Border BorderBrush="HotPink" BorderThickness="3">
+    <Border BorderBrush="HotPink" BorderThickness="1">
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
@@ -28,10 +28,10 @@
         </Grid.RowDefinitions>
 
         <Border CornerRadius="0,0,40,40" Grid.Row="0">
-            <Border.Background>
-                <ImageBrush Stretch="UniformToFill"
-                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
-            </Border.Background>
+            <!--<Border.Background>
+                --><!--<ImageBrush Stretch="UniformToFill"
+                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>--><!--
+            </Border.Background>-->
         </Border>
 
         <TextBlock FontSize="25"

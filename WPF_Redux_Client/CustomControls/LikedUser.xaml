@@ -19,7 +19,7 @@
 
         <Border Grid.Column="0" Grid.Row="0" CornerRadius="80">
             <Border.Background>
-                <ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>
+                <ImageBrush ImageSource="C:\Users\Setup\Downloads\1.jpg"/>
             </Border.Background>
         </Border>
 
