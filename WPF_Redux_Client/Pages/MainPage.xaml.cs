@@ -79,6 +79,6 @@ namespace WPF_Redux_Client.Pages
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e) => mainW.frame.Navigate(new EditUserPage(user));
+        private void Button_Click_1(object sender, RoutedEventArgs e) => mainW.frame.Navigate(new EditUserPage(user, mainW));
     }
 }

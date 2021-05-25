@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,29 +20,64 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for EditUserPage.xaml
     /// </summary>
-    public partial class EditUserPage : Page
+    public partial class EditUserPage : Page, IService1Callback
     {
         private User user;
 
-        MainWindow main { get => Application.Current.MainWindow as MainWindow; }
+        private Service1Client client;
+
+        private MainWindow main;
 
         public EditUserPage()
         {
             InitializeComponent();
         }
 
-        public EditUserPage(User user)
+        public EditUserPage(User user, MainWindow mainWindow)
         {
             this.user = user;
+
+            main = mainWindow;
 
             InitializeComponent();
 
             this.DataContext = user;
+
+            IService1Callback callback = this as IService1Callback;
+
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
+            if(textBox_FirstName.Text != ""
+                && textBox_LastName.Text != ""
+                && DatePicker_Birthday.Text != "")
+            {
+                client.UpdateUser(textBox_FirstName.Text, textBox_LastName.Text,
+                    DatePicker_Birthday.DisplayDate,
+                    comboBox_ColorEye.Text, combobox_colorhaircut.Text,
+                    combobox_faith.Text, combobox_gender.Text,
+                    textBox_job.Text,
+                    textBox_Descriptions.Text,
+                    textBox_Education.Text, textBox_hobbies.Text.Split(','), user);
 
+                MessageBox.Show("Аккаунт успешно изменнён!");
+
+                main.frame.GoBack();
+            }
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(string mes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

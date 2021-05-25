@@ -37,8 +37,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Animation" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows" />

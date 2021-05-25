@@ -15,83 +15,6 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Hobbies", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
-    [System.SerializableAttribute()]
-    public partial class Hobbies : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HobbieField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int HobbieIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Hobbie {
-            get {
-                return this.HobbieField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.HobbieField, value) != true)) {
-                    this.HobbieField = value;
-                    this.RaisePropertyChanged("Hobbie");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int HobbieID {
-            get {
-                return this.HobbieIDField;
-            }
-            set {
-                if ((this.HobbieIDField.Equals(value) != true)) {
-                    this.HobbieIDField = value;
-                    this.RaisePropertyChanged("HobbieID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((this.UserIDField.Equals(value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
     [System.SerializableAttribute()]
     public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1002,6 +925,83 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Hobbies", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
+    [System.SerializableAttribute()]
+    public partial class Hobbies : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HobbieField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HobbieIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Hobbie {
+            get {
+                return this.HobbieField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HobbieField, value) != true)) {
+                    this.HobbieField = value;
+                    this.RaisePropertyChanged("Hobbie");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HobbieID {
+            get {
+                return this.HobbieIDField;
+            }
+            set {
+                if ((this.HobbieIDField.Equals(value) != true)) {
+                    this.HobbieIDField = value;
+                    this.RaisePropertyChanged("HobbieID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
     [System.SerializableAttribute()]
     public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1072,10 +1072,10 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
-        void UpdateUser(string name, string lastname, System.DateTime birthday, string descriptions, string education, WPF_Redux_Client.ServiceReference1.Hobbies[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
+        void UpdateUser(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUser", ReplyAction="http://tempuri.org/IService1/UpdateUserResponse")]
-        System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string descriptions, string education, WPF_Redux_Client.ServiceReference1.Hobbies[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
+        System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPhoto", ReplyAction="http://tempuri.org/IService1/AddPhotoResponse")]
         void AddPhoto(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user);
@@ -1220,12 +1220,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.GetDataAsync(value);
         }
         
-        public void UpdateUser(string name, string lastname, System.DateTime birthday, string descriptions, string education, WPF_Redux_Client.ServiceReference1.Hobbies[] hobbies, WPF_Redux_Client.ServiceReference1.User user) {
-            base.Channel.UpdateUser(name, lastname, birthday, descriptions, education, hobbies, user);
+        public void UpdateUser(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user) {
+            base.Channel.UpdateUser(name, lastname, birthday, coloreye, colorhaircut, faith, gender, job, descriptions, education, hobbies, user);
         }
         
-        public System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string descriptions, string education, WPF_Redux_Client.ServiceReference1.Hobbies[] hobbies, WPF_Redux_Client.ServiceReference1.User user) {
-            return base.Channel.UpdateUserAsync(name, lastname, birthday, descriptions, education, hobbies, user);
+        public System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user) {
+            return base.Channel.UpdateUserAsync(name, lastname, birthday, coloreye, colorhaircut, faith, gender, job, descriptions, education, hobbies, user);
         }
         
         public void AddPhoto(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user) {

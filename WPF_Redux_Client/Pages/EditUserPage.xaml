@@ -31,16 +31,15 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="80"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
         <StackPanel Grid.Row="0" Orientation="Horizontal" >
             <TextBlock
                        Margin="5"
@@ -86,6 +85,7 @@
             <TextBox Margin="5,5,0,10"
                      Text="{Binding Path=Description}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     FontSize="20"
                      BorderBrush="Gray"
                      x:Name="textBox_Descriptions" Width="379"/>
         </StackPanel>
@@ -94,50 +94,34 @@
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="95"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="85"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
-                       Text="Страна:"
+                       Text="День рождения:"
                        VerticalAlignment="Stretch"
                        FontSize="25"
                        Margin="5"/>
 
-            <TextBox Grid.Column="1"
+            <DatePicker Grid.Column="1"
                  BorderBrush="Gray"
-                 Margin="5"
+                 Margin="8"
                  FontSize="20"
                  FontWeight="DemiBold"
-                 Text="{Binding Path=Country}"
-                 x:Name="textBox_Country"/>
-
-            <TextBlock Grid.Column="2"
-                       Text="Город:"
-                       VerticalAlignment="Stretch"
-                       FontSize="25"
-                       Margin="5"/>
-            
-            <TextBox Grid.Column="3"
-                 BorderBrush="Gray"
-                 Margin="5,5,14,5"
-                 FontSize="20"
-                 FontWeight="DemiBold"
-                 Text="{Binding Path=City}"
-                 x:Name="textBox_City"/>
+                 Text="{Binding Path=Birthday}"
+                 x:Name="DatePicker_Birthday"/>
         </Grid>
 
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
-                       Margin="5"
+                       Margin="5,10,5,0"
                        Text="Образование:"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="top"
                        FontSize="25px"/>
             <TextBox Margin="0,8,10,8"
-                     Text="{Binding Path=Education}"
+                     Text="{Binding Education}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
                      FontSize="20"
@@ -146,16 +130,17 @@
                      x:Name="textBox_Education"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Цвет глаз:"
                        VerticalAlignment="Center"
                        FontSize="25px"/>
             <ComboBox Text="{Binding Path=ColorEye}"
+                x:Name="comboBox_ColorEye"
                 Foreground="White"
                 Background="Gray"
-                Width="260">
+                Width="354" Margin="0,22">
                 <ComboBoxItem>
                     Синий
                 </ComboBoxItem>
@@ -180,15 +165,16 @@
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Цвет волос:"
                        VerticalAlignment="Center"
                        FontSize="25px"/>
-            <ComboBox Margin="10"
+            <ComboBox Margin="10,22"
+                      x:Name="combobox_colorhaircut"
                       Text="{Binding Path=ColorHairCut}"
-                      Width="190" Background="Gray" Foreground="White">
+                      Width="322" Background="Gray" Foreground="White">
                 <ComboBoxItem>
                     Брюнет
                 </ComboBoxItem>
@@ -197,22 +183,25 @@
                 </ComboBoxItem>
                 <ComboBoxItem>
                     Блондин
-                </ComboBoxItem><ComboBoxItem>
+                </ComboBoxItem>
+                <ComboBoxItem>
                     Шатен
-                </ComboBoxItem><ComboBoxItem>
+                </ComboBoxItem>
+                <ComboBoxItem>
                     Седой
                 </ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="7" Orientation="Horizontal">
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Мировоззрение:"
                        VerticalAlignment="Center"
                        FontSize="25px"/>
             <ComboBox Text="{Binding Path=Faith}"
-                  Width="190" Background="Gray" Foreground="White" Margin="0,10,5,10">
+                      x:Name="combobox_faith"
+                  Width="276" Background="Gray" Foreground="White" Margin="0,12,5,12">
                 <ComboBoxItem>Иудаизм</ComboBoxItem>
                 <ComboBoxItem>Православие</ComboBoxItem>
                 <ComboBoxItem>Католицизм</ComboBoxItem>
@@ -225,20 +214,21 @@
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Пол:"
                        VerticalAlignment="Center"
                        FontSize="25px"/>
             <ComboBox Text="{Binding Path=Gender}"
-                 Background="Gray" Width="330" Foreground="White" Margin="0,10,5,10">
+                      x:Name="combobox_gender"
+                 Background="Gray" Width="423" Foreground="White" Margin="0,22,5,22">
                 <ComboBoxItem>Мужской</ComboBoxItem>
                 <ComboBoxItem>Женский</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="9" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Работа:"
@@ -255,7 +245,7 @@
 
 
 
-        <StackPanel Grid.Row="10" Orientation="Horizontal">
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
                        Text="Интересы:"
@@ -270,8 +260,9 @@
         </StackPanel>
 
         <Button x:Name="Button_Save"
-                Grid.Row="11"
-                Margin="10"
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Margin="15"
                 Content="Сохранить изменения"
                 FontSize="20"
                 FontWeight="DemiBold" Height="Auto" Click="Button_Save_Click"/>
