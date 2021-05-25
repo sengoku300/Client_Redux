@@ -24,15 +24,32 @@ namespace WPF_Redux_Client.Pages
         public ListMessagesPage()
         {
             InitializeComponent();
-            lst1.Items.Add(new CustomControls. UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
-            lst1.Items.Add(new UserControl1());
            
+           
+        }
+
+        private void sendMsg_TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // если одновременно нажаты Ctrl или Shift - перейти на следующую строку
+                if (e.KeyboardDevice.Modifiers == ModifierKeys.Control || e.KeyboardDevice.Modifiers == ModifierKeys.Shift)
+                {
+                    sendMsg_TextBox.Text += "\n";
+                    sendMsg_TextBox.SelectionStart = sendMsg_TextBox.Text.Length;
+                }
+                // иначе отправить сообщение
+                else
+                {
+                    if (sendMsg_TextBox.Text != "")
+                    {
+                       // Send(sendMsg_TextBox.Text);
+                        sendMsg_TextBox.Text = "";
+                    }
+                }
+
+                e.Handled = true;
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ namespace WPF_Redux_Client.Pages
     public partial class EditUserPage : Page, IService1Callback
     {
         private User user;
+        
 
         private Service1Client client;
 

@@ -27,17 +27,26 @@ namespace WPF_Redux_Client.CustomControls
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
-            var bc = new BrushConverter();
 
-            user.Background = (Brush)bc.ConvertFrom("#DCDCDC");
-           
 
+            if (flag) {
+                var bc = new BrushConverter();
+
+                grid.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+                borderremove.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+                borderlike.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+
+            }
 
         }
 
         private void UserControl_MouseLeave(object sender, MouseEventArgs e)
         {
-            user.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            grid.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            borderlike.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            borderremove.Background = new SolidColorBrush(Colors.WhiteSmoke);
+
+            flag = true;
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -49,10 +58,41 @@ namespace WPF_Redux_Client.CustomControls
         {
            
         }
+        bool flag = true;
+       
 
-        private void PackIcon_MouseEnter_1(object sender, MouseEventArgs e)
+        private void borderlike_MouseEnter(object sender, MouseEventArgs e)
         {
+            var bc = new BrushConverter();
+
+            grid.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderremove.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderlike.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderlike.Background = new SolidColorBrush(Colors.LimeGreen);
            
+            flag = false;
+        }
+
+        private void borderremove_MouseEnter(object sender, MouseEventArgs e)
+        {
+            var bc = new BrushConverter();
+
+            grid.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderremove.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderlike.Background = (Brush)bc.ConvertFrom("#DCDCDC");
+            borderremove.Background = new SolidColorBrush(Colors.Red);
+
+            flag = false;
+        }
+
+        private void borderlike_MouseLeave(object sender, MouseEventArgs e)
+        {
+            borderlike.Background = new SolidColorBrush(Colors.WhiteSmoke);
+        }
+
+        private void borderremove_MouseLeave(object sender, MouseEventArgs e)
+        {
+            borderremove.Background = new SolidColorBrush(Colors.WhiteSmoke);
         }
     }
 }

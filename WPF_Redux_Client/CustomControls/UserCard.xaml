@@ -32,6 +32,9 @@
         </Style>-->
     </UserControl.Resources>
 
+<<<<<<< HEAD
+    <Border BorderBrush="HotPink" BorderThickness="1">
+=======
     <!--<UserControl.Template>
         <ControlTemplate TargetType="UserControl">
             <Grid>
@@ -276,6 +279,7 @@
         </Border>
     </Grid>
     <!--<Border>
+>>>>>>> af384fc108a6f604753013c3397898282bfd4c1b
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>
@@ -285,10 +289,10 @@
         </Grid.RowDefinitions>
 
         <Border CornerRadius="0,0,40,40" Grid.Row="0">
-            <Border.Background>
-                <ImageBrush Stretch="UniformToFill"
-                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>
-            </Border.Background>
+            <!--<Border.Background>
+                --><!--<ImageBrush Stretch="UniformToFill"
+                    ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\carti.jpg"/>--><!--
+            </Border.Background>-->
         </Border>
 
         <TextBlock FontSize="25"
