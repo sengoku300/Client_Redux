@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fa10b003-8b13-4f90-b471-07566dc1212b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="83b47d72-c38f-4ff6-8ded-78fcace64ee2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,16 +22,16 @@
     <MetadataSource Address="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="60651f3b-75ed-459b-a70a-3157beeed76c" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="4fbe4c28-2dd3-4fe4-a3eb-76ee921adf41" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="f8431fc6-cf40-4c9c-9018-61b3df9b12cf" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="6645c078-189a-44ad-a7f7-234dffd4ceec" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="WcfServiceLibrary21.xsd" MetadataType="Schema" ID="b47c8ec9-62a2-4c2b-aa8f-ef34079e32f0" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="WcfServiceLibrary2.Classes1.xsd" MetadataType="Schema" ID="c8495e98-9ea8-4f80-adb3-3641ff91eb23" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="System.Windows.Media.xsd" MetadataType="Schema" ID="1b446285-4e21-4b4f-9086-5ec96bde5232" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="System.Windows.Media.Animation.xsd" MetadataType="Schema" ID="a7af817c-4e90-4f85-aa0f-97f7ce23297e" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="System.Windows.xsd" MetadataType="Schema" ID="87423115-a40c-45ca-bdd5-861020b4b10a" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
-    <MetadataFile FileName="System.Windows.Threading.xsd" MetadataType="Schema" ID="4f72b230-5608-4c23-909c-59a6abb3d7c1" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2cb11876-ad1f-4994-b9ec-c806c4ddccd4" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9c417c95-e8ca-40a0-b73d-e9a5c655bb38" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="73bb743d-9473-4401-b6fa-982bb14adef3" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="f9c3d4e4-fee5-4814-bbd6-d874e56d9373" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="WcfServiceLibrary2.xsd" MetadataType="Schema" ID="c1c932bf-6aab-4f14-a64b-03d853d403a8" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="WcfServiceLibrary2.Classes.xsd" MetadataType="Schema" ID="b5c683db-3c9a-42c4-b0ee-f8f0549b3e8d" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="System.Windows.Media.xsd" MetadataType="Schema" ID="1276a1f8-b522-4295-af25-4cb27423690b" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="System.Windows.Media.Animation.xsd" MetadataType="Schema" ID="0b5dc253-5497-424d-a79f-7883581372a2" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="System.Windows.xsd" MetadataType="Schema" ID="8f474c7a-5d78-4c7d-9254-4c2a620a7fae" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
+    <MetadataFile FileName="System.Windows.Threading.xsd" MetadataType="Schema" ID="946c7113-c5f5-464d-928a-7f41684e834b" SourceId="1" SourceUrl="net.tcp://localhost:9564/Design_Time_Addresses/WcfServiceLibrary2/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

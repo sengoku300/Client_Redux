@@ -30,7 +30,7 @@ namespace WPF_Redux_Client.Pages
 
         private List<User> users = new List<User>();
 
-        private string email { get; set; }
+        private ServiceReference1.User user1;
 
         public CardsPage()
         {
@@ -43,9 +43,9 @@ namespace WPF_Redux_Client.Pages
             client = new Service1Client(context);
         }
 
-        public CardsPage(string email)
+        public CardsPage(ServiceReference1.User user)
         {
-            this.email = email;
+            this.user1 = user;
 
             InitializeComponent();
 
@@ -72,11 +72,9 @@ namespace WPF_Redux_Client.Pages
                 {
                     MessageBox.Show("SwipeRight");
 
-                    var u = client.GetUser(email);
-
                     var who = ((UserCard)sender).user;
 
-                    client.AddLike(u, who);
+                    client.AddLike(user1, who);
 
                     items_control.Items.Remove((UserCard)sender);
                 }
@@ -220,10 +218,10 @@ namespace WPF_Redux_Client.Pages
 
             if(users.Count() > 0) users.Clear();
 
-            var get_users = client.DefaultFilter(email);
+            var get_users = client.DefaultFilter(user1.Email);
 
-            double user_lati = client.GetLatiTude(email);
-            double user_long = client.GetLongiTude(email);
+            double user_lati = client.GetLatiTude(user1.Email);
+            double user_long = client.GetLongiTude(user1.Email);
 
             List<ImageBrush> images = new List<ImageBrush>();
 
@@ -256,7 +254,6 @@ namespace WPF_Redux_Client.Pages
 
                 images.Clear();
             }
-
         }
 
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)

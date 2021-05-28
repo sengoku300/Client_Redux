@@ -7,12 +7,11 @@
       MouseDown="Page_MouseDown"
       MouseMove="Page_MouseMove"
       mc:Ignorable="d"
-      Width="Auto"
-      Height="Auto"
       HorizontalAlignment="Stretch"
       VerticalAlignment="Stretch"
       Background="WhiteSmoke"
       Title="CardsPage"
+      d:DesignHeight="800" d:DesignWidth="1178"
       Style="{StaticResource {x:Type Page}}">
     
     <Page.Resources>

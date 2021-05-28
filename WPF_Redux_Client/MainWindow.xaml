@@ -80,8 +80,6 @@
             </TabControl>
 
             <Frame Grid.Column="1" x:Name="frame" NavigationUIVisibility="Hidden"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
                />
 
         </Grid>
