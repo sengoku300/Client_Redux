@@ -32,7 +32,7 @@ namespace WPF_Redux_Client.CustomControls
 
         public event RoutedEventHandler UserControlFullClicked;
 
-        public List<ImageBrush> photos = new List<ImageBrush>();
+        public List<BitmapImage> photos = new List<BitmapImage>();
 
         public User user;
 
@@ -82,7 +82,7 @@ namespace WPF_Redux_Client.CustomControls
             {
                 if (count == i)
                 {
-                    User_Image.ImageSource = photos[i].ImageSource;
+                    User_Image.ImageSource = photos[i];
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace WPF_Redux_Client.CustomControls
             {
                 if(count == i)
                 {
-                    User_Image.ImageSource = photos[i].ImageSource;
+                    User_Image.ImageSource = photos[i];
                 }
             }
         }

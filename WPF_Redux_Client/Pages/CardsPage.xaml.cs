@@ -22,7 +22,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for CardsPage.xaml
     /// </summary>
-    public partial class CardsPage : Page
+    public partial class CardsPage : Page, IService1Callback
     {
         protected Point SwipeStart;
 
@@ -30,7 +30,7 @@ namespace WPF_Redux_Client.Pages
 
         private List<User> users = new List<User>();
 
-        private ServiceReference1.User user1;
+        private User user1;
 
         public CardsPage()
         {
@@ -43,7 +43,7 @@ namespace WPF_Redux_Client.Pages
             client = new Service1Client(context);
         }
 
-        public CardsPage(ServiceReference1.User user)
+        public CardsPage(User user)
         {
             this.user1 = user;
 
@@ -66,7 +66,6 @@ namespace WPF_Redux_Client.Pages
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 var swipe = e.GetPosition(this);
-                var user = (UserCard)sender;
 
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
@@ -92,7 +91,7 @@ namespace WPF_Redux_Client.Pages
 
 
         private void MergeControls(User user,
-            double distance, List<ImageBrush> photos)
+            double distance, List<BitmapImage> photos)
         {
             UserCard userCard = new UserCard();
 
@@ -101,11 +100,15 @@ namespace WPF_Redux_Client.Pages
             userCard.User_Name.Text = user.Name;
             userCard.User_LastName.Text = user.LastName;
 
-            if(File.Exists(user.Avatarka))
-            {
-                userCard.User_Image.ImageSource =
-                    new BitmapImage(new Uri(user.Avatarka, UriKind.RelativeOrAbsolute));
-            }
+            byte[] arr = client.GetImage(user);
+
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = new MemoryStream(arr);
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+
+            userCard.User_Image.ImageSource = bitmapImage;
 
             if (photos.Count != 0)
                 userCard.photos = photos;
@@ -148,6 +151,9 @@ namespace WPF_Redux_Client.Pages
                 {
                     UserFull userFull = new UserFull();
 
+                    userFull.Width = 300;
+                    userFull.VerticalAlignment = VerticalAlignment.Center;
+                    userFull.HorizontalAlignment = HorizontalAlignment.Center;
                     userFull.Title = item.Name + " " + item.LastName + ", Город: " + item.City;
                     userFull.User_Card.User_Name.Text = item.Name;
                     userFull.User_Card.User_LastName.Text = item.LastName;
@@ -193,6 +199,7 @@ namespace WPF_Redux_Client.Pages
         private void UserCard_UserControlLikeClicked(object sender, EventArgs e)
         {
             MessageBox.Show("Like");
+
             items_control.Items.Remove((UserCard)sender);
         }
 
@@ -208,37 +215,33 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IService1Callback callback = this as IService1Callback;
-
-            InstanceContext context = new InstanceContext(callback);
-
-            client = new Service1Client(context);
-
             if (items_control.Items.Count > 0) items_control.Items.Clear();
 
             if(users.Count() > 0) users.Clear();
 
-            var get_users = client.DefaultFilter(user1.Email);
+            var get_users = client.DefaultFilter(user1);
 
             double user_lati = client.GetLatiTude(user1.Email);
             double user_long = client.GetLongiTude(user1.Email);
 
-            List<ImageBrush> images = new List<ImageBrush>();
+            List<BitmapImage> images = new List<BitmapImage>();
 
             foreach (var item in get_users)
             {
                 var photos = client.GetPhotos(item);
 
-                if(photos != null)
+                if (photos != null)
                 {
-                    foreach (var pic in photos)
+                    foreach (var item2 in photos)
                     {
-                        ImageBrush image = new ImageBrush(new BitmapImage
-                            (new Uri(pic.Photo, UriKind.RelativeOrAbsolute)));
-
-                           images.Add(image);
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.BeginInit();
+                        bitmap.StreamSource = new MemoryStream(item2);
+                        bitmap.EndInit();
+                        images.Add(bitmap);
                     }
                 }
+
 
                 double lati_ = client.GetLatiTude(item.Email);
                 double long_ = client.GetLongiTude(item.Email);
@@ -259,6 +262,21 @@ namespace WPF_Redux_Client.Pages
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(string mes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

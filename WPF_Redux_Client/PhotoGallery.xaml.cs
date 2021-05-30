@@ -46,5 +46,23 @@ namespace WPF_Redux_Client
         {
 
         }
+
+        private void MenuItemAvatar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemReplace_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if(listBox_Photos.SelectedItem != null)
+            {
+              
+            }
+        }
     }
 }

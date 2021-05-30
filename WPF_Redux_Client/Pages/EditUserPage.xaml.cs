@@ -24,7 +24,6 @@ namespace WPF_Redux_Client.Pages
     {
         private User user;
         
-
         private Service1Client client;
 
         private MainWindow main;
@@ -32,23 +31,34 @@ namespace WPF_Redux_Client.Pages
         public EditUserPage()
         {
             InitializeComponent();
-        }
-
-        public EditUserPage(User user, MainWindow mainWindow)
-        {
-            this.user = user;
-
-            main = mainWindow;
-
-            InitializeComponent();
-
-            this.DataContext = user;
 
             IService1Callback callback = this as IService1Callback;
 
             InstanceContext context = new InstanceContext(callback);
 
             client = new Service1Client(context);
+        }
+
+        public EditUserPage(User user, MainWindow mainWindow)
+        {
+            InitializeComponent();
+
+            IService1Callback callback = this as IService1Callback;
+
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
+
+            this.user = user;
+
+            main = mainWindow;
+
+            this.DataContext = this.user;
+
+            var cl = client.GetHobbies(user).Select(t => t.Hobbie); ;
+
+            foreach (var item in cl)
+                textBox_hobbies.Text += item + ",";
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
@@ -77,6 +87,11 @@ namespace WPF_Redux_Client.Pages
         }
 
         public void OnSendMessage(string mes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
         {
             throw new NotImplementedException();
         }

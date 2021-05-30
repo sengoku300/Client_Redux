@@ -53,6 +53,9 @@ namespace WPF_Redux_Client.ServiceReference1 {
         private string FaithField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WPF_Redux_Client.ServiceReference1.Filters FiltersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GenderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -232,6 +235,19 @@ namespace WPF_Redux_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public WPF_Redux_Client.ServiceReference1.Filters Filters {
+            get {
+                return this.FiltersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FiltersField, value) != true)) {
+                    this.FiltersField = value;
+                    this.RaisePropertyChanged("Filters");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Gender {
             get {
                 return this.GenderField;
@@ -396,6 +412,163 @@ namespace WPF_Redux_Client.ServiceReference1 {
                 if ((object.ReferenceEquals(this.chatItemsField, value) != true)) {
                     this.chatItemsField = value;
                     this.RaisePropertyChanged("chatItems");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Filters", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
+    [System.SerializableAttribute()]
+    public partial class Filters : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ColorEyeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ColorHairField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FiltersIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxAgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxDistanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinAgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ColorEye {
+            get {
+                return this.ColorEyeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ColorEyeField, value) != true)) {
+                    this.ColorEyeField = value;
+                    this.RaisePropertyChanged("ColorEye");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ColorHair {
+            get {
+                return this.ColorHairField;
+            }
+            set {
+                if ((this.ColorHairField.Equals(value) != true)) {
+                    this.ColorHairField = value;
+                    this.RaisePropertyChanged("ColorHair");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FiltersId {
+            get {
+                return this.FiltersIdField;
+            }
+            set {
+                if ((this.FiltersIdField.Equals(value) != true)) {
+                    this.FiltersIdField = value;
+                    this.RaisePropertyChanged("FiltersId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Height {
+            get {
+                return this.HeightField;
+            }
+            set {
+                if ((this.HeightField.Equals(value) != true)) {
+                    this.HeightField = value;
+                    this.RaisePropertyChanged("Height");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxAge {
+            get {
+                return this.MaxAgeField;
+            }
+            set {
+                if ((this.MaxAgeField.Equals(value) != true)) {
+                    this.MaxAgeField = value;
+                    this.RaisePropertyChanged("MaxAge");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxDistance {
+            get {
+                return this.MaxDistanceField;
+            }
+            set {
+                if ((this.MaxDistanceField.Equals(value) != true)) {
+                    this.MaxDistanceField = value;
+                    this.RaisePropertyChanged("MaxDistance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinAge {
+            get {
+                return this.MinAgeField;
+            }
+            set {
+                if ((this.MinAgeField.Equals(value) != true)) {
+                    this.MinAgeField = value;
+                    this.RaisePropertyChanged("MinAge");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -848,83 +1021,6 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Photos", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
-    [System.SerializableAttribute()]
-    public partial class Photos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhotoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PhotoIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Photo {
-            get {
-                return this.PhotoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PhotoField, value) != true)) {
-                    this.PhotoField = value;
-                    this.RaisePropertyChanged("Photo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PhotoID {
-            get {
-                return this.PhotoIDField;
-            }
-            set {
-                if ((this.PhotoIDField.Equals(value) != true)) {
-                    this.PhotoIDField = value;
-                    this.RaisePropertyChanged("PhotoID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((this.UserIDField.Equals(value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Hobbies", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
     [System.SerializableAttribute()]
     public partial class Hobbies : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1084,10 +1180,10 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        System.Windows.Media.ImageBrush GetImage(WPF_Redux_Client.ServiceReference1.User user);
+        byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        System.Threading.Tasks.Task<System.Windows.Media.ImageBrush> GetImageAsync(WPF_Redux_Client.ServiceReference1.User user);
+        System.Threading.Tasks.Task<byte[]> GetImageAsync(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAccount", ReplyAction="http://tempuri.org/IService1/GetAccountResponse")]
         bool GetAccount(string email, string password, bool partly);
@@ -1107,11 +1203,17 @@ namespace WPF_Redux_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCode", ReplyAction="http://tempuri.org/IService1/GetCodeResponse")]
         System.Threading.Tasks.Task<int> GetCodeAsync(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DefaultFilter", ReplyAction="http://tempuri.org/IService1/DefaultFilterResponse")]
-        WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(string email);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAvatar", ReplyAction="http://tempuri.org/IService1/SetAvatarResponse")]
+        void SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAvatar", ReplyAction="http://tempuri.org/IService1/SetAvatarResponse")]
+        System.Threading.Tasks.Task SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DefaultFilter", ReplyAction="http://tempuri.org/IService1/DefaultFilterResponse")]
-        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> DefaultFilterAsync(string email);
+        WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(WPF_Redux_Client.ServiceReference1.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DefaultFilter", ReplyAction="http://tempuri.org/IService1/DefaultFilterResponse")]
+        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> DefaultFilterAsync(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLatiTude", ReplyAction="http://tempuri.org/IService1/GetLatiTudeResponse")]
         double GetLatiTude(string email);
@@ -1120,10 +1222,10 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task<double> GetLatiTudeAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPhotos", ReplyAction="http://tempuri.org/IService1/GetPhotosResponse")]
-        WPF_Redux_Client.ServiceReference1.Photos[] GetPhotos(WPF_Redux_Client.ServiceReference1.User user);
+        byte[][] GetPhotos(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPhotos", ReplyAction="http://tempuri.org/IService1/GetPhotosResponse")]
-        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.Photos[]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user);
+        System.Threading.Tasks.Task<byte[][]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
         WPF_Redux_Client.ServiceReference1.User GetUser(string email);
@@ -1236,11 +1338,11 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.AddPhotoAsync(image, user);
         }
         
-        public System.Windows.Media.ImageBrush GetImage(WPF_Redux_Client.ServiceReference1.User user) {
+        public byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetImage(user);
         }
         
-        public System.Threading.Tasks.Task<System.Windows.Media.ImageBrush> GetImageAsync(WPF_Redux_Client.ServiceReference1.User user) {
+        public System.Threading.Tasks.Task<byte[]> GetImageAsync(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetImageAsync(user);
         }
         
@@ -1268,12 +1370,20 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.GetCodeAsync(email);
         }
         
-        public WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(string email) {
-            return base.Channel.DefaultFilter(email);
+        public void SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
+            base.Channel.SetAvatar(user, array);
         }
         
-        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> DefaultFilterAsync(string email) {
-            return base.Channel.DefaultFilterAsync(email);
+        public System.Threading.Tasks.Task SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
+            return base.Channel.SetAvatarAsync(user, array);
+        }
+        
+        public WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(WPF_Redux_Client.ServiceReference1.User user) {
+            return base.Channel.DefaultFilter(user);
+        }
+        
+        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> DefaultFilterAsync(WPF_Redux_Client.ServiceReference1.User user) {
+            return base.Channel.DefaultFilterAsync(user);
         }
         
         public double GetLatiTude(string email) {
@@ -1284,11 +1394,11 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.GetLatiTudeAsync(email);
         }
         
-        public WPF_Redux_Client.ServiceReference1.Photos[] GetPhotos(WPF_Redux_Client.ServiceReference1.User user) {
+        public byte[][] GetPhotos(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetPhotos(user);
         }
         
-        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.Photos[]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user) {
+        public System.Threading.Tasks.Task<byte[][]> GetPhotosAsync(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetPhotosAsync(user);
         }
         

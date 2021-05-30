@@ -88,6 +88,12 @@
   <wsdl:message name="IService1_GetCode_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SetAvatar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAvatar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAvatarResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DefaultFilter_InputMessage">
     <wsdl:part name="parameters" element="tns:DefaultFilter" />
   </wsdl:message>
@@ -194,6 +200,10 @@
     <wsdl:operation name="GetCode">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCode" message="tns:IService1_GetCode_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCodeResponse" message="tns:IService1_GetCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAvatar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAvatar" message="tns:IService1_SetAvatar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAvatarResponse" message="tns:IService1_SetAvatar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DefaultFilter">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DefaultFilter" message="tns:IService1_DefaultFilter_InputMessage" />
@@ -308,6 +318,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCode">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAvatar">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SetAvatar" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

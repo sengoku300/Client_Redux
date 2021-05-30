@@ -49,8 +49,7 @@ namespace WPF_Redux_Client
                 case "black_list":
                     break;
                 case "feed":
-                    frame.Navigate(new CardsPage());
-                    this.Width = 900;
+                    frame.Navigate(new CardsPage(user));
                     break;
                 case "filters":
                     frame.Navigate(new FiltersPage());

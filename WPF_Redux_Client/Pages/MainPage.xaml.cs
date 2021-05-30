@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -53,15 +55,17 @@ namespace WPF_Redux_Client.Pages
 
             this.user = user;
 
-            textBox_Name.Text = user.Name + " " + user.LastName;
-            run_descriptions.Text = user.Description;
-            run_birthday.Text = user.Birthday.ToString("dd/MM/yyyy");
-            run_eduction.Text = user.Education;
-            run_city.Text = user.City;
-            run_country.Text = user.Country;
+            this.DataContext = user;
 
-            if (client.GetImage(user) != null)
-                user_photo.Source = client.GetImage(user).ImageSource;
+            var hobbies = client.GetHobbies(user)?.Select(t => t.Hobbie);
+
+            if (hobbies != null)
+            {
+                foreach (var item in hobbies)
+                    textBlock_Hobbies.Text += item + ",";
+            }
+
+            GetAvatarka();
         }
 
         public void OnCallback()
@@ -76,9 +80,44 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            PhotoGallery photoGallery = new PhotoGallery();
 
+            photoGallery.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) => mainW.frame.Navigate(new EditUserPage(user, mainW));
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GetAvatarka()
+        {
+            byte[] arr = client.GetImage(user);
+
+            BitmapImage bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.StreamSource = new MemoryStream(arr);
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.EndInit();
+
+            user_photo.Source = bitmapImage;
+        }
+
+        private void user_photo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.ShowDialog();
+
+            if(openFileDialog.FileName != "")
+            {
+                byte[] bytes = File.ReadAllBytes(openFileDialog.FileName);
+              
+                client.SetAvatar(user, bytes);
+                GetAvatarka();
+            }
+        }
     }
 }

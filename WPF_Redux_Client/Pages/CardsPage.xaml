@@ -43,7 +43,13 @@
             </Button.Content>
         </Button>
 
-        <ItemsControl AlternationCount="2" x:Name="items_control" Grid.Row="1">
+        <ItemsControl AlternationCount="2"
+                      Width="600"
+                      Height="700"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      x:Name="items_control"
+                      Grid.Row="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <local1:UserCard Width="250" Height="300" Content="{Binding}"/>

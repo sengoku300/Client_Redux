@@ -31,7 +31,8 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
@@ -228,6 +229,38 @@
             </ComboBox>
         </StackPanel>
 
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock
+                       Margin="5,10,5,0"
+                       Text="Рост:"
+                       VerticalAlignment="top"
+                       FontSize="25px"/>
+            <TextBox Margin="0,8,10,8.4"
+                     Text="{Binding Height}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     BorderBrush="Gray"
+                     FontSize="20"
+                     FontWeight="DemiBold"
+                     Width="408"
+                     x:Name="textBox_Height"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Grid.Column="0" Orientation="Horizontal">
+            <TextBlock
+                       Margin="5,10,5,0"
+                       Text="Вес:"
+                       VerticalAlignment="top"
+                       FontSize="25px"/>
+            <TextBox Margin="10,10,10,8"
+                     Text="{Binding Weight}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     BorderBrush="Gray"
+                     FontSize="20"
+                     FontWeight="DemiBold"
+                     Width="411"
+                     x:Name="textBox_Weight"/>
+        </StackPanel>
+
         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
@@ -248,19 +281,18 @@
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
             <TextBlock
                        Margin="5"
-                       Text="Интересы:"
+                       Text="Хобби:"
                        VerticalAlignment="Top"
                        FontSize="25px"/>
-            <TextBox Margin="0,5,10,10"
-                     Text="{Binding Path=Hobbie}"
+            <TextBox Margin="0,5,10,10.4"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
-                     Width="352"
+                     Width="391"
                      x:Name="textBox_hobbies" FontSize="15" VerticalScrollBarVisibility="Visible"/>
         </StackPanel>
 
         <Button x:Name="Button_Save"
-                Grid.Row="6"
+                Grid.Row="7"
                 Grid.ColumnSpan="2"
                 Margin="15"
                 Content="Сохранить изменения"

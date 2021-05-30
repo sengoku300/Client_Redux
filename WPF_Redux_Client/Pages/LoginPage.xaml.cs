@@ -129,5 +129,10 @@ namespace WPF_Redux_Client.Pages
         {
             throw new NotImplementedException();
         }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

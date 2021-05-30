@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+  <xs:complexType name="Filters">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColorEye" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColorHair" type="xs:int" />
+      <xs:element minOccurs="0" name="FiltersId" type="xs:int" />
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxAge" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxDistance" type="xs:int" />
+      <xs:element minOccurs="0" name="MinAge" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Filters" nillable="true" type="tns:Filters" />
   <xs:complexType name="ArrayOfLikes">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Likes" nillable="true" type="tns:Likes" />
@@ -59,20 +72,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
-  <xs:complexType name="ArrayOfPhotos">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Photos" nillable="true" type="tns:Photos" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPhotos" nillable="true" type="tns:ArrayOfPhotos" />
-  <xs:complexType name="Photos">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PhotoID" type="xs:int" />
-      <xs:element minOccurs="0" name="UserID" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Photos" nillable="true" type="tns:Photos" />
   <xs:complexType name="ArrayOfHobbies">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Hobbies" nillable="true" type="tns:Hobbies" />

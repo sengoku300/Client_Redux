@@ -3,9 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WPF_Redux_Client"
         mc:Ignorable="d"
         Title="PhotoGallery" Height="450" Width="800">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -19,6 +32,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBox Grid.Column="0"
+                     BorderBrush="Gray"
                      x:Name="textBox_Path"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Stretch"
@@ -32,12 +46,31 @@
                     Content="Добавить" Click="Button_Click"/>
         </Grid>
 
-        <ListBox Margin="10" x:Name="listBox_Photos" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox Margin="10"
+                 x:Name="listBox_Photos"
+                 Grid.Row="1"
+                 ScrollViewer.VerticalScrollBarVisibility="Visible"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Rows="3" Columns="3"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
+
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить" Click="MenuItemDelete_Click"/>
+                    <MenuItem Header="Заменить" Click="MenuItemReplace_Click"/>
+                    <MenuItem Header="Поставить на аватарку" Click="MenuItemAvatar_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            
+            <ListBoxItem Width="100">
+                <Image Source="icon_man.png"/>
+            </ListBoxItem>
+
+          
+            
         </ListBox>
     </Grid>
 </Window>

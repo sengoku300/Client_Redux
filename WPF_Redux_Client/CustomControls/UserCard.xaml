@@ -32,65 +32,64 @@
         </Style>-->
     </UserControl.Resources>
 
-    <Border BorderBrush="HotPink" BorderThickness="1">
-        <Grid>
-            <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
-                </Border.Effect>
-            </Border>
-            <Border CornerRadius="10" ClipToBounds="True" Margin="10" BorderThickness=".5" BorderBrush="#FFCDCDCD">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#fae81b"/>
-                        <GradientStop Color="#f9e918" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                        <RowDefinition Height="20"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0">
-                        <!--Верх-->
-                    </StackPanel>
-                    <Border Grid.Row="1" Background="White" BorderThickness="0 1" BorderBrush="#FFE2E2E2">
-                        <!--Тело-->
-                        <Border>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="300"/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
+    <Grid>
+        <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
+            </Border.Effect>
+        </Border>
+        <Border CornerRadius="10" ClipToBounds="True" Margin="10" BorderThickness=".5" BorderBrush="#FFCDCDCD">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fae81b"/>
+                    <GradientStop Color="#f9e918" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <!--Верх-->
+                </StackPanel>
+                <Border Grid.Row="1" Background="White" BorderThickness="0 1" BorderBrush="#FFE2E2E2">
+                    <!--Тело-->
+                    <Border>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                                <Grid Grid.Row="0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                                    <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
-                                        <Border.Background>
-                                            <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
+                                <Border CornerRadius="0,0,40,40" Grid.ColumnSpan="2">
+                                    <Border.Background>
+                                        <ImageBrush x:Name="User_Image" Stretch="UniformToFill"
                                          ImageSource="hero_ua.jpg"/>
-                                        </Border.Background>
-                                    </Border>
+                                    </Border.Background>
+                                </Border>
 
-                                    <materialDesign:PackIcon MouseDown="PackIcon_MouseDown_1" Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown_1" Background="#fae81b" Grid.Column="0" Margin="0,134,0,132"  Kind="ArrowLeft"
                                          HorizontalAlignment="Left"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
 
-                                    <materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
+                                <materialDesign:PackIcon MouseDown="PackIcon_MouseDown" Background="#fae81b" Grid.Column="1" Margin="0,134,0,132"  Kind="ArrowRight"
                                          HorizontalAlignment="Right"
                                          VerticalAlignment="Center" Height="34" Width="33"/>
-                                </Grid>
+                            </Grid>
 
 
-                                <TextBlock FontSize="25"
+                            <TextBlock FontSize="25"
                                        Grid.Row="1"
                                        FontWeight="DemiBold"
                                        Foreground="Gray"
@@ -99,59 +98,58 @@
             <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
                                 <Run Text="," />
             <Run x:Name="User_Year" Text="20" />
-                                </TextBlock>
+                            </TextBlock>
 
-                                <TextBlock FontSize="20"
+                            <TextBlock FontSize="20"
                        Grid.Row="2"
                    Foreground="Gray"
                    FontWeight="DemiBold" Margin="10">
              <Run Foreground="HotPink" x:Name="User_Kilometer"
              Text="6"/>
             <Run Text="км от вас"/>
-                                </TextBlock>
+                            </TextBlock>
 
 
-                                <Grid Grid.Row="3">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
 
-                                    <Button Margin="5" x:Name="like" Click="like_Click" 
+                                <Button Margin="5" x:Name="like" Click="like_Click" 
                                         VerticalAlignment="Center" materialDesign:ShadowAssist.Darken="True" Grid.Column="0">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon Kind="ThumbUp"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"/>
-                                        </Button.Content>
-                                    </Button>
-
-                                    <Button Margin="5" x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
-                                        <Button.Content>
-                                            <materialDesign:PackIcon Kind="Close"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center"/>
-                                        </Button.Content>
-                                    </Button>
-                                </Grid>
-
-                                <Button Margin="5" Grid.Row="4" Click="Button_Click"  >
                                     <Button.Content>
-                                        <materialDesign:PackIcon  Kind="Fullscreen"
-                                         HorizontalAlignment="Right"
-                                         VerticalAlignment="Center" Height="34" Width="33"/>
+                                        <materialDesign:PackIcon Kind="ThumbUp"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Margin="5" x:Name="close" Click="close_Click" materialDesign:ShadowAssist.Darken="True" Grid.Column="1">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Close"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
                                     </Button.Content>
                                 </Button>
                             </Grid>
-                        </Border>
 
+                            <Button Margin="5" Grid.Row="4" Click="Button_Click"  >
+                                <Button.Content>
+                                    <materialDesign:PackIcon  Kind="Fullscreen"
+                                         HorizontalAlignment="Right"
+                                         VerticalAlignment="Center" Height="34" Width="33"/>
+                                </Button.Content>
+                            </Button>
+                        </Grid>
                     </Border>
 
-                    <StackPanel Grid.Row="2">
-                        <!--Низ-->
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Grid>
-    </Border>
+                </Border>
+
+                <StackPanel Grid.Row="2">
+                    <!--Низ-->
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>
