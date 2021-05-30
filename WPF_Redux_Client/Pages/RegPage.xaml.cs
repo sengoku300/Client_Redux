@@ -32,6 +32,13 @@ namespace WPF_Redux_Client.Pages
 
         Regex regex = new Regex("[^0-9]+");
 
+
+
+        SolidColorBrush purple = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ea90b5"));
+        SolidColorBrush green = new SolidColorBrush(Colors.LightGreen);
+        SolidColorBrush red = new SolidColorBrush(Colors.Red);
+        SolidColorBrush transparent = new SolidColorBrush(Colors.Transparent);
+
         public RegPage()
         {
             InitializeComponent();
@@ -68,8 +75,6 @@ namespace WPF_Redux_Client.Pages
 
         private double GetLatiTude()
         {
-            string ipLoc = string.Empty;
-
             var client = new RestClient("https://ipapi.co/json/");
             var request = new RestRequest
             {
@@ -87,12 +92,10 @@ namespace WPF_Redux_Client.Pages
             }
 
             return 0;
-        }  
-        
+        }
+
         private double GetLongiTude()
         {
-            string ipLoc = string.Empty;
-
             var client = new RestClient("https://ipapi.co/json/");
             var request = new RestRequest
             {
@@ -114,8 +117,6 @@ namespace WPF_Redux_Client.Pages
 
         private string GetCity()
         {
-            string ipLoc = string.Empty;
-
             var client = new RestClient("https://ipapi.co/json/");
             var request = new RestRequest
             {
@@ -133,12 +134,11 @@ namespace WPF_Redux_Client.Pages
             }
 
             return null;
-        }  
-        
-        private void Button_Click_1(object sender, RoutedEventArgs e) => gender = "Мужчина";
+        }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e) => gender = "Женщина";
+        private void Button_Click_1(object sender, RoutedEventArgs e) { gender = "Мужчина"; Button_Gender_Male.Background = green; Button_Gender_Female.Background = purple; }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e) { gender = "Женщина"; Button_Gender_Male.Background = purple; Button_Gender_Female.Background = green; }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
@@ -181,13 +181,28 @@ namespace WPF_Redux_Client.Pages
         }
 
 
-        private void textBox_Birthday_DD_PreviewTextInput(object sender, TextCompositionEventArgs e) 
-            => e.Handled = regex.IsMatch(e.Text);
+        private void textBox_Birthday_DD_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (regex.IsMatch(e.Text)) { textBox_Birthday_DD.BorderBrush = red; e.Handled = true; }
+            else if (Convert.ToInt32(textBox_Birthday_DD.email.Text + e.Text) > 31) { textBox_Birthday_DD.BorderBrush = red; MessageBox.Show("В месяце не может быть больше 31-го дня!"); e.Handled = true; }
+            else if (textBox_Birthday_MM.Text?.Length > 0 && textBox_Birthday_Year.Text?.Length == 4 && Convert.ToInt32(textBox_Birthday_DD.email.Text + e.Text) > DateTime.DaysInMonth(Convert.ToInt32(textBox_Birthday_Year.Text), Convert.ToInt32(textBox_Birthday_MM.Text))) { textBox_Birthday_DD.BorderBrush = red; MessageBox.Show($"В этом месяце может быть не больше {DateTime.DaysInMonth(Convert.ToInt32(textBox_Birthday_Year.Text), Convert.ToInt32(textBox_Birthday_MM.Text))} дней."); e.Handled = true; }
+            else textBox_Birthday_DD.BorderBrush = transparent;
+        }
 
         private void textBox_Birthday_MM_PreviewTextInput(object sender, TextCompositionEventArgs e)
-            => e.Handled = regex.IsMatch(e.Text);
+        {
+            if (regex.IsMatch(e.Text)) { textBox_Birthday_MM.BorderBrush = red; e.Handled = true; }
+            else if (Convert.ToInt32(textBox_Birthday_MM.email.Text + e.Text) > 12) { textBox_Birthday_MM.BorderBrush = red; MessageBox.Show("В месяце не может быть больше 12 месяцев!"); e.Handled = true; }
+            else if (Convert.ToInt32(textBox_Birthday_MM.email.Text + e.Text) == 0) { textBox_Birthday_MM.BorderBrush = red; MessageBox.Show("Нулевой месяц не существует!"); e.Handled = true; }
+            else textBox_Birthday_MM.BorderBrush = transparent;
+        }
 
         private void textBox_Birthday_Year_PreviewTextInput(object sender, TextCompositionEventArgs e)
-            => e.Handled = regex.IsMatch(e.Text);
+        {
+            if (regex.IsMatch(e.Text)) { textBox_Birthday_Year.BorderBrush = red; e.Handled = true; }
+            else if (Convert.ToInt32(textBox_Birthday_Year.email.Text + e.Text) > DateTime.Now.Year) { textBox_Birthday_Year.BorderBrush = red; MessageBox.Show("Нельзя регистрироваться до своего рождения!"); e.Handled = true; }
+            else if (Convert.ToInt32(textBox_Birthday_Year.email.Text + e.Text) + 122 < DateTime.Now.Year) { textBox_Birthday_Year.BorderBrush = red; MessageBox.Show("Хотя Вы, может, и похожи на Жанну Кальман, но вряд-ли Вам больше 122-х лет!"); e.Handled = true; }
+            else textBox_Birthday_MM.BorderBrush = transparent;
+        }
     }
 }

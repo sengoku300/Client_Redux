@@ -20,16 +20,11 @@ namespace WPF_Redux_Client.CustomControls
     /// </summary>
     public partial class Mymes : UserControl
     {
-<<<<<<< HEAD
-=======
        
->>>>>>> Anton
         public Mymes()
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
         public Mymes(string mes, string time)
         {
             Mes = mes;
@@ -41,6 +36,5 @@ namespace WPF_Redux_Client.CustomControls
 
         public string TimeSending { get; set; }
         public string Mes { get; set; }
->>>>>>> Anton
     }
 }

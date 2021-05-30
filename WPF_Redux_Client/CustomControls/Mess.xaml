@@ -5,13 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              mc:Ignorable="d" 
-<<<<<<< HEAD
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
-=======
-             d:DesignWidth="300">
+             d:DesignWidth="300" >
     <UserControl.Resources>
         <Style x:Key="Border" TargetType="Border">
             <Style.Triggers>
@@ -24,7 +18,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <Border Padding="5" Style="{StaticResource Border}"  >
+    <Border Padding="5"  Style="{StaticResource Border}"  >
         <Grid>
 
 
@@ -53,9 +47,9 @@
                     <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap" 
                            Foreground="Black"
-                             FontSize="15"
+                             FontSize="15" FontFamily="Calibri"
                               Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mes}" 
-                               FontFamily="Kolikö "
+                              
                              
                              FontWeight="Bold"
                            />
@@ -85,5 +79,4 @@
 
         </Grid>
     </Border>
->>>>>>> Anton
 </UserControl>

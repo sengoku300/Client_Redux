@@ -22,7 +22,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for CardsPage.xaml
     /// </summary>
-    public partial class CardsPage : Page
+    public partial class CardsPage : Page,IService1Callback
     {
         protected Point SwipeStart;
 
@@ -262,6 +262,16 @@ namespace WPF_Redux_Client.Pages
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -26,22 +26,14 @@ namespace WPF_Redux_Client.CustomControls
         }
         public Chatlistitem(string name, string lastmes, byte[] imagePath)
         {
-<<<<<<< HEAD
-            Nameuser = name;
-=======
-            NameUser = name;
->>>>>>> Anton
-            ImagePath = imagePath;
-            Lastmes= lastmes;
+           
             InitializeComponent();
-
+            NameUser = name;
+            ImagePath = imagePath;
+            Lastmes = lastmes;
         }
         public byte[] ImagePath { get; set; }
-<<<<<<< HEAD
-        public string Nameuser { get; set; }
-=======
         public string NameUser { get; set; }
->>>>>>> Anton
         public string Lastmes { get; set; }
     }
 }
