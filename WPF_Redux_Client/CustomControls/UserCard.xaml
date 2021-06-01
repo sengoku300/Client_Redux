@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Width="Auto"
+             Width="auto"
              Height="Auto"
              Style="{StaticResource {x:Type UserControl}}">
     
@@ -155,7 +155,7 @@
         </ControlTemplate>
     </UserControl.Template>-->
 
-    <Grid>
+    <Grid >
         <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
@@ -218,8 +218,7 @@
                                        Foreground="Gray"
                                        Margin="10">
             <Run x:Name="User_Name" Text="Имя" />
-            <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/>
-                                <Run Text="," />
+            <Run x:Name="User_LastName" Text="Фамилия" Foreground="HotPink"/> <Run Text="," />
             <Run x:Name="User_Year" Text="20" />
                             </TextBlock>
 

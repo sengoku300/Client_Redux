@@ -87,13 +87,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\BlackListItem.xaml.cs">
+      <DependentUpon>BlackListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Chatlistitem.xaml.cs">
+      <DependentUpon>Chatlistitem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\InterestedBox.xaml.cs">
       <DependentUpon>InterestedBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\MegaClass.cs" />
+    <Compile Include="CustomControls\Mess.xaml.cs">
+      <DependentUpon>Mess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Mymes.xaml.cs">
+      <DependentUpon>Mymes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\PhotoCard.xaml.cs">
+      <DependentUpon>PhotoCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ProfileControl.xaml.cs">
+      <DependentUpon>ProfileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditUserPage.xaml.cs">
+      <DependentUpon>EditUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PhotoGallery.xaml.cs">
+    <Compile Include="Pages\PhotoGallery.xaml.cs">
       <DependentUpon>PhotoGallery.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserFull.xaml.cs">
@@ -103,13 +130,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControls\BlackListItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\Chatlistitem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomControls\FilterItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomControls\HeaderChat.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\InterestedBox.xaml">
       <SubType>Designer</SubType>
@@ -119,6 +150,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomControls\Mess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\Mymes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\PhotoCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\ProfileControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomControls\TextBoxWithPlaceHolder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,10 +173,6 @@
     <Page Include="CustomControls\UserCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomControls\UserControl1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\UserFullCard.xaml">
       <SubType>Designer</SubType>
@@ -146,16 +189,8 @@
     <Compile Include="Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="CustomControls\FilterItem.xaml.cs">
       <DependentUpon>FilterItem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\HeaderChat.xaml.cs">
-      <DependentUpon>HeaderChat.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\LikedUser.xaml.cs">
       <DependentUpon>LikedUser.xaml</DependentUpon>
@@ -165,9 +200,6 @@
     </Compile>
     <Compile Include="CustomControls\UserCard.xaml.cs">
       <DependentUpon>UserCard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomControls\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\UserFullCard.xaml.cs">
       <DependentUpon>UserFullCard.xaml</DependentUpon>
@@ -181,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,15 +240,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PhotoGallery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\RegPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RememberPassPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PhotoGallery.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,43 +299,48 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ServiceReference1\service1.wsdl" />
-    <None Include="Connected Services\ServiceReference1\service2.xsd">
-<<<<<<< HEAD
+    <None Include="Connected Services\ServiceReference1\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\service21.xsd">
+    <None Include="Connected Services\ServiceReference1\service.wsdl" />
+    <None Include="Connected Services\ServiceReference1\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.Classes1.xsd">
+    <None Include="Connected Services\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-=======
+    <None Include="Connected Services\ServiceReference1\System.Windows.Media.Animation.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\service21.xsd">
+    <None Include="Connected Services\ServiceReference1\System.Windows.Media.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.Classes1.xsd">
+    <None Include="Connected Services\ServiceReference1\System.Windows.Threading.xsd">
       <SubType>Designer</SubType>
     </None>
->>>>>>> Anton
-    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary21.xsd">
+    <None Include="Connected Services\ServiceReference1\System.Windows.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.CompositeType1.datasource">
+    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.Classes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\WcfServiceLibrary2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.Hobbies.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.Photos.datasource">
+    <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.TmpChatItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\WPF_Redux_Client.ServiceReference1.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Windows.Media.ImageBrush.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -310,21 +351,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\accept.png" />
@@ -372,12 +398,36 @@
   <ItemGroup>
     <Resource Include="icon_man.png" />
   </ItemGroup>
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <Resource Include="Pages\hero_ua.jpg" />
   </ItemGroup>
->>>>>>> Anton
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\chat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ahmetov.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CustomControls\3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

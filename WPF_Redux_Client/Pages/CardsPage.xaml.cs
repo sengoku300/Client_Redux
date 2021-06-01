@@ -22,7 +22,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for CardsPage.xaml
     /// </summary>
-    public partial class CardsPage : Page
+    public partial class CardsPage : Page,IService1Callback
     {
         protected Point SwipeStart;
 
@@ -210,58 +210,68 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IService1Callback callback = this as IService1Callback;
+            //IService1Callback callback = this as IService1Callback;
 
-            InstanceContext context = new InstanceContext(callback);
+            //InstanceContext context = new InstanceContext(callback);
 
-            client = new Service1Client(context);
+            //client = new Service1Client(context);
 
-            if (items_control.Items.Count > 0) items_control.Items.Clear();
+            //if (items_control.Items.Count > 0) items_control.Items.Clear();
 
-            if(users.Count() > 0) users.Clear();
+            //if(users.Count() > 0) users.Clear();
 
-            var get_users = client.DefaultFilter(email);
+            //var get_users = client.DefaultFilter(email);
 
-            double user_lati = client.GetLatiTude(email);
-            double user_long = client.GetLongiTude(email);
+            //double user_lati = client.GetLatiTude(email);
+            //double user_long = client.GetLongiTude(email);
 
-            List<ImageBrush> images = new List<ImageBrush>();
+            //List<ImageBrush> images = new List<ImageBrush>();
 
-            foreach (var item in get_users)
-            {
-                var photos = client.GetPhotos(item);
+            //foreach (var item in get_users)
+            //{
+            //    var photos = client.GetPhotos(item);
 
-                if(photos != null)
-                {
-                    foreach (var pic in photos)
-                    {
-                        ImageBrush image = new ImageBrush(new BitmapImage
-                            (new Uri(pic.Photo, UriKind.RelativeOrAbsolute)));
+            //    if(photos != null)
+            //    {
+            //        foreach (var pic in photos)
+            //        {
+            //            ImageBrush image = new ImageBrush(new BitmapImage
+            //                (new Uri(pic.Photo, UriKind.RelativeOrAbsolute)));
 
-                           images.Add(image);
-                    }
-                }
+            //               images.Add(image);
+            //        }
+            //    }
 
-                double lati_ = client.GetLatiTude(item.Email);
-                double long_ = client.GetLongiTude(item.Email);
+            //    double lati_ = client.GetLatiTude(item.Email);
+            //    double long_ = client.GetLongiTude(item.Email);
 
-                double distance = client.GetDistanceBetweenPoints(user_lati, user_long, lati_, long_);
+            //    double distance = client.GetDistanceBetweenPoints(user_lati, user_long, lati_, long_);
 
-                if (distance > 1000)
-                    distance = distance / 1000;
+            //    if (distance > 1000)
+            //        distance = distance / 1000;
 
-                MergeControls(item, distance, images);
+            //    MergeControls(item, distance, images);
 
-                users.Add(item);
+            //    users.Add(item);
 
-                images.Clear();
-            }
+            //    images.Clear();
+            //}
 
         }
 
         private void UserCard_UserControlLikeClicked_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

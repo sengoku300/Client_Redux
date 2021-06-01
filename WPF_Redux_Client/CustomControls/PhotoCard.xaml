@@ -1,0 +1,117 @@
+﻿<UserControl x:Name="UC"
+    x:Class="WPF_Redux_Client.CustomControls.PhotoCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Width="225"
+             Height="270"
+             Background="WhiteSmoke" MouseEnter="UC_MouseEnter" MouseLeave="UC_MouseEnter">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform ScaleX="1" ScaleY="1"/>
+            <SkewTransform AngleX="0" AngleY="0"/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform X="0" Y="0"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <UserControl.Triggers>
+
+        <EventTrigger RoutedEvent="Mouse.MouseEnter">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <!--<DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="UC" Storyboard.TargetProperty="RenderTransform.Children[0].ScaleX" To="0.47"/>
+                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="UC" Storyboard.TargetProperty="RenderTransform.Children[0].ScaleY" To="0.47"/>-->
+                        <!--Кнопки становятся видимыми при наведении на User control-->
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Button_delete">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Button_main">
+                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>-->
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <!--<DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="UC" Storyboard.TargetProperty="RenderTransform.Children[0].ScaleX" To="0.45"/>
+                    <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="UC" Storyboard.TargetProperty="RenderTransform.Children[0].ScaleY" To="0.45"/>-->
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Button_delete">
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                    <!--<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Button_main">
+                        <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>-->
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+    </UserControl.Triggers>
+    <Grid Background ="WhiteSmoke" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Photo" Margin="10,10,10,57" Stretch="Uniform" Source="ahmetov.png">
+            <!--<Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="ScaleTF" ScaleX="1" ScaleY="1"/>
+                    <SkewTransform AngleX="0" AngleY="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="0" Y="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>-->
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+            <!--Animation1 -->
+            <!--<Image.Triggers>
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1"/>
+                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="RenderTransform.ScaleX" To="1"/>
+                            <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="RenderTransform.ScaleY" To="1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>-->
+        </Image>
+        <!-- checkbox style same as toggle button -->
+
+
+        <Button x:Name="Button_delete" Background="#999999" BorderBrush="DarkGray"
+  Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+  ToolTip="Удалить фотографию" Margin="186,0,0,231" Opacity="0" Height="Auto" Click="Button_delete_Click" Width="Auto">
+            <materialDesign:PackIcon
+    Kind="CloseCircle"
+    Height="39"
+    Width="34" />
+        </Button>
+
+        <Button x:Name="Button_main" Content="Сделать аватаркой" Foreground="Black" Margin="10,225,10,10" Height="Auto" Background="#dedede" BorderBrush="Transparent" Opacity="0" Click="Button_main_Click" FontSize="16" VerticalContentAlignment="Center"/>
+    </Grid>
+</UserControl>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Redux_Client"
         mc:Ignorable="d"
         Height="768"
-        Width="1024" WindowStartupLocation="CenterScreen"
+        Width="1024"
         Title="Authorization">
     <Grid>
         <Frame x:Name="authMain" NavigationUIVisibility="Hidden"/>

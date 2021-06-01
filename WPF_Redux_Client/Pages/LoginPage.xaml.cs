@@ -52,13 +52,9 @@ namespace WPF_Redux_Client.Pages
 
                 client = new Service1Client(context);
 
-<<<<<<< HEAD
-                userName.Text = client.GetName(account[0]);
-=======
                 string login = client.GetName(account[0]);
 
                 userName.Text = login;
->>>>>>> Anton
             }
         }
 
@@ -84,13 +80,6 @@ namespace WPF_Redux_Client.Pages
         {
             if (textBox_Email.Text != "" && PassBox.passbox.Password != "")
             {
-<<<<<<< HEAD
-                IService1Callback callback = this as IService1Callback;
-
-                InstanceContext context = new InstanceContext(callback);
-
-                client = new Service1Client(context);
-=======
                 if (client == null)
                 {
                     IService1Callback callback = this as IService1Callback;
@@ -99,7 +88,6 @@ namespace WPF_Redux_Client.Pages
 
                     client = new Service1Client(context);
                 }
->>>>>>> Anton
 
                 if (client.GetAccount(textBox_Email.Text, PassBox.passbox.Password, false))
                 {
@@ -116,14 +104,11 @@ namespace WPF_Redux_Client.Pages
                         File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
                             PassBox.passbox.Password});
                     }
-                  
+                    
                     MainWindow mainWindow = new MainWindow();
-
-                    mainWindow.email = textBox_Email.Text;
-
+                    mainWindow.user = client.GetUser(textBox_Email.Text);
                     mainWindow.Show();
-
-                    authoriz.Close();
+                    authoriz?.Close();
                 }
                 else
                     MessageBox.Show("Ошибка! Неверный логин или пароль!");
@@ -138,6 +123,11 @@ namespace WPF_Redux_Client.Pages
         }
 
         public void OnSendMessage(string mes)
+        {
+            MessageBox.Show("login");
+        }
+
+        public void OnSendMessage(int chatid, Message message)
         {
             throw new NotImplementedException();
         }

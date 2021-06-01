@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="WPF_Redux_Client.CustomControls.BlackListItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="60" Width="255"  Background="WhiteSmoke"
+             Name="user" Margin="10,5,10,5"
+            MouseEnter="UserControl_MouseEnter"
+             MouseLeave="UserControl_MouseLeave" MouseDown="user_MouseDown"
+            >
+
+
+
+    <Grid  x:Name="grid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="image" MouseEnter="Border_MouseEnter" Grid.Column="0" Grid.Row="0" CornerRadius="80">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=ImagePath}"></ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid  Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Margin="2,0,0,0" Grid.Row="0" Text="Example Example"
+                       FontWeight="DemiBold" Name="name"
+                       FontSize="20" FontStyle="Italic"
+                       Foreground="#ea90b5"/>
+
+            <Grid Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" x:Name="user_year" Text="0 лет"
+                           Foreground="Gray"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                <TextBlock Grid.Column="1"  x:Name="user_city" Text="Киев"
+                           Foreground="Gray" 
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2"  Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter" Margin="1,0,0,0" MouseDown="borderlike_MouseDown">
+
+
+                    <materialDesign:PackIcon Name="like"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         Kind="ThumbUp"/>
+                </Border>
+
+
+
+
+            </Grid>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

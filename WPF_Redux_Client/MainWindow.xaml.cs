@@ -22,7 +22,8 @@ namespace WPF_Redux_Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string email { get; set; }
+        public User user;
+
 
         public MainWindow()
         {
@@ -36,7 +37,7 @@ namespace WPF_Redux_Client
             switch (itemTab.Name)
             {
                 case "chat":
-                    frame.Navigate(new ListMessagesPage());
+                    frame.Navigate(new ListMessagesPage(32));
                     break;
                 case "exit":
                     Authorization authorization = new Authorization();
@@ -44,9 +45,13 @@ namespace WPF_Redux_Client
                     this.Close();
                     break;
                 case "my_account":
-                    frame.Navigate(new MainPage());
+                    frame.Navigate(new MainPage(user,this));
                     break;
                 case "black_list":
+                    frame.Navigate(new BlackListPage(user));
+                    break;
+                case "gallery":
+                    frame.Navigate(new PhotoGallery());
                     break;
                 case "feed":
                     frame.Navigate(new CardsPage());
@@ -56,7 +61,7 @@ namespace WPF_Redux_Client
                     frame.Navigate(new FiltersPage());
                     break;
                 case "likes":
-                    frame.Navigate(new LikesPages());
+                    frame.Navigate(new LikesPages(user));
                     break;
                 default:
                     break;

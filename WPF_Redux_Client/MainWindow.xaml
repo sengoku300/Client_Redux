@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Redux_Client"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:WPF_Redux_Client.CustomControls"
         mc:Ignorable="d"
         Title="MainWindow" ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
-        Height="750"
+        Height="800"
         Width="1250">
 
     <Window.Resources>
@@ -43,6 +43,12 @@
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                 </TabItem>
 
+                <TabItem x:Name="gallery" Background="White"
+    Header="{materialDesign:PackIcon Kind=Image, Size=24}"
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+
+                </TabItem>
+
                 <TabItem x:Name="feed" Background="White"
     Header="{materialDesign:PackIcon Kind=UsersGroup, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
@@ -65,9 +71,9 @@
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
                 </TabItem>
-                
+
                 <TabItem x:Name="black_list" Background="White"
-    Header="{materialDesign:PackIcon Kind=FormatListText, Size=24}"
+    Header="{materialDesign:PackIcon Kind=AccountCancel, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
                 </TabItem>
@@ -84,11 +90,13 @@
                 VerticalAlignment="Stretch"
                />
 
+            <!--<local1:PhotoCard Grid.Column="1" Margin="608,61,70,139" ></local1:PhotoCard>-->
+            <local1:ProfileControl></local1:ProfileControl>
         </Grid>
 
-       
-        
-       
+
+
+
 
     </Grid>
 </Window>

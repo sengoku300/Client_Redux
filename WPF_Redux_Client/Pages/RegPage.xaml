@@ -11,7 +11,7 @@
       Height="Auto"
       Width="Auto"
       d:DesignHeight="800" d:DesignWidth="400"
-      Background="WhiteSmoke"  
+      Background="WhiteSmoke"
       Style="{StaticResource {x:Type Page}}"
       Title="RegPage">
 
@@ -39,10 +39,6 @@
                                 TextBlock.Foreground="{TemplateBinding Foreground}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="bd" Property="Background" Value="Pink"/>
-                            </Trigger>
-
                             <Trigger Property="Button.IsPressed" Value="True">
                                 <Setter TargetName="bd" Property="Background" Value="LightGreen"/>
                             </Trigger>
@@ -68,7 +64,7 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-      
+
 
         <TextBlock Text="Создай свой аккаунт прямо сейчас!" Grid.Row="0" FontSize="20" FontWeight="Bold"
                    VerticalAlignment="Center"
@@ -114,15 +110,15 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_DD_PreviewTextInput" x:Name="textBox_Birthday_DD" 
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_DD_PreviewTextInput" x:Name="textBox_Birthday_DD"
                                                    PlaceHolder="День"
                                                    Grid.Column="0" Width="120"/>
 
-            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_MM_PreviewTextInput" x:Name="textBox_Birthday_MM" 
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_MM_PreviewTextInput" x:Name="textBox_Birthday_MM" 
                                                    PlaceHolder="Месяц"
                                                    Grid.Column="1" Width="120"/>
 
-            <CustomControls:TextBoxWithPlaceHolder PreviewTextInput="textBox_Birthday_Year_PreviewTextInput" x:Name="textBox_Birthday_Year" Grid.Column="2"
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_Year_PreviewTextInput" x:Name="textBox_Birthday_Year" Grid.Column="2"
                                                    PlaceHolder="Год"
                                                    Width="120"/>
         </Grid>
@@ -131,7 +127,7 @@
               VerticalAlignment="Top"
               HorizontalAlignment="Center"
               Width="400">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="80"/>
@@ -149,8 +145,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <Button Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
+
+                <Button x:Name="Button_Gender_Male" Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="icon_man.png"
                            Stretch="Uniform" Height="25"/>
@@ -158,7 +154,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource primaryButton}" Grid.Column="1" Click="Button_Click_2">
+                <Button x:Name="Button_Gender_Female"  Style="{StaticResource primaryButton}" Grid.Column="1" Click="Button_Click_2">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="icon_women.png"
                            Stretch="Uniform" Height="25"/>
