@@ -28,6 +28,8 @@ namespace WPF_Redux_Client.CustomControls
 		const double DefaultScaleIncreasement = 0.08;
 		bool IsMainPhotography = false;
 
+		public byte[] ImagePath { get; set; }
+
 		SolidColorBrush pink = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ea90b5"));
 		SolidColorBrush gray = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#dedede"));
 		SolidColorBrush green = new SolidColorBrush(Colors.LightGreen);

@@ -27,7 +27,7 @@ namespace WPF_Redux_Client.CustomControls
 		{
 			InitializeComponent();
 		}
-		public ProfileControl(List<Image> ImageList, WPF_Redux_Client.ServiceReference1.User User, double Distance)
+		public ProfileControl(List<Image> ImageList, WPF_Redux_Client.ServiceReference1.User User, double Distance, List<ServiceReference1.Hobbies> Hobbies)
 		{
 			Images = ImageList;
 			InitializeComponent();
@@ -43,7 +43,9 @@ namespace WPF_Redux_Client.CustomControls
 			Education.Text += User.Education;
 			Faith.Text += User.Faith;
 			CountryCity.Text = $"({User.Country}, {User.City})";
-			//Hobbies.Text += 
+			for (int i = 0; i < Hobbies.Count - 1; i++) 
+				this.Hobbies.Text += Hobbies[i].Hobbie + ", ";
+			this.Hobbies.Text += Hobbies[Hobbies.Count - 1].Hobbie + ".";
 			About.Text += User.Description;
 			textBox_email.Text = User.Email;
 			run_weight.Text += User.Weight + " кг";

@@ -29,7 +29,7 @@
         <Border x:Name="image" MouseEnter="Border_MouseEnter" Grid.Column="0" Grid.Row="0" CornerRadius="80">
             <Border.Background>
 
-                <ImageBrush/>
+                <ImageBrush ImageSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=ImagePath}"></ImageBrush>
 
                 <!--<ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>-->
             </Border.Background>
