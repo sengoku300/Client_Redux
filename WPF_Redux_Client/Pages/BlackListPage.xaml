@@ -188,7 +188,7 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </ScrollViewer>
-            <local1:ProfileControl Grid.Column="1"/>
+            <local1:ProfileControl x:Name="FullProfile" Grid.Column="1" Opacity="0"/>
 
         </Grid>
               </Grid>

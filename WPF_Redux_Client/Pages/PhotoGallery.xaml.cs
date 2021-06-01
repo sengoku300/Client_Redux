@@ -28,6 +28,7 @@ namespace WPF_Redux_Client.Pages
         private Service1Client client;
         int photo_number = 0;
         const int photo_max_number = 5;
+        public User User { get; set; }
 
         SolidColorBrush Red = new SolidColorBrush(Colors.Red);
         SolidColorBrush DarkRed = new SolidColorBrush(Colors.DarkRed);
@@ -81,6 +82,7 @@ namespace WPF_Redux_Client.Pages
                 if (ofd.ShowDialog() == true)
 				{
                     byte[] Photo = File.ReadAllBytes(ofd.FileName);
+                    client.AddPhoto(Photo, User);
                     photo_number++;
 				}
                 
@@ -154,6 +156,8 @@ namespace WPF_Redux_Client.Pages
                     DeletePhotoOnServer(caller);
                     progressBar_PhotosCount.Value = --photo_number;
                     UpdateLabelAndButton();
+                    caller.ImagePath
+                    client.DeletePhotoAsync()
                 }
                 catch { }
 			}

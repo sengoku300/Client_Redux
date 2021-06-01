@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,7 +82,18 @@ namespace WPF_Redux_Client.Pages
 
         private void Bi_OpenProfileEvent(BlackListItem sender)
         {
+            List<Image> images = new List<Image>();
+            foreach (byte[] image in service.GetPhotos(sender.User))
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.StreamSource = new MemoryStream(image);
+                bitmap.EndInit();
+                images.Add(new Image { Source = bitmap });
+            }
 
+            FullProfile = new ProfileControl(images, sender.User, service.GetDistanceBetweenPoints(You.LatiTude, You.LongiTude, sender.User.LatiTude, sender.User.LongiTude));
+            FullProfile.Opacity = 0;
         }
 
         private async void Bi_UnbanEvent(BlackListItem sender)
