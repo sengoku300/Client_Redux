@@ -1,0 +1,191 @@
+﻿<Page x:Class="WPF_Redux_Client.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages" 
+      xmlns:CustomControls="clr-namespace:WPF_Redux_Client.CustomControls"
+      mc:Ignorable="d"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="Stretch"
+      Height="Auto"
+      Width="Auto"
+      d:DesignHeight="800" d:DesignWidth="400"
+      Background="WhiteSmoke"
+      Style="{StaticResource {x:Type Page}}"
+      Title="RegPage">
+
+
+    <Page.Resources>
+        <Style x:Key="primaryButton" TargetType="{x:Type Button}">
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="#ea90b5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bd"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                            <ContentPresenter x:Name="content"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="bd" Property="Background" Value="LightGreen"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+
+
+        <TextBlock Text="Создай свой аккаунт прямо сейчас!" Grid.Row="0" FontSize="20" FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="1" Text="Страна: " FontSize="20"
+                   FontWeight="DemiBold"
+                   Foreground="Black"
+                   TextAlignment="Left"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run x:Name="country_name" Foreground="#ea90b5"
+                 FontWeight="Bold" FontSize="25"/>
+        </TextBlock>
+
+        <TextBlock Grid.Row="2" Text="Город: " FontSize="20"
+                   FontWeight="DemiBold"
+                   Foreground="Black"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run x:Name="city_name" Foreground="#ea90b5"
+                 FontWeight="Bold" FontSize="25" />
+        </TextBlock>
+
+        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Name_Family" Grid.Row="3"
+                                                   PlaceHolder="Имя и Фамилия"/>
+
+        <TextBlock Text="Дата рождения"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   FontWeight="DemiBold"
+                   FontSize="20"
+                   Grid.Row="4"/>
+
+
+        <Grid Grid.Row="5" Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_DD_PreviewTextInput" x:Name="textBox_Birthday_DD"
+                                                   PlaceHolder="День"
+                                                   Grid.Column="0" Width="120"/>
+
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_MM_PreviewTextInput" x:Name="textBox_Birthday_MM" 
+                                                   PlaceHolder="Месяц"
+                                                   Grid.Column="1" Width="120"/>
+
+            <CustomControls:TextBoxWithPlaceHolder BorderThickness="1" PreviewTextInput="textBox_Birthday_Year_PreviewTextInput" x:Name="textBox_Birthday_Year" Grid.Column="2"
+                                                   PlaceHolder="Год"
+                                                   Width="120"/>
+        </Grid>
+
+        <Grid Grid.Row="6"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Center"
+              Width="400">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Пол" FontSize="20"
+                       FontWeight="DemiBold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="Black"
+                       TextAlignment="Center"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Button_Gender_Male" Style="{StaticResource primaryButton}" Grid.Column="0" Click="Button_Click_1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icon_man.png"
+                           Stretch="Uniform" Height="25"/>
+                        <TextBlock Text="Мужчина"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="Button_Gender_Female"  Style="{StaticResource primaryButton}" Grid.Column="1" Click="Button_Click_2">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icon_women.png"
+                           Stretch="Uniform" Height="25"/>
+                        <TextBlock Text="Женщина"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+
+
+        </Grid>
+
+
+        <CustomControls:TextBoxWithPlaceHolder x:Name="textBox_Mail" Grid.Row="7"
+                                                   PlaceHolder="E-Mail" />
+
+        <CustomControls:TextBoxWithPlaceHolder x:Name="passBox" Grid.Row="8"
+                                                   PlaceHolder="Пароль" IsPassword="True"/>
+
+        <TextBlock Text="Пароль должен содержать не менее 5 символов" TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="Gray"
+                   Grid.Row="9"/>
+
+        <Button Style="{StaticResource primaryButton}" Height="70" Width="260" Grid.Row="10" Click="Button_Click_3">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="strelka.png"
+                           Stretch="Uniform" Height="25"/>
+                <TextBlock Text="Зарегистрироваться" FontSize="17"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

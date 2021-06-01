@@ -1,0 +1,270 @@
+﻿<Page x:Class="WPF_Redux_Client.Pages.ListMessagesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Redux_Client.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1178"
+      Title="ListMessagesPage">
+
+    <Border BorderThickness="0,1,1,1" BorderBrush="Silver">
+        <Grid>
+        <Grid.Resources>
+            <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border x:Name="rectangle"
+                                SnapsToDevicePixels="True"
+                                Background="Gray"
+                                CornerRadius="3"
+                                Height="{TemplateBinding Height}"
+                                Width="{TemplateBinding Width}"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type ScrollBar}">
+                <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+                <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+                <Setter Property="Width" Value="14"/>
+                <Setter Property="Margin" Value="-14 0 0 0" />
+                <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="Bg" SnapsToDevicePixels="true" Background="Transparent">
+
+                                <Border Padding="0 4">
+                                    <Track x:Name="PART_Track"
+                               IsDirectionReversed="true"
+                               IsEnabled="{TemplateBinding IsMouseOver}"
+                               Width="6"
+                               HorizontalAlignment="Center">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageUpCommand}" />
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageDownCommand}" />
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb Style="{StaticResource ScrollBarThumb}" />
+                                        </Track.Thumb>
+                                    </Track>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Orientation" Value="Horizontal">
+                        <Setter Property="Width" Value="Auto"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                        <Setter Property="Height" Value="14"/>
+                        <Setter Property="MinHeight" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
+                        <Setter Property="Margin" Value="0 -14 0 0" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                    <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                                        <Track x:Name="PART_Track"
+                                    IsEnabled="{TemplateBinding IsMouseOver}"
+                                    Height="6"
+                                       >
+                                            <Track.DecreaseRepeatButton>
+                                                <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageLeftCommand}"/>
+                                            </Track.DecreaseRepeatButton>
+                                            <Track.IncreaseRepeatButton>
+                                                <RepeatButton Opacity="0" Command="{x:Static ScrollBar.PageRightCommand}"/>
+                                            </Track.IncreaseRepeatButton>
+                                            <Track.Thumb>
+                                                <Thumb Style="{StaticResource ScrollBarThumb}" />
+                                            </Track.Thumb>
+                                        </Track>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="ScrollViewer" TargetType="{x:Type ScrollViewer}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                            <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Rectangle x:Name="Corner" Grid.Column="1" Fill="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Grid.Row="1"/>
+                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0"/>
+
+                                <ScrollBar  x:Name="PART_VerticalScrollBar" 
+                                   Opacity="0.2" 
+                                   AutomationProperties.AutomationId="VerticalScrollBar" 
+                                   Cursor="Arrow" 
+                                   Grid.Column="1"
+                                   Maximum="{TemplateBinding ScrollableHeight}" 
+                                   Minimum="0" 
+                                   Grid.Row="0" 
+                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                   Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                   ViewportSize="{TemplateBinding ViewportHeight}"/>
+
+                                <ScrollBar x:Name="PART_HorizontalScrollBar"
+                                   Opacity="0.2"
+                                   AutomationProperties.AutomationId="HorizontalScrollBar"
+                                   Cursor="Arrow" 
+                                   Grid.Column="0"
+                                   Maximum="{TemplateBinding ScrollableWidth}"
+                                   Minimum="0" 
+                                   Orientation="Horizontal"
+                                   Grid.Row="1" 
+                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                   Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                                   ViewportSize="{TemplateBinding ViewportWidth}"/>
+
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="0.2" Duration="0:0:0.3" Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                            <DoubleAnimation To="0.2" Duration="0:0:0.3" Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="Opacity" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="BottomTextbox" TargetType="{x:Type TextBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border>
+                                <Grid >
+                                    <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                                    <Label Height="auto" FontSize="20" HorizontalAlignment="Stretch" Grid.Column="1" Margin="5,0,0,0"    x:Name="WaterMarkLabel" Content="Send a message" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="Text" Value=""/>
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                                </MultiTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+       
+        <Grid >
+            <Border  Name="mainborder" Background="WhiteSmoke" Visibility="Visible">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="235"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                       
+                <Grid Grid.Column="0"  >
+                    <ScrollViewer Style="{StaticResource ScrollViewer}">
+                        <ItemsControl x:Name="lst1" Margin="0,0,0,0" >
+                                    
+
+                                </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+                <Border Grid.Column="1" BorderThickness="1,0,0,0" BorderBrush="Silver" Padding="0">
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                            <RowDefinition Height="649*"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Border  Grid.Row="0" Background="#ECF0F1" Padding="0,0,0,3">
+
+                                    <Grid Margin="30,0,0,0" Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="110"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Border CornerRadius="80" BorderThickness="2" BorderBrush="White" Grid.Column="0" Margin="10,5,15,0">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="hero_ua.jpg"></ImageBrush>
+                                    </Border.Background>
+                                </Border>
+                                <TextBlock  Grid.Column="1" Text="Igor Kolomoisky" FontSize="33" FontFamily="Telegram" Margin="15,15,0,47" ></TextBlock>
+                                <TextBlock Grid.Column="1" Text="Online" FontSize="23"  FontWeight="SemiBold" FontFamily="Telegram" Foreground="Green" Margin="15,60,0,0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Separator Background="White" Grid.ColumnSpan="3" Margin="0,110,0,0"></Separator>
+                            </Grid>
+                        </Border>
+                        <Border Grid.Row="1" >
+                            <Border.Background>
+                                <ImageBrush ImageSource="C:\Users\Bogdan\WPF_Redux_Client\WPF_Redux_Client\CustomControls\3.jpg"></ImageBrush>
+                            </Border.Background>
+                            <ScrollViewer Style="{StaticResource ScrollViewer}">
+
+                                <ItemsControl  Name="messages">
+
+                                </ItemsControl>
+
+                            </ScrollViewer>
+                        </Border>
+                        <ScrollViewer Grid.Row="2" Style="{StaticResource ScrollViewer}">
+                            <TextBox PreviewKeyDown="sendMsg_TextBox_PreviewKeyDown" Grid.Row="2"  HorizontalAlignment="Stretch"
+                                                 MinHeight="40" MaxHeight="200" FontSize="16" Style="{StaticResource BottomTextbox}"
+                                                 x:Name="sendMsg_TextBox" BorderBrush="Black" BorderThickness="10"  AcceptsReturn="True" AcceptsTab="True"  
+                                                 TextWrapping="Wrap"  VerticalAlignment="Bottom"  
+                                                 MaxLength="10000" Background="Gray" />
+                        </ScrollViewer>
+
+                    </Grid>
+                </Border>
+            </Grid>
+            </Border>
+            <Border x:Name="tmpborder" Visibility="Collapsed" Background="WhiteSmoke"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Grid Margin="200,300,0,0">
+                    <TextBlock FontSize="30"  FontWeight="Black" Margin="160,0,0,0">
+                There is no chatitems yet
+                    </TextBlock>
+                    <TextBlock FontSize="22" FontWeight="Bold" Margin="0,45,0,0">
+                (chatitems will be added automaticly when your likes will be mutual)
+                    </TextBlock>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+    </Border>
+
+</Page>
