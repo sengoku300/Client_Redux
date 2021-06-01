@@ -4,7 +4,7 @@
   <xs:complexType name="Filters">
     <xs:sequence>
       <xs:element minOccurs="0" name="ColorEye" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ColorHair" type="xs:int" />
+      <xs:element minOccurs="0" name="ColorHair" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FiltersId" type="xs:int" />
       <xs:element minOccurs="0" name="Height" type="xs:int" />
       <xs:element minOccurs="0" name="MaxAge" type="xs:int" />

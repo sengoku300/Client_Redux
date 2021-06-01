@@ -439,7 +439,7 @@ namespace WPF_Redux_Client.ServiceReference1 {
         private string ColorEyeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ColorHairField;
+        private string ColorHairField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int FiltersIdField;
@@ -483,12 +483,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ColorHair {
+        public string ColorHair {
             get {
                 return this.ColorHairField;
             }
             set {
-                if ((this.ColorHairField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.ColorHairField, value) != true)) {
                     this.ColorHairField = value;
                     this.RaisePropertyChanged("ColorHair");
                 }
@@ -1021,6 +1021,67 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Hobbies", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
     [System.SerializableAttribute()]
     public partial class Hobbies : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1096,67 +1157,6 @@ namespace WPF_Redux_Client.ServiceReference1 {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1", CallbackContract=typeof(WPF_Redux_Client.ServiceReference1.IService1Callback))]
     public interface IService1 {
@@ -1174,10 +1174,10 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPhoto", ReplyAction="http://tempuri.org/IService1/AddPhotoResponse")]
-        void AddPhoto(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user);
+        void AddPhoto(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPhoto", ReplyAction="http://tempuri.org/IService1/AddPhotoResponse")]
-        System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user);
+        System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
         byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user);
@@ -1196,6 +1196,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangePassword", ReplyAction="http://tempuri.org/IService1/ChangePasswordResponse")]
         System.Threading.Tasks.Task ChangePasswordAsync(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsExistsHobbies", ReplyAction="http://tempuri.org/IService1/IsExistsHobbiesResponse")]
+        bool IsExistsHobbies(WPF_Redux_Client.ServiceReference1.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/IsExistsHobbies", ReplyAction="http://tempuri.org/IService1/IsExistsHobbiesResponse")]
+        System.Threading.Tasks.Task<bool> IsExistsHobbiesAsync(WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCode", ReplyAction="http://tempuri.org/IService1/GetCodeResponse")]
         int GetCode(string email);
@@ -1269,6 +1275,42 @@ namespace WPF_Redux_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetName", ReplyAction="http://tempuri.org/IService1/GetNameResponse")]
         System.Threading.Tasks.Task<string> GetNameAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOnline", ReplyAction="http://tempuri.org/IService1/GetOnlineResponse")]
+        void GetOnline(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOnline", ReplyAction="http://tempuri.org/IService1/GetOnlineResponse")]
+        System.Threading.Tasks.Task GetOnlineAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOffline", ReplyAction="http://tempuri.org/IService1/GetOfflineResponse")]
+        void GetOffline(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOffline", ReplyAction="http://tempuri.org/IService1/GetOfflineResponse")]
+        System.Threading.Tasks.Task GetOfflineAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/BanUser", ReplyAction="http://tempuri.org/IService1/BanUserResponse")]
+        void BanUser(int senderID, int bannedID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/BanUser", ReplyAction="http://tempuri.org/IService1/BanUserResponse")]
+        System.Threading.Tasks.Task BanUserAsync(int senderID, int bannedID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UnbanUser", ReplyAction="http://tempuri.org/IService1/UnbanUserResponse")]
+        void UnbanUser(int senderID, int bannedID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UnbanUser", ReplyAction="http://tempuri.org/IService1/UnbanUserResponse")]
+        System.Threading.Tasks.Task UnbanUserAsync(int senderID, int bannedID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeFilters", ReplyAction="http://tempuri.org/IService1/ChangeFiltersResponse")]
+        void ChangeFilters(int userID, WPF_Redux_Client.ServiceReference1.Filters f);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeFilters", ReplyAction="http://tempuri.org/IService1/ChangeFiltersResponse")]
+        System.Threading.Tasks.Task ChangeFiltersAsync(int userID, WPF_Redux_Client.ServiceReference1.Filters f);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindUsers", ReplyAction="http://tempuri.org/IService1/FindUsersResponse")]
+        WPF_Redux_Client.ServiceReference1.User[] FindUsers(int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/FindUsers", ReplyAction="http://tempuri.org/IService1/FindUsersResponse")]
+        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> FindUsersAsync(int userID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         WPF_Redux_Client.ServiceReference1.CompositeType GetDataUsingDataContract(WPF_Redux_Client.ServiceReference1.CompositeType composite);
         
@@ -1330,12 +1372,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.UpdateUserAsync(name, lastname, birthday, coloreye, colorhaircut, faith, gender, job, descriptions, education, hobbies, user);
         }
         
-        public void AddPhoto(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user) {
-            base.Channel.AddPhoto(image, user);
+        public void AddPhoto(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext) {
+            base.Channel.AddPhoto(image, user, ext);
         }
         
-        public System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.ImageBrush image, WPF_Redux_Client.ServiceReference1.User user) {
-            return base.Channel.AddPhotoAsync(image, user);
+        public System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext) {
+            return base.Channel.AddPhotoAsync(image, user, ext);
         }
         
         public byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user) {
@@ -1360,6 +1402,14 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task ChangePasswordAsync(string email, string password) {
             return base.Channel.ChangePasswordAsync(email, password);
+        }
+        
+        public bool IsExistsHobbies(WPF_Redux_Client.ServiceReference1.User user) {
+            return base.Channel.IsExistsHobbies(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsExistsHobbiesAsync(WPF_Redux_Client.ServiceReference1.User user) {
+            return base.Channel.IsExistsHobbiesAsync(user);
         }
         
         public int GetCode(string email) {
@@ -1456,6 +1506,54 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> GetNameAsync(string email) {
             return base.Channel.GetNameAsync(email);
+        }
+        
+        public void GetOnline(int Id) {
+            base.Channel.GetOnline(Id);
+        }
+        
+        public System.Threading.Tasks.Task GetOnlineAsync(int Id) {
+            return base.Channel.GetOnlineAsync(Id);
+        }
+        
+        public void GetOffline(int Id) {
+            base.Channel.GetOffline(Id);
+        }
+        
+        public System.Threading.Tasks.Task GetOfflineAsync(int Id) {
+            return base.Channel.GetOfflineAsync(Id);
+        }
+        
+        public void BanUser(int senderID, int bannedID) {
+            base.Channel.BanUser(senderID, bannedID);
+        }
+        
+        public System.Threading.Tasks.Task BanUserAsync(int senderID, int bannedID) {
+            return base.Channel.BanUserAsync(senderID, bannedID);
+        }
+        
+        public void UnbanUser(int senderID, int bannedID) {
+            base.Channel.UnbanUser(senderID, bannedID);
+        }
+        
+        public System.Threading.Tasks.Task UnbanUserAsync(int senderID, int bannedID) {
+            return base.Channel.UnbanUserAsync(senderID, bannedID);
+        }
+        
+        public void ChangeFilters(int userID, WPF_Redux_Client.ServiceReference1.Filters f) {
+            base.Channel.ChangeFilters(userID, f);
+        }
+        
+        public System.Threading.Tasks.Task ChangeFiltersAsync(int userID, WPF_Redux_Client.ServiceReference1.Filters f) {
+            return base.Channel.ChangeFiltersAsync(userID, f);
+        }
+        
+        public WPF_Redux_Client.ServiceReference1.User[] FindUsers(int userID) {
+            return base.Channel.FindUsers(userID);
+        }
+        
+        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> FindUsersAsync(int userID) {
+            return base.Channel.FindUsersAsync(userID);
         }
         
         public WPF_Redux_Client.ServiceReference1.CompositeType GetDataUsingDataContract(WPF_Redux_Client.ServiceReference1.CompositeType composite) {

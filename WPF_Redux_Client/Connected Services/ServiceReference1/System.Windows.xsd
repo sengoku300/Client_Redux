@@ -18,18 +18,18 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DependencyObject" nillable="true" type="tns:DependencyObject" />
-  <xs:complexType name="Rect">
+  <xs:complexType name="Int32Rect">
     <xs:annotation>
       <xs:appinfo>
         <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="_height" type="xs:double" />
-      <xs:element name="_width" type="xs:double" />
-      <xs:element name="_x" type="xs:double" />
-      <xs:element name="_y" type="xs:double" />
+      <xs:element name="_height" type="xs:int" />
+      <xs:element name="_width" type="xs:int" />
+      <xs:element name="_x" type="xs:int" />
+      <xs:element name="_y" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Rect" nillable="true" type="tns:Rect" />
+  <xs:element name="Int32Rect" nillable="true" type="tns:Int32Rect" />
 </xs:schema>

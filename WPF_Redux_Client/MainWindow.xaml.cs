@@ -46,6 +46,9 @@ namespace WPF_Redux_Client
                 case "my_account":
                     frame.Navigate(new MainPage(user,this));
                     break;
+                //case "gallery":
+                //    frame.Navigate(new PhotoGallery());
+                //    break;
                 case "black_list":
                     break;
                 case "feed":

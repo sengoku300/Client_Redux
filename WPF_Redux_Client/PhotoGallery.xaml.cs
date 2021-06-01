@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -21,25 +22,26 @@ namespace WPF_Redux_Client
     /// </summary>
     public partial class PhotoGallery : Window
     {
-
         private Service1Client client;
+
+        private User user;
+
+        List<BitmapImage> images;
 
         public PhotoGallery()
         {
             InitializeComponent();
         }
 
-        public PhotoGallery(List<Image> images)
+        public PhotoGallery(User user)
         {
             InitializeComponent();
-
-            listBox_Photos.ItemsSource = images;
 
             IService1Callback callback = this as IService1Callback;
 
             InstanceContext context = new InstanceContext(callback);
 
-            client = new Service1Client(context);
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

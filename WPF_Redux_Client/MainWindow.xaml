@@ -43,6 +43,11 @@
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                 </TabItem>
 
+                <TabItem x:Name="gallery" Background="White"
+    Header="{materialDesign:PackIcon Kind=Image, Size=24}"
+    Style="{StaticResource MaterialDesignNavigationRailTabItem}">
+                </TabItem>
+
                 <TabItem x:Name="feed" Background="White"
     Header="{materialDesign:PackIcon Kind=UsersGroup, Size=24}"
     Style="{StaticResource MaterialDesignNavigationRailTabItem}">

@@ -35,5 +35,11 @@ namespace WPF_Redux_Client.CustomControls
         private void NameAge_PreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = regex.IsMatch(e.Text);
 
         private void NameCountry_PreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = regex_alph.IsMatch(e.Text);
+
+        private void slider_distance_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(e.NewValue == 100)
+                slider_distance.Maximum = 500;
+        }
     }
 }

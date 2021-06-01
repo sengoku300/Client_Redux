@@ -60,8 +60,8 @@
 
             <Slider x:Name="slider_distance" Grid.Row="1"
                     VerticalAlignment="Center"
-                    Maximum="50"
                     Minimum="1"
+                    ValueChanged="slider_distance_ValueChanged"
                     AutoToolTipPlacement="TopLeft"
                     AutoToolTipPrecision="0"/>
 
@@ -97,9 +97,12 @@
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" Height="50">
-                    <ComboBoxItem Content="Блонд"/>
-                    <ComboBoxItem Content="Шатен"/>
-                    <ComboBoxItem Content="Рыжий"/>
+                    <ComboBoxItem  Background="#ea90b5"
+                        Foreground="White" Content="Блонд"/>
+                    <ComboBoxItem  Background="#ea90b5"
+                        Foreground="White" Content="Шатен"/>
+                    <ComboBoxItem  Background="#ea90b5"
+                        Foreground="White" Content="Рыжий"/>
                 </ComboBox>
             </Grid>
 
@@ -127,10 +130,10 @@
                      Margin="10,0,10,10"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center" Height="50">
-                    <ComboBoxItem Content="Зелёный"/>
-                    <ComboBoxItem Content="Серый"/>
-                    <ComboBoxItem Content="Каштановый"/>
-                    <ComboBoxItem Content="Голубые"/>
+                    <ComboBoxItem Background="#ea90b5" Foreground="White" Content="Зелёный"/>
+                    <ComboBoxItem Background="#ea90b5" Foreground="White" Content="Серый"/>
+                    <ComboBoxItem Background="#ea90b5" Foreground="White" Content="Каштановый"/>
+                    <ComboBoxItem Background="#ea90b5" Foreground="White" Content="Голубые"/>
                 </ComboBox>
             </Grid>
 

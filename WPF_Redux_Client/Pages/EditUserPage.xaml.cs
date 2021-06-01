@@ -55,10 +55,14 @@ namespace WPF_Redux_Client.Pages
 
             this.DataContext = this.user;
 
-            var cl = client.GetHobbies(user).Select(t => t.Hobbie); ;
+            if (client.IsExistsHobbies(user))
+            {
+                var hbs = client.GetHobbies(user)
+                    .Select(t => t.Hobbie);
 
-            foreach (var item in cl)
-                textBox_hobbies.Text += item + ",";
+                foreach (var item in hbs)
+                    textBox_hobbies.Text += item + ",";
+            }
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,69 @@
+﻿<Page x:Class="WPF_Redux_Client.Pages.PhotoGallery"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1178"
+      Title="PhotoGallery">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Pink.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#020403"></Border>
+        <Grid Margin="874,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+
+            <ProgressBar x:Name="progressBar_PhotosCount" Background="Transparent" Foreground="Gray" BorderBrush="Red"
+  Height="Auto" Margin="20,14,79,11" Grid.Column="1" />
+            <TextBox Grid.Column="1"
+                     x:Name="textBox_PhotosCount"
+                     VerticalAlignment="Center"
+                     Text="0/5"
+                     Foreground="Red" 
+                     HorizontalAlignment="Stretch"
+                     HorizontalContentAlignment="Center"
+                     Margin="20,14,79,11" IsReadOnly="True"/>
+
+            <Button            
+                x:Name="Button_add"
+                Background="LightGreen" BorderBrush="ForestGreen" Foreground="White"
+                Style="{StaticResource MaterialDesignFloatingActionDarkButton}"       
+                    ToolTip="Add"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="32"
+                    Height="30"
+                    Click="Button_Click" Margin="95,10,23,10" Content="+" FontSize="16" VerticalContentAlignment="Center">
+
+            </Button>
+        </Grid>
+
+        <ListBox Background="WhiteSmoke" Margin="10" x:Name="listBox_Photos" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="2" Columns="4"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>
