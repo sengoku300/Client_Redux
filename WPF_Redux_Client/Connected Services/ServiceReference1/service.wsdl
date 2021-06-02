@@ -37,9 +37,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Animation" />
@@ -55,6 +55,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFilter" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IsExistsFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistsFilter" />
+  </wsdl:message>
+  <wsdl:message name="IService1_IsExistsFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistsFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FeedFilterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:FeedFilterUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FeedFilterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FeedFilterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetDefaultFilter_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultFilter" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetDefaultFilter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDefaultFilterResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
@@ -164,6 +188,18 @@
   <wsdl:message name="IService1_GetName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetChatItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChatItems" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetChatItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetChatItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendMes_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendMes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetOnline_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOnline" />
   </wsdl:message>
@@ -206,6 +242,18 @@
   <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWhoLikedYou_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWhoLikedYou" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWhoLikedYou_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWhoLikedYouResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWhoWasBannedByYou_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWhoWasBannedByYou" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersWhoWasBannedByYou_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWhoWasBannedByYouResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_OnCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnCallback" />
   </wsdl:message>
@@ -222,6 +270,22 @@
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddFilter" message="tns:IService1_AddFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddFilterResponse" message="tns:IService1_AddFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistsFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/IsExistsFilter" message="tns:IService1_IsExistsFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/IsExistsFilterResponse" message="tns:IService1_IsExistsFilter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FeedFilterUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FeedFilterUser" message="tns:IService1_FeedFilterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FeedFilterUserResponse" message="tns:IService1_FeedFilterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultFilter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetDefaultFilter" message="tns:IService1_SetDefaultFilter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetDefaultFilterResponse" message="tns:IService1_SetDefaultFilter_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUser" message="tns:IService1_UpdateUser_InputMessage" />
@@ -295,6 +359,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetName" message="tns:IService1_GetName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetNameResponse" message="tns:IService1_GetName_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetChatItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetChatItems" message="tns:IService1_GetChatItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetChatItemsResponse" message="tns:IService1_GetChatItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SendMes" message="tns:IService1_SendMes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SendMesResponse" message="tns:IService1_SendMes_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetOnline">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOnline" message="tns:IService1_GetOnline_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOnlineResponse" message="tns:IService1_GetOnline_OutputMessage" />
@@ -323,6 +395,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUsersWhoLikedYou">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsersWhoLikedYou" message="tns:IService1_GetUsersWhoLikedYou_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersWhoLikedYouResponse" message="tns:IService1_GetUsersWhoLikedYou_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWhoWasBannedByYou">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsersWhoWasBannedByYou" message="tns:IService1_GetUsersWhoWasBannedByYou_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersWhoWasBannedByYouResponse" message="tns:IService1_GetUsersWhoWasBannedByYou_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnCallback" message="tns:IService1_OnCallback_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/OnCallbackResponse" message="tns:IService1_OnCallback_InputCallbackMessage" />
@@ -338,6 +418,42 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetData">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFilter">
+      <soap12:operation soapAction="http://tempuri.org/IService1/AddFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistsFilter">
+      <soap12:operation soapAction="http://tempuri.org/IService1/IsExistsFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeedFilterUser">
+      <soap12:operation soapAction="http://tempuri.org/IService1/FeedFilterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultFilter">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SetDefaultFilter" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -507,6 +623,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetChatItems">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetChatItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMes">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SendMes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetOnline">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetOnline" style="document" />
       <wsdl:input>
@@ -563,6 +697,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWhoLikedYou">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetUsersWhoLikedYou" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWhoWasBannedByYou">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetUsersWhoWasBannedByYou" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

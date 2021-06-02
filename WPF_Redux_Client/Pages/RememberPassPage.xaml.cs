@@ -21,7 +21,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for RememberPassPage.xaml
     /// </summary>
-    public partial class RememberPassPage : Page
+    public partial class RememberPassPage : Page, IService1Callback
     {
         Authorization authoriz { get => Application.Current.MainWindow as Authorization; }
 
@@ -109,18 +109,12 @@ namespace WPF_Redux_Client.Pages
                 textBlock_Warnings.Text = "Пароли не совпадают.";
 
                 textBlock_Warnings.Foreground = Brushes.Red;
-
-                Button_Change.IsEnabled = false;
             }
             else
             {
                 textBlock_Warnings.Text = "Пароли совпадают!";
 
                 textBlock_Warnings.Foreground = Brushes.Green;
-
-                Button_Change.IsEnabled = true;
-
-                e.Handled = true;
             }
         }
 
@@ -128,6 +122,16 @@ namespace WPF_Redux_Client.Pages
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

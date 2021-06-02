@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              mc:Ignorable="d" 
-             d:DesignWidth="300">
+             d:DesignWidth="300" >
     <UserControl.Resources>
         <Style x:Key="Border" TargetType="Border">
             <Style.Triggers>
@@ -18,18 +18,22 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <Border Padding="5" Style="{StaticResource Border}"  >
+    <Border Padding="5"  Style="{StaticResource Border}"  >
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="257*"/>
+            </Grid.ColumnDefinitions>
 
 
-            <Border Grid.Column="0" Grid.Row="0" Margin="3,4,7,10" CornerRadius="23">
+            <Border Grid.Column="0" Grid.Row="0" CornerRadius="23" Width="30" Height="30" Margin="2,7,1.231,37">
                 <Border.Background>
                     <ImageBrush ImageSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=ImagePath}"></ImageBrush>
 
                 </Border.Background>
             </Border>
             <!-- Chat message container -->
-            <Grid Margin="35 0 0 0" HorizontalAlignment="Left">
+            <Grid Margin="1.769,0,0,0" HorizontalAlignment="Left" Grid.Column="1">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -47,9 +51,9 @@
                     <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap" 
                            Foreground="Black"
-                             FontSize="15"
+                             FontSize="15" FontFamily="Calibri"
                               Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=Mes}" 
-                               FontFamily="Kolikö "
+                              
                              
                              FontWeight="Bold"
                            />

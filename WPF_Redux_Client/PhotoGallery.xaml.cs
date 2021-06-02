@@ -37,11 +37,13 @@ namespace WPF_Redux_Client
         {
             InitializeComponent();
 
+            this.user = user;
+
             IService1Callback callback = this as IService1Callback;
 
             InstanceContext context = new InstanceContext(callback);
 
-          
+            client = new Service1Client(context);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

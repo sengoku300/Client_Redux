@@ -28,8 +28,6 @@ namespace WPF_Redux_Client.CustomControls
         public FilterItem()
         {
             InitializeComponent();
-
-            //NameHeight.email.MaxLength = 3;
         }
 
         private void NameAge_PreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = regex.IsMatch(e.Text);
@@ -38,8 +36,8 @@ namespace WPF_Redux_Client.CustomControls
 
         private void slider_distance_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if(e.NewValue == 100)
-                slider_distance.Maximum = 500;
+            if(e.NewValue == 50)
+                slider_distance.Maximum = 300;
         }
     }
 }

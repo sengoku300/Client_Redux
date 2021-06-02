@@ -36,7 +36,7 @@ namespace WPF_Redux_Client
             switch (itemTab.Name)
             {
                 case "chat":
-                    frame.Navigate(new ListMessagesPage());
+                    frame.Navigate(new ListMessagesPage(user.UserId));
                     break;
                 case "exit":
                     Authorization authorization = new Authorization();
@@ -44,21 +44,24 @@ namespace WPF_Redux_Client
                     this.Close();
                     break;
                 case "my_account":
-                    frame.Navigate(new MainPage(user,this));
+                    frame.Navigate(new MainPage(user, this));
                     break;
-                //case "gallery":
-                //    frame.Navigate(new PhotoGallery());
-                //    break;
                 case "black_list":
+                    frame.Navigate(new BlackListPage(user));
+                    break;
+                case "gallery":
+                    PhotoGallery photoGallery = new PhotoGallery();
+                    photoGallery.User = user;
+                    frame.Navigate(photoGallery);
                     break;
                 case "feed":
                     frame.Navigate(new CardsPage(user));
                     break;
                 case "filters":
-                    frame.Navigate(new FiltersPage());
+                    frame.Navigate(new FiltersPage(user));
                     break;
                 case "likes":
-                    frame.Navigate(new LikesPages());
+                    frame.Navigate(new LikesPages(user));
                     break;
                 default:
                     break;

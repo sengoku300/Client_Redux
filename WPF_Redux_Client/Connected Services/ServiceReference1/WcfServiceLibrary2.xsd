@@ -13,20 +13,19 @@
       <xs:element minOccurs="0" name="Education" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Faith" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="Filters" nillable="true" type="q1:Filters" />
       <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Height" type="xs:int" />
       <xs:element minOccurs="0" name="Job" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LatiTude" type="xs:double" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="Likes" nillable="true" type="q2:ArrayOfLikes" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="Likes" nillable="true" type="q1:ArrayOfLikes" />
       <xs:element minOccurs="0" name="LongiTude" type="xs:double" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Orientation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
       <xs:element minOccurs="0" name="Weight" type="xs:int" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="chatItems" nillable="true" type="q3:ArrayOfChatItemUsers" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="chatItems" nillable="true" type="q2:ArrayOfChatItemUsers" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />

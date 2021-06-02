@@ -22,11 +22,16 @@ namespace WPF_Redux_Client.CustomControls
 	{
 		List<Image> Images = new List<Image>();
 		int CurrentPhoto = 0;
-		public ProfileControl(List<Image> ImageList, WPF_Redux_Client.ServiceReference1.User User, double Distance)
+
+		public ProfileControl()
+		{
+			InitializeComponent();
+		}
+		public ProfileControl(List<Image> ImageList, WPF_Redux_Client.ServiceReference1.User User, double Distance, List<ServiceReference1.Hobbies> Hobbies)
 		{
 			Images = ImageList;
 			InitializeComponent();
-			textBox_Name.Text = User.Name + User.LastName;
+			textBox_Name.Text = User.Name + " " + User.LastName;
 			run_distance.Text = GetDistance(Distance);
 			run_job.Text = User.Job;
 			run_ColorEye.Text += User.ColorEye;
@@ -34,14 +39,23 @@ namespace WPF_Redux_Client.CustomControls
 			run_gender.Text += User.Gender;
 			run_height.Text += User.Height.ToString() + " см";
 			Birthday.Text += User.Birthday.ToShortDateString();
-			Age.Text += (DateTime.Now.Year - User.Birthday.Year).ToString() + " лет";
+			Age.Text += GetAge(User.Birthday);
 			Education.Text += User.Education;
 			Faith.Text += User.Faith;
 			CountryCity.Text = $"({User.Country}, {User.City})";
-			//Hobbies.Text += 
+			for (int i = 0; i < Hobbies.Count - 1; i++) 
+				this.Hobbies.Text += Hobbies[i].Hobbie + ", ";
+			this.Hobbies.Text += Hobbies[Hobbies.Count - 1].Hobbie + ".";
 			About.Text += User.Description;
 			textBox_email.Text = User.Email;
-			run_weight.Text += User.Weight + "кг";
+			run_weight.Text += User.Weight + " кг";
+		}
+
+
+		public string GetAge(DateTime birthday)
+		{
+			if (birthday.DayOfYear < DateTime.Now.DayOfYear) return $"{DateTime.Now.Year - birthday.Year} лет";
+			else return $"{DateTime.Now.Year - birthday.Year + 1} лет";
 		}
 
 		private string GetDistance(double Distance)

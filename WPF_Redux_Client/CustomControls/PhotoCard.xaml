@@ -66,10 +66,9 @@
     </UserControl.Triggers>
     <Grid Background ="WhiteSmoke" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="64*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="Photo" Margin="10,10,10,57" Stretch="Uniform" Source="ahmetov.png" Grid.ColumnSpan="2">
+        <Image x:Name="Photo" Margin="10,10,10,57" Stretch="Uniform" Source="ahmetov.png">
             <!--<Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform x:Name="ScaleTF" ScaleX="1" ScaleY="1"/>
@@ -106,13 +105,13 @@
 
         <Button x:Name="Button_delete" Background="#999999" BorderBrush="DarkGray"
   Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-  ToolTip="Удалить фотографию" Margin="186,0,0,231" Opacity="0" Height="Auto" Click="Button_delete_Click" Grid.ColumnSpan="2" Width="Auto">
+  ToolTip="Удалить фотографию" Margin="186,0,0,231" Opacity="0" Height="Auto" Click="Button_delete_Click" Width="Auto">
             <materialDesign:PackIcon
     Kind="CloseCircle"
     Height="39"
     Width="34" />
         </Button>
 
-        <Button x:Name="Button_main" Content="Сделать аватаркой" Foreground="Black" Margin="10,225,10,10" Height="Auto" Background="#dedede" BorderBrush="Transparent" Opacity="0" Click="Button_main_Click" FontSize="16" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Button x:Name="Button_main" Content="Сделать аватаркой" Foreground="Black" Margin="10,225,10,10" Height="Auto" Background="#dedede" BorderBrush="Transparent" Opacity="0" Click="Button_main_Click" FontSize="16" VerticalContentAlignment="Center"/>
     </Grid>
 </UserControl>

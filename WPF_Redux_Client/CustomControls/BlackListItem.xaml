@@ -1,21 +1,15 @@
-﻿<UserControl x:Class="WPF_Redux_Client.CustomControls.LikedUser"
+﻿<UserControl x:Class="WPF_Redux_Client.CustomControls.BlackListItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
+             xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d"
-
-             Width="275"
-             Height="60" Margin="10,5,10,5"
-
-            
-
-             Background="WhiteSmoke"
-             Name="user"
+             mc:Ignorable="d" 
+             Height="60" Width="255"  Background="WhiteSmoke"
+             Name="user" Margin="10,5,10,5"
             MouseEnter="UserControl_MouseEnter"
-             MouseLeave="UserControl_MouseLeave"
+             MouseLeave="UserControl_MouseLeave" MouseDown="user_MouseDown"
             >
 
 
@@ -28,10 +22,7 @@
 
         <Border x:Name="image" MouseEnter="Border_MouseEnter" Grid.Column="0" Grid.Row="0" CornerRadius="80">
             <Border.Background>
-
                 <ImageBrush ImageSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=ImagePath}"></ImageBrush>
-
-                <!--<ImageBrush ImageSource="C:\Users\Admin\Desktop\WPF_Redux_Client\WPF_Redux_Client\Images\icon_man.png"/>-->
             </Border.Background>
         </Border>
 
@@ -41,17 +32,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Margin="2,0,0,0" Grid.Row="0" Text="Example Example" x:Name="user_name"
-                       FontWeight="DemiBold"
+            <TextBlock Margin="2,0,0,0" Grid.Row="0" Text="Example Example"
+                       FontWeight="DemiBold" Name="name"
                        FontSize="20" FontStyle="Italic"
                        Foreground="#ea90b5"/>
 
             <Grid Grid.Row="1" >
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="60"/>
+
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" x:Name="user_year" Text="0 лет"
@@ -61,25 +52,20 @@
                            VerticalAlignment="Center"/>
 
                 <TextBlock Grid.Column="1"  x:Name="user_city" Text="Киев"
-                           Foreground="Gray"
+                           Foreground="Gray" 
                            TextAlignment="Center"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2" Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter" MouseDown="borderlike_MouseDown">
+                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2"  Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter" Margin="1,0,0,0" PreviewMouseDown="borderlike_MouseDown">
 
 
                     <materialDesign:PackIcon Name="like"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center"
-                                         Kind="Check"   />
+                                         Kind="ThumbUp"/>
                 </Border>
-                <Border x:Name="borderblock" Background="WhiteSmoke"  Cursor="Hand" Grid.Column="4" MouseLeave="borderblock_MouseLeave" MouseEnter="borderblock_MouseEnter" MouseDown="borderblock_MouseDown">
-                    <materialDesign:PackIcon 
-                                         HorizontalAlignment="Center" 
-                                         VerticalAlignment="Center" Name="block"
-                                         Kind="Lock"  />
-                </Border>
+
 
 
 

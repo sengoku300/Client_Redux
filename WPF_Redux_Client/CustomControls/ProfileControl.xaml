@@ -27,8 +27,8 @@
                 Grid.Row="0"
                 Source="/WPF_Redux_Client;component/Pages/hero_ua.jpg"
                 x:Name="user_photo"
-                VerticalAlignment="Center"
-                Margin="38,10,698,360" Height="350">
+                VerticalAlignment="Top"
+                Margin="43,10,0,0" Height="350" HorizontalAlignment="Left" Width="274">
 
             <Image.Effect>
                 <DropShadowEffect BlurRadius="30"

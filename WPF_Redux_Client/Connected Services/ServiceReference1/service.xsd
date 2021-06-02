@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
   <xs:element name="GetData">
@@ -18,6 +18,64 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q1:User" />
+        <xs:element minOccurs="0" name="max_distance" type="xs:int" />
+        <xs:element minOccurs="0" name="color_haircut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="color_eye" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="height" type="xs:int" />
+        <xs:element minOccurs="0" name="age_min" type="xs:int" />
+        <xs:element minOccurs="0" name="age_max" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFilterResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistsFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q2:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsExistsFilterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsExistsFilterResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FeedFilterUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q3:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FeedFilterUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="FeedFilterUserResult" nillable="true" type="q4:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDefaultFilter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q5:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDefaultFilterResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
@@ -31,8 +89,8 @@
         <xs:element minOccurs="0" name="job" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="descriptions" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="education" nillable="true" type="xs:string" />
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="hobbies" nillable="true" type="q1:ArrayOfstring" />
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q2:User" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="hobbies" nillable="true" type="q6:ArrayOfstring" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q7:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,8 +102,8 @@
   <xs:element name="AddPhoto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" minOccurs="0" name="image" nillable="true" type="q3:BitmapImage" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q4:User" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" minOccurs="0" name="image" nillable="true" type="q8:BitmapImage" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q9:User" />
         <xs:element minOccurs="0" name="ext" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -58,7 +116,7 @@
   <xs:element name="GetImage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q5:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -101,7 +159,7 @@
   <xs:element name="IsExistsHobbies">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q6:User" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q11:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -129,7 +187,7 @@
   <xs:element name="SetAvatar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q7:User" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q12:User" />
         <xs:element minOccurs="0" name="array" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
@@ -142,14 +200,14 @@
   <xs:element name="DefaultFilter">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q8:User" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q13:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DefaultFilterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="DefaultFilterResult" nillable="true" type="q9:ArrayOfUser" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="DefaultFilterResult" nillable="true" type="q14:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -170,14 +228,14 @@
   <xs:element name="GetPhotos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q10:User" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q15:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetPhotosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPhotosResult" nillable="true" type="q11:ArrayOfbase64Binary" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPhotosResult" nillable="true" type="q16:ArrayOfbase64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -191,15 +249,15 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetUserResult" nillable="true" type="q12:User" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetUserResult" nillable="true" type="q17:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddLike">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user_u" nillable="true" type="q13:User" />
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user_who" nillable="true" type="q14:User" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user_u" nillable="true" type="q18:User" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user_who" nillable="true" type="q19:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -211,14 +269,14 @@
   <xs:element name="GetHobbies">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q15:User" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q20:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetHobbiesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="GetHobbiesResult" nillable="true" type="q16:ArrayOfHobbies" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="GetHobbiesResult" nillable="true" type="q21:ArrayOfHobbies" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -287,6 +345,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetChatItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChatItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="GetChatItemsResult" nillable="true" type="q22:ArrayOfTmpChatItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="tmpmes" nillable="true" type="q23:Message" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="tmpChatItem" nillable="true" type="q24:TmpChatItem" />
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetOnline">
     <xs:complexType>
       <xs:sequence>
@@ -341,7 +427,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userID" type="xs:int" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="f" nillable="true" type="q17:Filters" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="f" nillable="true" type="q25:Filters" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -360,21 +446,49 @@
   <xs:element name="FindUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="FindUsersResult" nillable="true" type="q18:ArrayOfUser" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="FindUsersResult" nillable="true" type="q26:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="composite" nillable="true" type="q19:CompositeType" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="composite" nillable="true" type="q27:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q20:CompositeType" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q28:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWhoLikedYou">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q29:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWhoLikedYouResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetUsersWhoLikedYouResult" nillable="true" type="q30:ArrayOfUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWhoWasBannedByYou">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q31:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWhoWasBannedByYouResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="GetUsersWhoWasBannedByYouResult" nillable="true" type="q32:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -391,7 +505,8 @@
   <xs:element name="OnSendMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="mes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="chatid" type="xs:int" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="message" nillable="true" type="q33:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

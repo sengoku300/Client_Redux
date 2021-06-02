@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Redux_Client.CustomControls"
              mc:Ignorable="d" 
-              d:DesignWidth="300">
+              d:DesignWidth="300" Background="Transparent">
     <UserControl.Resources>
         <Style x:Key="Border" TargetType="Border">
             <Style.Triggers>
@@ -13,7 +13,7 @@
                     <Setter Property="Background" Value="LightGray"></Setter>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="False">
-                    <Setter Property="Background" Value="GhostWhite"></Setter>
+                    <Setter Property="Background" Value="Transparent"></Setter>
                 </Trigger>
 
             </Style.Triggers>
@@ -43,9 +43,9 @@
                     <!-- Message text -->
                     <TextBlock VerticalAlignment="Center"
                            TextWrapping="Wrap"         
-                           FontFamily="Arial"
+                           
                                FontWeight="Bold"
-                         
+                         FontFamily="Calibri"
                            Foreground="Black"
                            FontSize="14" 
                            MaxWidth="300"

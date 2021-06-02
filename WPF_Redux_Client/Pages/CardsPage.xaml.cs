@@ -152,6 +152,7 @@ namespace WPF_Redux_Client.Pages
                     UserFull userFull = new UserFull();
 
                     userFull.Width = 300;
+                    userFull.User_Card.Image_User.Source = userCard.User_Image.ImageSource; 
                     userFull.VerticalAlignment = VerticalAlignment.Center;
                     userFull.HorizontalAlignment = HorizontalAlignment.Center;
                     userFull.Title = item.Name + " " + item.LastName + ", Город: " + item.City;
@@ -192,7 +193,6 @@ namespace WPF_Redux_Client.Pages
         {
             MessageBox.Show("Dislicked");
 
-
             items_control.Items.Remove((UserCard)sender);
         }
 
@@ -200,6 +200,9 @@ namespace WPF_Redux_Client.Pages
         {
             MessageBox.Show("Like");
 
+            UserCard card = (UserCard)sender;
+
+            client.AddLike(user1, card.user);
             items_control.Items.Remove((UserCard)sender);
         }
 
@@ -219,7 +222,10 @@ namespace WPF_Redux_Client.Pages
 
             if(users.Count() > 0) users.Clear();
 
-            var get_users = client.DefaultFilter(user1);
+            var get_users = client.FeedFilterUser(user1);
+
+            if (client.FeedFilterUser(user1).Count() <= 0)
+                get_users = client.DefaultFilter(user1);
 
             double user_lati = client.GetLatiTude(user1.Email);
             double user_long = client.GetLongiTude(user1.Email);

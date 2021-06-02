@@ -24,7 +24,7 @@ namespace WPF_Redux_Client.Pages
     /// <summary>
     /// Interaction logic for RegPage.xaml
     /// </summary>
-    public partial class RegPage : Page
+    public partial class RegPage : Page, IService1Callback
     {
         private string gender;
 
@@ -189,5 +189,15 @@ namespace WPF_Redux_Client.Pages
 
         private void textBox_Birthday_Year_PreviewTextInput(object sender, TextCompositionEventArgs e)
             => e.Handled = regex.IsMatch(e.Text);
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

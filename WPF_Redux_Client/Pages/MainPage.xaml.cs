@@ -80,9 +80,6 @@ namespace WPF_Redux_Client.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PhotoGallery photoGallery = new PhotoGallery();
-
-            photoGallery.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) => mainW.frame.Navigate(new EditUserPage(user, mainW));

@@ -19,21 +19,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
-        <!--<Style TargetType="materialDesign:PackIcon">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="HotPink"/>
-                </Trigger>
-                <Trigger Property="IsMouseOver" Value="False">
-                    <Setter Property="Background" Value="#fae81b"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
     </UserControl.Resources>
 
     <Grid>
-        <Border CornerRadius="10" Background="White" Margin="10" BorderThickness="1">
+        <Border CornerRadius="10" Background="White" Margin="10" BorderBrush="Transparent" BorderThickness="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="5" ShadowDepth="0" Opacity=".4"/>
             </Border.Effect>

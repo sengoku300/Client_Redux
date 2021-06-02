@@ -31,10 +31,8 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="120"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="65"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="120"/>
             </Grid.RowDefinitions>
 
             <!--<TextBlock Text="Страна" x:Name="FilterName"
@@ -61,6 +59,7 @@
             <Slider x:Name="slider_distance" Grid.Row="1"
                     VerticalAlignment="Center"
                     Minimum="1"
+                    Maximum="50"
                     ValueChanged="slider_distance_ValueChanged"
                     AutoToolTipPlacement="TopLeft"
                     AutoToolTipPrecision="0"/>
@@ -93,7 +92,7 @@
                         Background="#ea90b5"
                         Foreground="White"
                           Margin="10,0,10,10"
-                x:Name="FilledComboBox"
+                x:Name="comboBox_Haircut"
                 Style="{StaticResource MaterialDesignFilledComboBox}"
                           HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" Height="50">
@@ -125,7 +124,7 @@
                      Grid.Row="1"
                      Background="#ea90b5"
                      Foreground="White"
-                     x:Name="FilledComboBox_ColorHair"
+                     x:Name="comboBox_Eye"
                      Style="{StaticResource MaterialDesignFilledComboBox}"
                      Margin="10,0,10,10"
                      HorizontalAlignment="Stretch"
@@ -137,7 +136,7 @@
                 </ComboBox>
             </Grid>
 
-            <Grid Grid.Row="7">
+            <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -158,7 +157,7 @@
                            HorizontalAlignment="Center"/>
 
                 <Slider
-                    x:Name="SliderMin"
+                    x:Name="slider_MinAge"
                 Minimum="18"
                 Maximum="80"
                     HorizontalAlignment="Center"
@@ -179,6 +178,7 @@
                            HorizontalAlignment="Center"/>
 
                 <Slider
+                    x:Name="slider_MaxAge"
                 Minimum="{Binding ElementName=SliderMin, Path=Value}"
                 Maximum="80"
                     HorizontalAlignment="Center"
@@ -216,7 +216,7 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="10"/>-->
 
-            <Grid Grid.Row="6">
+            <Grid Grid.Row="4">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -231,7 +231,7 @@
                            Grid.Row="0"/>
 
                 <Slider
-                    x:Name="SliderHeight"
+                    x:Name="slider_Height"
                     Minimum="100"
                     Maximum="230"
                     HorizontalAlignment="Center"
@@ -241,45 +241,6 @@
                     AutoToolTipPrecision="0"
                     Width="346"/>
             </Grid>
-
-
-
-            <TextBlock Text="Пол" TextAlignment="Center"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Grid.Row="4"
-                       FontWeight="DemiBold"
-                       FontSize="25"/>
-
-
-            <Grid Grid.Row="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <RadioButton
-                    Grid.Column="0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-      Style="{DynamicResource MaterialDesignUserForegroundRadioButton}"
-      Content="Мужчина"
-                    FontSize="20"/>
-                <RadioButton
-                    Grid.Column="1"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-      Style="{DynamicResource MaterialDesignUserForegroundRadioButton}"
-      Content="Женщина" FontSize="20" />
-            </Grid>
-
-            <!--<local:TextBoxWithPlaceHolder
-                x:Name="NameOrientation"
-                PlaceHolder="Гендер"
-                Grid.Row="5"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Center" Margin="10"/>-->
-
         </Grid>
     </Grid>
 </UserControl>

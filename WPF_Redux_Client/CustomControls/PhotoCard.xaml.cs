@@ -22,11 +22,14 @@ namespace WPF_Redux_Client.CustomControls
 	/// </summary>
 	public partial class PhotoCard : UserControl
 	{
-		//public event MegaClass.DeletePhotography DeletingEvent;
-		//public event MegaClass.SelectionPhotography SelectionEvent;
-		//const double DefaultScale = 1;
-		//const double DefaultScaleIncreasement = 0.08;
-		//bool IsMainPhotography = false;
+		public event MegaClass.DeletePhotography DeletingEvent;
+		public event MegaClass.SelectionPhotography SelectionEvent;
+		const double DefaultScale = 1;
+		const double DefaultScaleIncreasement = 0.08;
+		bool IsMainPhotography = false;
+
+		public ServiceReference1.User User { get; set; } 
+		public byte[] ImagePath { get; set; }
 
 		SolidColorBrush pink = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ea90b5"));
 		SolidColorBrush gray = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#dedede"));

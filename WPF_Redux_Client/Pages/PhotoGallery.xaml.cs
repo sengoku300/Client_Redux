@@ -23,12 +23,13 @@ namespace WPF_Redux_Client.Pages
 	/// <summary>
 	/// Interaction logic for PhotoGallery.xaml
 	/// </summary>
-	public partial class PhotoGallery : Page
+	public partial class PhotoGallery : Page, IService1Callback
     {
         private Service1Client client;
+
         int photo_number = 0;
         const int photo_max_number = 5;
-        private List<BitmapImage> images;
+        public User User { get; set; }
 
         SolidColorBrush Red = new SolidColorBrush(Colors.Red);
         SolidColorBrush DarkRed = new SolidColorBrush(Colors.DarkRed);
@@ -43,15 +44,48 @@ namespace WPF_Redux_Client.Pages
             InitializeComponent();
             InitializeProgressBar();
             UpdateLabelAndButton();
+            Initialize();
         }
 
-        public PhotoGallery(User user)
+        private async void Initialize()
         {
-            InitializeComponent();
-            InitializeProgressBar();
-            UpdateLabelAndButton();
+            await Task.Run(() => { });
 
+            IService1Callback callback = this as IService1Callback;
 
+            InstanceContext context = new InstanceContext(callback);
+
+            client = new Service1Client(context);
+
+            var Photos = client.GetPhotos(User).ToList();
+
+            byte[] MainPhoto = client.GetImage(User);
+
+            if (Photos.Count > 1 && MainPhoto != null) 
+            {
+                for (int i = 0; i < Photos.Count(); i++)
+                {
+                    if (Photos[i].SequenceEqual(MainPhoto))
+                    {
+                        Photos.RemoveAt(i);
+                        Photos.Insert(0, MainPhoto);
+                    }
+                }
+
+                AddPhoto(new Image { Source= ImageFromByte(Photos[0]) }, true);
+
+                for (int i = 1; i < Photos.Count; i++) AddPhoto(new Image { Source = ImageFromByte(Photos[i]) }, false);
+            }
+            else if (Photos.Count == 1) AddPhoto(new Image { Source = ImageFromByte(Photos[0]) }, true);
+		}
+
+        private BitmapImage ImageFromByte(byte[] array)
+		{
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.StreamSource = new MemoryStream(array);
+            bitmap.EndInit();
+            return bitmap;
         }
 
         private void InitializeProgressBar()
@@ -60,51 +94,32 @@ namespace WPF_Redux_Client.Pages
             progressBar_PhotosCount.Minimum = photo_number;
 		}
 
-        public PhotoGallery(User user)
-        {
-            InitializeComponent();
-
-            listBox_Photos.ItemsSource = images;
-
-            IService1Callback callback = this as IService1Callback;
-
-            InstanceContext context = new InstanceContext(callback);
-
-            client = new Service1Client(context);
-
-            var bytes = client.GetPhotos(user);
-
-            foreach (var item in bytes)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = new MemoryStream(item);
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-
-                images.Add(bitmapImage);
-            }
-
-            if (images.Count > 0)
-                listBox_Photos.ItemsSource = images;
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (photo_number < photo_max_number)
 			{
                 OpenFileDialog ofd = new OpenFileDialog { Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF", Multiselect = false, Title = "Добавление фотографии в профиль" };
-                
                 if (ofd.ShowDialog() == true)
 				{
+                    string ext = System.IO.Path.GetExtension(ofd.FileName);
+
                     byte[] Photo = File.ReadAllBytes(ofd.FileName);
+
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = new MemoryStream(Photo);
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.EndInit();
+
+                    client.AddPhoto(bitmapImage, User, ext);
+
                     photo_number++;
 				}
                 
 			}
         }
 
-        private void AddPhoto(Image Photo)
+        private void AddPhoto(Image Photo, bool IsMain)
         {
             try
             {
@@ -115,10 +130,7 @@ namespace WPF_Redux_Client.Pages
                 progressBar_PhotosCount.Value = ++photo_number;
                 UpdateLabelAndButton();
             }
-            catch (Exception ex)
-            { 
-                MessageBox.Show(ex?.Message, "Ошибка!");
-            }
+            catch (Exception ex) { MessageBox.Show(ex?.Message, "Ошибка!"); }
         }
 
         private void UpdateLabelAndButton()
@@ -160,7 +172,7 @@ namespace WPF_Redux_Client.Pages
 
         private void DeletePhotoOnServer(PhotoCard card)
         {
-            //TODO: Здесб удалять как-та
+            //client.Вуду(card.ImagePath, card.User);
         }
 
         private void Card_DeletingEvent(PhotoCard caller)
@@ -177,6 +189,16 @@ namespace WPF_Redux_Client.Pages
                 }
                 catch { }
 			}
+        }
+
+        public void OnCallback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSendMessage(int chatid, Message message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
