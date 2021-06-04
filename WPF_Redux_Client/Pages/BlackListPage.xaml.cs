@@ -74,7 +74,7 @@ namespace WPF_Redux_Client.Pages
                 double distance = service.GetDistanceBetweenPoints(You.LatiTude, You.LongiTude, sender.User.LatiTude, sender.User.LongiTude);
                 try
                 {
-                    FullProfile = new ProfileControl(images, sender.User, distance, hobbies);
+                    FullProfile.PlaceAllItems(images, sender.User, distance, hobbies);
                     FullProfile.Opacity = 1;
                 }
                 catch (Exception ex)

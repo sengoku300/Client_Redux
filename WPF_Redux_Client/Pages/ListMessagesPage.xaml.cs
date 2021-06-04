@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WPF_Redux_Client.CustomControls;
 using WPF_Redux_Client.ServiceReference1;
 
@@ -28,6 +30,7 @@ namespace WPF_Redux_Client.Pages
         Service1Client client;
         TmpChatItem[] chatItems;
         TmpChatItem current;
+        public byte[] ImagePath { get; set; }
         public ListMessagesPage(int userid)
         {
             InitializeComponent();
@@ -55,6 +58,10 @@ namespace WPF_Redux_Client.Pages
                 foreach (var item in chatItems)
                 {
                     current = item;
+
+
+                   
+                    ImagePath=item.ImagePath;
                     headername.Text = item.Title;
                     if (item.messages != null)
                     foreach (var m in item.messages)
@@ -76,9 +83,36 @@ namespace WPF_Redux_Client.Pages
                 tmpborder.Visibility = Visibility.Visible;
             }
 
+            scroll.ScrollToEnd();
+            //DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            //dispatcherTimer.Tick += DispatcherTimer_Tick; ;
+            //dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
+            //dispatcherTimer.Start();
+        }
+        public BitmapSource ByteToBitmapSource(byte[] image)
+        {
+            BitmapImage imageSource = new BitmapImage();
+
+            using (MemoryStream stream = new MemoryStream(image))
+            {
+                stream.Seek(0, SeekOrigin.Begin);
+                imageSource.BeginInit();
+                imageSource.StreamSource = stream;
+                imageSource.CacheOption = BitmapCacheOption.OnLoad;
+                imageSource.EndInit();
+            }
+
+            return imageSource;
         }
 
-       
+        private BitmapImage ImageFromByte(byte[] array)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.StreamSource = new MemoryStream(array);
+            bitmap.EndInit();
+            return bitmap;
+        }
 
         private void Chatlistitem_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -88,6 +122,10 @@ namespace WPF_Redux_Client.Pages
                 messages.Items.Clear();
                 current = chatItems.Where(x => x.Title == chatlistitem.NameUser).FirstOrDefault();
                 headername.Text = current.Title;
+
+                ImagePath = current.ImagePath;
+
+                DispatcherTimer_Tick(null,null);
                 if (current.messages != null)
                 foreach (var m in current.messages)
                 {
@@ -102,18 +140,31 @@ namespace WPF_Redux_Client.Pages
                     }
 
                 }
+              
             }
             catch
             {
 
             }
+          
 
-
+            
         }
 
-       
-
-       
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            //tmpMessage[] tmpMessages = client.GetnewMes(current.Chatid, current.messages.Count(), id);
+            //if (tmpMessages!=null)
+            //{
+            //    foreach (var item in tmpMessages)
+            //    {
+            //        messages.Items.Add(new Mess() {Mes=item.Message,TimeSending=item.Message,ImagePath=current.ImagePath });
+            //    }
+            //   current.LastMessage=tmpMessages.Last().Message;
+            //    scroll.ScrollToEnd();
+            //}
+            
+        }
 
         private void sendMsg_TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -137,19 +188,21 @@ namespace WPF_Redux_Client.Pages
                             IsRecieved=false
                            
                         };
+                        messages.Items.Add(new Mymes()
+                        {
+                            TimeSending = DateTime.Now.ToString("hh:mm tt"),
+                            Mes = sendMsg_TextBox.Text
+                        });
                         client.SendMes(message,current,id);
 
-                        messages.Items.Add(new Mymes() { 
-                            TimeSending=DateTime.Now.ToString("hh:mm tt"),
-                            Mes=sendMsg_TextBox.Text
-                        });
+                      
                         foreach (var item in lst1.Items)
                         {
                             if (item is Chatlistitem)
                             {
                                 if ((item as Chatlistitem).ImagePath.SequenceEqual(current.ImagePath))
                                 {
-                                    (item as Chatlistitem).Lastmes = message.Mes;
+                                    (item as Chatlistitem).last.Text = message.Mes;
                                     break;
                                 }
                             }
@@ -187,7 +240,7 @@ namespace WPF_Redux_Client.Pages
                         {
                             if ((item as Chatlistitem).ImagePath.SequenceEqual(current.ImagePath))
                             {
-                                (item as Chatlistitem).Lastmes = message.Mes;
+                                (item as Chatlistitem).last.Text = message.Mes;
                             }
                         }
 

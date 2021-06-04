@@ -221,7 +221,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Border CornerRadius="80" BorderThickness="2" BorderBrush="White" Grid.Column="0" Margin="10,5,15,0">
                                     <Border.Background>
-                                        <ImageBrush ImageSource="hero_ua.jpg"></ImageBrush>
+                                                <ImageBrush ImageSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}, Path=ImagePath}"></ImageBrush>
                                     </Border.Background>
                                 </Border>
                                 <TextBlock  Grid.Column="1" Name="headername" Text="Igor Kolomoisky" FontSize="33" FontFamily="Telegram" Margin="15,15,0,47" ></TextBlock>
@@ -233,7 +233,7 @@
                             <!--<Border.Background>
                                         --><!--<ImageBrush ImageSource="C:\Users\Bogdan\Downloads\WPF_Redux_Client\WPF_Redux_Client\WPF_Redux_Client\Images\3.jpg"></ImageBrush>--><!--
                             </Border.Background>-->
-                            <ScrollViewer Style="{StaticResource ScrollViewer}">
+                            <ScrollViewer x:Name="scroll" Style="{StaticResource ScrollViewer}">
 
                                 <ItemsControl  Name="messages">
 

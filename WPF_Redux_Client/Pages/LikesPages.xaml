@@ -184,6 +184,7 @@
                 <StackPanel x:Name="listLikes" Orientation="Vertical">
                 </StackPanel>
             </ScrollViewer>
+            <local1:ProfileControl x:Name="FullProfile" Grid.Column="1" Opacity="0"/>
         </Grid>
 
     </Grid>

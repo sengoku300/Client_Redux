@@ -25,6 +25,7 @@ namespace WPF_Redux_Client.CustomControls
         public event MegaClass.BanProfile BanProfileEvent;
         public event MegaClass.LikeProfile LikeProfileEvent;
         public event MegaClass.DislikeProfile DislikeProfileEvent;
+        public event MegaClass.OpenProfileInLikes OpenProfileEvent;
         public int Number { get; set; }
         public byte[] ImagePath { get; set; }
         public LikedUser()
@@ -120,17 +121,25 @@ namespace WPF_Redux_Client.CustomControls
 
 		private void borderlike_MouseDown(object sender, MouseButtonEventArgs e)
 		{
+            e.Handled = true;
             LikeProfileEvent?.BeginInvoke(this, null, null);
 		}
 
 		private void borderremove_MouseDown(object sender, MouseButtonEventArgs e)
-		{
+        {
+            e.Handled = true;
             DislikeProfileEvent?.BeginInvoke(this, null, null);
         }
 
 		private void borderblock_MouseDown(object sender, MouseButtonEventArgs e)
-		{
+        {
+            e.Handled = true;
             BanProfileEvent?.BeginInvoke(this, null, null);
         }
+
+		private void user_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+            OpenProfileEvent?.BeginInvoke(this, null, null);
+		}
 	}
 }

@@ -16,6 +16,7 @@
              Name="user"
             MouseEnter="UserControl_MouseEnter"
              MouseLeave="UserControl_MouseLeave"
+             MouseDown="user_MouseDown"
             >
 
 
@@ -66,7 +67,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2" Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter" MouseDown="borderlike_MouseDown">
+                <Border x:Name="borderlike" Background="WhiteSmoke" Grid.Column="2" Cursor="Hand" MouseLeave="borderlike_MouseLeave" MouseEnter="borderlike_MouseEnter" PreviewMouseDown="borderlike_MouseDown">
 
 
                     <materialDesign:PackIcon Name="like"
@@ -74,7 +75,7 @@
                                          VerticalAlignment="Center"
                                          Kind="Check"   />
                 </Border>
-                <Border x:Name="borderblock" Background="WhiteSmoke"  Cursor="Hand" Grid.Column="4" MouseLeave="borderblock_MouseLeave" MouseEnter="borderblock_MouseEnter" MouseDown="borderblock_MouseDown">
+                <Border x:Name="borderblock" Background="WhiteSmoke"  Cursor="Hand" Grid.Column="4" MouseLeave="borderblock_MouseLeave" MouseEnter="borderblock_MouseEnter" PreviewMouseDown="borderblock_MouseDown">
                     <materialDesign:PackIcon 
                                          HorizontalAlignment="Center" 
                                          VerticalAlignment="Center" Name="block"
