@@ -70,7 +70,7 @@ namespace WPF_Redux_Client.Pages
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
                     User who = ((UserCard)sender).user;
-                    client.AddLike(who, user1);
+                    client.AddLike(user1, who);
                     items_control.Items.Remove((UserCard)sender);
                 }
 
@@ -191,7 +191,7 @@ namespace WPF_Redux_Client.Pages
         private void UserCard_UserControlLikeClicked(object sender, EventArgs e)
         {
             UserCard card = (UserCard)sender;
-            client.AddLike(card.user, user1);
+            client.AddLike(user1, card.user);
             items_control.Items.Remove((UserCard)sender);
         }
 
@@ -231,11 +231,15 @@ namespace WPF_Redux_Client.Pages
                 {
                     foreach (var item2 in photos)
                     {
-                        BitmapImage bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.StreamSource = new MemoryStream(item2);
-                        bitmap.EndInit();
-                        images.Add(bitmap);
+                        if (item2?.Length > 0)
+                        {
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.StreamSource = new MemoryStream(item2);
+                            bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                            bitmap.EndInit();
+                            images.Add(bitmap);
+                        }
                     }
                 }
 
