@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              x:Class="WPF_Redux_Client.CustomControls.ProfileControl"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1010">
+             d:DesignHeight="720" d:DesignWidth="1000">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -25,10 +25,10 @@
 
         <Image Stretch="Uniform" 
                 Grid.Row="0"
-                Source="/WPF_Redux_Client;component/Pages/hero_ua.jpg"
+                Source="/Images\no_avatar.png"
                 x:Name="user_photo"
-                VerticalAlignment="Top"
-                Margin="43,10,0,0" Height="350" HorizontalAlignment="Left" Width="274">
+                VerticalAlignment="Top" 
+                Margin="43,30,0,0" Height="317" HorizontalAlignment="Left" Width="274">
 
             <Image.Effect>
                 <DropShadowEffect BlurRadius="30"
@@ -69,28 +69,26 @@
                 VerticalAlignment="Stretch"
                 FontSize="18"
                 FontFamily="Calibri" Foreground="RoyalBlue"
-                Margin="5,0" Grid.Row="1"><Run x:Name="run_job" Text="Программист"
-                FontWeight="Medium"/></TextBlock>
+                Margin="5,0" Grid.Row="1"><Run x:Name="run_job" FontWeight="Medium" Text="Работа не указана"/></TextBlock>
         </Grid>
         <TextBlock
                 VerticalAlignment="Stretch"
                 FontSize="18"
                 FontFamily="Calibri"
-                Margin="13,485,790,211"><Run Text="Цвет глаз"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_ColorEye"/></TextBlock>
+                Margin="13,485,693,211"><Run Text="Цвет глаз"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_ColorEye"/></TextBlock>
         <TextBlock
                 VerticalAlignment="Stretch"
                 FontFamily="Calibri"
                 FontSize="18"
-                Margin="13,509,790,187"><Run Text="Цвет волос: "/><Run Text=" "/><Run x:Name="run_ColorHaircut"/></TextBlock>
+                Margin="13,509,693,187"><Run Text="Цвет волос: "/><Run Text=" "/><Run x:Name="run_ColorHaircut"/></TextBlock>
         <TextBlock
                     VerticalAlignment="Stretch"
                     FontSize="20"
                 FontFamily="Calibri"
-                    Margin="359,205,375,489"><Run Text="Пол: "/><Run Text=" "/><Run x:Name="run_gender"/></TextBlock>
-        <Button Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Margin="317,175,0,0" VerticalAlignment="Top" Width="25" Height="24" Click="Button_Click_1"/>
-        <materialDesign:PackIcon Kind="ChevronRight" Height="42" Width="42" Margin="312,165,0,0"/>
-        <Button Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="23" Height="24" Click="Button_Click_2"/>
-        <materialDesign:PackIcon Kind="ChevronRight" Height="42" Width="42" Margin="-3,165,0,0" RenderTransformOrigin="0.5,0.5">
+                    Margin="359,205,375,489"><Run Text="Пол:"/><Run Text=" "/><Run Text=" "/><Run Text=" "/><Run x:Name="run_gender"/></TextBlock>
+        <materialDesign:PackIcon Name="Arrow1" Kind="ChevronRight" Height="42" Width="42" Margin="312,165,0,0"/>
+        <Button x:Name="Button_left" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Margin="317,175,0,0" VerticalAlignment="Top" Width="25" Height="24" Click="Button_Click_1"/>
+        <materialDesign:PackIcon Name="Arrow2" Kind="ChevronRight" Height="42" Width="42" Margin="-3,165,0,0" RenderTransformOrigin="0.5,0.5">
             <materialDesign:PackIcon.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"/>
@@ -100,36 +98,38 @@
                 </TransformGroup>
             </materialDesign:PackIcon.RenderTransform>
         </materialDesign:PackIcon>
+        <Button x:Name="Button_right" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="23" Height="24" Click="Button_Click_2"/>
+
         <TextBlock
             VerticalAlignment="Stretch"
             FontFamily="Calibri"
             FontSize="18"
-            Margin="13,533,790,163"><Run Text="Рост"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_height"/></TextBlock>
+            Margin="13,533,693,163"><Run Text="Рост"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_height"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="13,459,0,0" TextWrapping="Wrap" Text="Внешнее описание" VerticalAlignment="Top" Width="207" FontSize="20" FontWeight="Heavy" FontFamily="Calibri" RenderTransformOrigin="0.744,0.63"/>
 
         <TextBox x:Name="textBox_email" HorizontalAlignment="Left" Height="26" Margin="13,686,0,0" TextWrapping="Wrap" Text="mymail@gmail.com" VerticalAlignment="Top" Width="210"/>
-        <Button Background="Gray" BorderBrush="DarkGray" HorizontalAlignment="Left" Margin="228,686,0,0" VerticalAlignment="Top" Width="47" HorizontalContentAlignment="Stretch" Height="26" Click="Button_Click">
+        <Button x:Name="Button_Copy_Email" Background="Gray" BorderBrush="DarkGray" HorizontalAlignment="Left" Margin="228,686,0,0" VerticalAlignment="Top" Width="47" HorizontalContentAlignment="Stretch" Height="26" Click="Button_Click">
             <materialDesign:PackIcon Kind="ContentCopy" Height="12" Width="Auto" HorizontalAlignment="Stretch" />
         </Button>
         <Label Content="Контактная информация" Foreground="Black" HorizontalAlignment="Left" Margin="10,658,0,0" VerticalAlignment="Top" Width="176" FontFamily="Calibri" FontSize="16" FontWeight="Medium"/>
-        <TextBox HorizontalAlignment="Left" Height="36" Margin="358,117,0,0" TextWrapping="Wrap" Text="Общая информация" VerticalAlignment="Top" Width="276" FontSize="20" FontWeight="Heavy" FontFamily="Calibri"/>
-        <TextBox x:Name="Birthday" HorizontalAlignment="Left" Height="32" Margin="358,146,0,0" TextWrapping="Wrap" Text="Дата рождения:" VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
-        <TextBox x:Name="Age" HorizontalAlignment="Left" Height="32" Margin="358,173,0,0" TextWrapping="Wrap" Text="Возраст:" VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
-        <TextBox x:Name="Hobbies" HorizontalAlignment="Left" Height="59" Margin="358,288,0,0" TextWrapping="Wrap" Text="Хобби:" VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
-        <TextBox x:Name="Education" HorizontalAlignment="Left" Height="29" Margin="358,229,0,0" TextWrapping="Wrap" Text="Образование:" VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
-        <TextBox x:Name="Faith" HorizontalAlignment="Left" Height="30" Margin="358,258,0,0" TextWrapping="Wrap" Text="Вера:" VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
-        <TextBox HorizontalAlignment="Left" Foreground="Black" Height="33" Margin="364,366,0,0" TextWrapping="Wrap" Text="Подробная информация:" VerticalAlignment="Top" Width="229"  FontSize="20" FontWeight="Heavy" FontFamily="Calibri"/>
-        <TextBox x:Name="About" HorizontalAlignment="Left" Height="312" Margin="364,398,0,0" TextWrapping="Wrap" Text="О себе:" VerticalAlignment="Top" Width="636" FontSize="20" FontFamily="Calibri"/>
-        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="1" Margin="358,710,0,0" VerticalAlignment="Top" Width="644"/>
-        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="312" Margin="1001,398,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+        <TextBox IsReadOnly="True"  HorizontalAlignment="Left" Height="36" Margin="358,117,0,0" TextWrapping="Wrap" Text="Общая информация" VerticalAlignment="Top" Width="276" FontSize="20" FontWeight="Heavy" FontFamily="Calibri"/>
+        <TextBox x:Name="Birthday" IsReadOnly="True" HorizontalAlignment="Left" Height="32" Margin="358,146,0,0" TextWrapping="Wrap" Text="Дата рождения: " VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
+        <TextBox x:Name="Age" IsReadOnly="True"  HorizontalAlignment="Left" Height="32" Margin="358,173,0,0" TextWrapping="Wrap" Text="Возраст: " VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
+        <TextBox x:Name="Hobbies" IsReadOnly="True"  HorizontalAlignment="Left" Height="59" Margin="358,288,0,0" TextWrapping="Wrap" Text="Хобби: " VerticalAlignment="Top" Width="433" FontSize="20" FontFamily="Calibri"/>
+        <TextBox x:Name="Education" IsReadOnly="True"  HorizontalAlignment="Left" Height="33" Margin="358,229,0,0" TextWrapping="Wrap" Text="Образование: " VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
+        <TextBox x:Name="Faith" IsReadOnly="True"  HorizontalAlignment="Left" Height="30" Margin="358,258,0,0" TextWrapping="Wrap" Text="Вера: " VerticalAlignment="Top" Width="276" FontSize="20" FontFamily="Calibri"/>
+        <TextBox IsReadOnly="True"  HorizontalAlignment="Left" Foreground="Black" Height="33" Margin="364,366,0,0" TextWrapping="Wrap" Text="Подробная информация:" VerticalAlignment="Top" Width="229"  FontSize="20" FontWeight="Heavy" FontFamily="Calibri"/>
+        <TextBox IsReadOnly="True"  x:Name="About" HorizontalAlignment="Left" Height="307" Margin="359,398,0,0" TextWrapping="Wrap" Text="О себе: &#xA;" VerticalAlignment="Top" Width="499" FontSize="20" FontFamily="Calibri"/>
+        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="1" Margin="352,710,0,0" VerticalAlignment="Top" Width="512"/>
+        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="311" Margin="863,399,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
         </Rectangle>
-        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="284" Margin="358,426,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+        <Rectangle Fill="DarkGray" HorizontalAlignment="Left" Height="282" Margin="352,428,0,0" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
 
         </Rectangle>
         <TextBlock
             VerticalAlignment="Stretch"
             FontFamily="Calibri"
             FontSize="18"
-            Margin="13,557,790,139"><Run Text="Вес"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_weight"/></TextBlock>
+            Margin="13,557,693,139"><Run Text="Вес"/><Run Text=": "/><Run Text=" "/><Run x:Name="run_weight"/></TextBlock>
     </Grid>
 </UserControl>

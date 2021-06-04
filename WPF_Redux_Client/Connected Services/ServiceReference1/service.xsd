@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
   <xs:element name="GetData">
     <xs:complexType>
@@ -102,8 +101,8 @@
   <xs:element name="AddPhoto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" minOccurs="0" name="image" nillable="true" type="q8:BitmapImage" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q9:User" />
+        <xs:element minOccurs="0" name="arr" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q8:User" />
         <xs:element minOccurs="0" name="ext" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -116,7 +115,7 @@
   <xs:element name="GetImage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q10:User" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q9:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -159,7 +158,7 @@
   <xs:element name="IsExistsHobbies">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q11:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -187,14 +186,32 @@
   <xs:element name="SetAvatar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q12:User" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="user" nillable="true" type="q11:User" />
         <xs:element minOccurs="0" name="array" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetAvatarResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAvatarResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetnewMes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="chatid" type="xs:int" />
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+        <xs:element minOccurs="0" name="userid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetnewMesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="GetnewMesResult" nillable="true" type="q12:ArrayOftmpMessage" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DefaultFilter">
@@ -492,6 +509,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetBlackListsWithUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user1" type="xs:int" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="chatitem" nillable="true" type="q33:TmpChatItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBlackListsWithUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="GetBlackListsWithUserResult" nillable="true" type="q34:ArrayOfBlackList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User" nillable="true" type="q35:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhotoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HaveUserAddThisPhoto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" minOccurs="0" name="User" nillable="true" type="q36:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HaveUserAddThisPhotoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HaveUserAddThisPhotoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="OnCallback">
     <xs:complexType>
       <xs:sequence />
@@ -506,7 +566,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="chatid" type="xs:int" />
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="message" nillable="true" type="q33:Message" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" minOccurs="0" name="message" nillable="true" type="q37:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

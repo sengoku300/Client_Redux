@@ -58,6 +58,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="ArrayOftmpMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tmpMessage" nillable="true" type="tns:tmpMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftmpMessage" nillable="true" type="tns:ArrayOftmpMessage" />
+  <xs:complexType name="tmpMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendingTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tmpMessage" nillable="true" type="tns:tmpMessage" />
   <xs:complexType name="ArrayOfHobbies">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Hobbies" nillable="true" type="tns:Hobbies" />
@@ -88,20 +102,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TmpChatItem" nillable="true" type="tns:TmpChatItem" />
-  <xs:complexType name="ArrayOftmpMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="tmpMessage" nillable="true" type="tns:tmpMessage" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOftmpMessage" nillable="true" type="tns:ArrayOftmpMessage" />
-  <xs:complexType name="tmpMessage">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SendingTime" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UserId" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="tmpMessage" nillable="true" type="tns:tmpMessage" />
   <xs:complexType name="Filters">
     <xs:sequence>
       <xs:element minOccurs="0" name="ColorEye" nillable="true" type="xs:string" />
@@ -115,4 +115,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Filters" nillable="true" type="tns:Filters" />
+  <xs:complexType name="ArrayOfBlackList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BlackList" nillable="true" type="tns:BlackList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBlackList" nillable="true" type="tns:ArrayOfBlackList" />
+  <xs:complexType name="BlackList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserEnemyID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BlackList" nillable="true" type="tns:BlackList" />
 </xs:schema>

@@ -51,6 +51,9 @@ namespace WPF_Redux_Client.Pages
 
             this.user = user;
 
+            textBox_Height.DataContext = this.user;
+            textBox_Weight.DataContext = this.user;
+
             main = mainWindow;
 
             this.DataContext = this.user;

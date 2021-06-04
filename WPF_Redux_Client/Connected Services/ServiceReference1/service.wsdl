@@ -40,14 +40,6 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Imaging" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Media.Animation" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Windows.Threading" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Net.Cache" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetData_InputMessage">
@@ -127,6 +119,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_SetAvatar_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetAvatarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetnewMes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetnewMes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetnewMes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetnewMesResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_DefaultFilter_InputMessage">
     <wsdl:part name="parameters" element="tns:DefaultFilter" />
@@ -254,6 +252,24 @@
   <wsdl:message name="IService1_GetUsersWhoWasBannedByYou_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersWhoWasBannedByYouResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetBlackListsWithUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBlackListsWithUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBlackListsWithUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBlackListsWithUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaveUserAddThisPhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:HaveUserAddThisPhoto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_HaveUserAddThisPhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HaveUserAddThisPhotoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_OnCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnCallback" />
   </wsdl:message>
@@ -318,6 +334,10 @@
     <wsdl:operation name="SetAvatar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAvatar" message="tns:IService1_SetAvatar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAvatarResponse" message="tns:IService1_SetAvatar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetnewMes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetnewMes" message="tns:IService1_GetnewMes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetnewMesResponse" message="tns:IService1_GetnewMes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DefaultFilter">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DefaultFilter" message="tns:IService1_DefaultFilter_InputMessage" />
@@ -402,6 +422,18 @@
     <wsdl:operation name="GetUsersWhoWasBannedByYou">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsersWhoWasBannedByYou" message="tns:IService1_GetUsersWhoWasBannedByYou_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersWhoWasBannedByYouResponse" message="tns:IService1_GetUsersWhoWasBannedByYou_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBlackListsWithUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBlackListsWithUser" message="tns:IService1_GetBlackListsWithUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBlackListsWithUserResponse" message="tns:IService1_GetBlackListsWithUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePhoto" message="tns:IService1_DeletePhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePhotoResponse" message="tns:IService1_DeletePhoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HaveUserAddThisPhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/HaveUserAddThisPhoto" message="tns:IService1_HaveUserAddThisPhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/HaveUserAddThisPhotoResponse" message="tns:IService1_HaveUserAddThisPhoto_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="OnCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/OnCallback" message="tns:IService1_OnCallback_OutputCallbackMessage" />
@@ -526,6 +558,15 @@
     </wsdl:operation>
     <wsdl:operation name="SetAvatar">
       <soap12:operation soapAction="http://tempuri.org/IService1/SetAvatar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetnewMes">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetnewMes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -715,6 +756,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetUsersWhoWasBannedByYou">
       <soap12:operation soapAction="http://tempuri.org/IService1/GetUsersWhoWasBannedByYou" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBlackListsWithUser">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetBlackListsWithUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhoto">
+      <soap12:operation soapAction="http://tempuri.org/IService1/DeletePhoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HaveUserAddThisPhoto">
+      <soap12:operation soapAction="http://tempuri.org/IService1/HaveUserAddThisPhoto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

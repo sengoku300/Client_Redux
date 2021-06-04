@@ -69,19 +69,13 @@ namespace WPF_Redux_Client.Pages
 
                 if (SwipeStart != null && swipe.X > (SwipeStart.X + 200))
                 {
-                    MessageBox.Show("SwipeRight");
-
-                    var who = ((UserCard)sender).user;
-
-                    client.AddLike(user1, who);
-
+                    User who = ((UserCard)sender).user;
+                    client.AddLike(who, user1);
                     items_control.Items.Remove((UserCard)sender);
                 }
 
                 if (SwipeStart != null && swipe.X < (SwipeStart.X - 200))
                 {
-                    MessageBox.Show("SwipeLeft");
-
                     items_control.Items.Remove((UserCard)sender);
                 }
             }
@@ -191,18 +185,13 @@ namespace WPF_Redux_Client.Pages
 
         private void UserCard_UserControlDLikeClicked(object sender, EventArgs e)
         {
-            MessageBox.Show("Dislicked");
-
             items_control.Items.Remove((UserCard)sender);
         }
 
         private void UserCard_UserControlLikeClicked(object sender, EventArgs e)
         {
-            MessageBox.Show("Like");
-
             UserCard card = (UserCard)sender;
-
-            client.AddLike(user1, card.user);
+            client.AddLike(card.user, user1);
             items_control.Items.Remove((UserCard)sender);
         }
 
@@ -222,9 +211,11 @@ namespace WPF_Redux_Client.Pages
 
             if(users.Count() > 0) users.Clear();
 
-            var get_users = client.FeedFilterUser(user1);
+            User[] get_users;
 
-            if (client.FeedFilterUser(user1).Count() <= 0)
+            if (client.IsExistsFilter(user1))
+                get_users = client.FeedFilterUser(user1);
+            else
                 get_users = client.DefaultFilter(user1);
 
             double user_lati = client.GetLatiTude(user1.Email);
@@ -247,7 +238,6 @@ namespace WPF_Redux_Client.Pages
                         images.Add(bitmap);
                     }
                 }
-
 
                 double lati_ = client.GetLatiTude(item.Email);
                 double long_ = client.GetLongiTude(item.Email);

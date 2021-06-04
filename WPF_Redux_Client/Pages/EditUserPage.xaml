@@ -87,6 +87,7 @@
                      Text="{Binding Path=Description}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      FontSize="20"
+                     FontWeight="DemiBold"
                      BorderBrush="Gray"
                      x:Name="textBox_Descriptions" Width="379"/>
         </StackPanel>
@@ -224,8 +225,8 @@
             <ComboBox Text="{Binding Path=Gender}"
                       x:Name="combobox_gender"
                  Background="Gray" Width="423" Foreground="White" Margin="0,22,5,22">
-                <ComboBoxItem>Мужской</ComboBoxItem>
-                <ComboBoxItem>Женский</ComboBoxItem>
+                <ComboBoxItem>Мужчина</ComboBoxItem>
+                <ComboBoxItem>Женщина</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
@@ -236,7 +237,7 @@
                        VerticalAlignment="top"
                        FontSize="25px"/>
             <TextBox Margin="0,8,10,8.4"
-                     Text="{Binding Height}"
+                     Text="{Binding Path=Height}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
                      FontSize="20"
@@ -252,7 +253,7 @@
                        VerticalAlignment="top"
                        FontSize="25px"/>
             <TextBox Margin="10,10,10,8"
-                     Text="{Binding Weight}"
+                     Text="{Binding Path=Weight}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
                      FontSize="20"
@@ -272,6 +273,8 @@
                      Text="{Binding Path=Job}"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
+                     FontSize="20"
+                     FontWeight="DemiBold"
                      Width="386"
                      x:Name="textBox_job"/>
         </StackPanel>
@@ -288,7 +291,10 @@
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      BorderBrush="Gray"
                      Width="391"
-                     x:Name="textBox_hobbies" FontSize="15" VerticalScrollBarVisibility="Visible"/>
+                     FontSize="20"
+                     FontWeight="DemiBold"
+                     x:Name="textBox_hobbies"
+                     VerticalScrollBarVisibility="Visible"/>
         </StackPanel>
 
         <Button x:Name="Button_Save"

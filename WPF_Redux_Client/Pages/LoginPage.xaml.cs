@@ -104,14 +104,10 @@ namespace WPF_Redux_Client.Pages
                         File.WriteAllLines("log.txt", new string[] { textBox_Email.Text,
                             PassBox.passbox.Password});
                     }
-                  
-                    MainWindow mainWindow = new MainWindow();
 
-                    mainWindow.user = client.GetUser(textBox_Email.Text);
-
+                    MainWindow mainWindow = new MainWindow(client.GetUser(textBox_Email.Text), client);
                     mainWindow.Show();
-
-                    authoriz.Close();
+                    authoriz?.Close();
                 }
                 else
                     MessageBox.Show("Ошибка! Неверный логин или пароль!");

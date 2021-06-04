@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -25,18 +26,26 @@ namespace WPF_Redux_Client.Pages
     public partial class LikesPages : Page, IService1Callback
     {
         Service1Client service;
-        User user;
+        User You;
         public LikesPages(User current_user)
         {
             service = new Service1Client(new InstanceContext(this as IService1Callback));
-            user = current_user;
+            You = current_user;
             InitializeComponent();
+
+            //listLikes.Items.Add(new LikedUser());
+            //listLikes.Items.Add(new LikedUser());
+            //listLikes.Items.Add(new LikedUser());
+            //listLikes.Items.Add(new LikedUser());
+            //listLikes.Items.Add(new LikedUser());
+            //listLikes.Items.Add(new LikedUser());
+
             Initialize();
         }
 
         public void Initialize()
         {
-            foreach (User User in service.GetUsersWhoLikedYou(user))
+            foreach (User User in service.GetUsersWhoLikedYouAsync(You).Result)
             {
                 LikedUser lu = new LikedUser();
                 lu.User = User;
@@ -46,9 +55,49 @@ namespace WPF_Redux_Client.Pages
 				lu.LikeProfileEvent += Lu_LikeProfileEvent;
 				lu.DislikeProfileEvent += Lu_DislikeProfileEvent;
 				lu.BanProfileEvent += Lu_BanProfileEvent;
+				lu.OpenProfileEvent += Lu_OpenProfileEvent;
                 lu.Number = listLikes.Children.Count;
-                //lu.ImagePath = service.GetImageAsync(User).Result;
+                lu.ImagePath = service.GetImageAsync(User).Result;
                 listLikes.Children.Add(lu);
+            }
+        }
+
+        private BitmapImage ImageFromByte(byte[] image)
+		{
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.StreamSource = new MemoryStream(image);
+            bitmap.EndInit();
+            return bitmap;
+        }
+
+		private void Lu_OpenProfileEvent(LikedUser sender)
+		{
+            if (!Dispatcher.CheckAccess()) Dispatcher.Invoke(() => Lu_OpenProfileEvent(sender));
+            else
+            {
+                List<Image> images = new List<Image>();
+                byte[] MainPhoto = service.GetImage(sender.User);
+                images.Add(new Image { Source = ImageFromByte(MainPhoto) });
+                byte[][] Photos = service.GetPhotosAsync(sender.User).Result;
+                if (Photos?.Length > 0)
+                    foreach (byte[] image in service.GetPhotos(sender.User))
+                    {
+                        if (image.SequenceEqual(MainPhoto)) break;
+                        images.Add(new Image { Source = ImageFromByte(image) });
+                    }
+                List<Hobbies> hobbies = service.GetHobbies(sender.User)?.ToList();
+                if (hobbies == null) hobbies = new List<Hobbies>();
+                double distance = service.GetDistanceBetweenPoints(You.LatiTude, You.LongiTude, sender.User.LatiTude, sender.User.LongiTude);
+                try
+                {
+                    FullProfile.PlaceAllItems(images, sender.User, distance, hobbies);
+                    FullProfile.Opacity = 1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -57,8 +106,8 @@ namespace WPF_Redux_Client.Pages
             if (!Dispatcher.CheckAccess()) Dispatcher.Invoke(() => Lu_BanProfileEvent(sender));
             else
             {
-                if (user != null && sender.User != null)
-                    service.BanUser(user.UserId, sender.User.UserId);
+                if (You != null && sender.User != null)
+                    service.BanUser(You.UserId, sender.User.UserId);
                 listLikes.Children.Remove(sender);
             }
 
@@ -77,7 +126,7 @@ namespace WPF_Redux_Client.Pages
             {
                 try
                 {
-                    if (user != null && sender?.User != null) service.AddLike(sender.User, user);
+                    if (You != null && sender?.User != null) service.AddLike(sender.User, You);
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -111,7 +160,7 @@ namespace WPF_Redux_Client.Pages
 
         public void OnSendMessage(string mes)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

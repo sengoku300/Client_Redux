@@ -42,7 +42,7 @@
                         </Border.Background>
                     </Border>
                     <TextBlock Margin="10,3,0,0" FontWeight="Bold" FontSize="14" Grid.Column="1" Grid.Row="0" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}, Path=NameUser}"></TextBlock>
-                    <TextBlock  Margin="18,31,8,11" FontFamily="telegramoA-Bold"  FontSize="15" Foreground="LightGray" Grid.Column="1" Grid.Row="0" Text="Hello" Width="215"></TextBlock>
+                    <TextBlock  Margin="18,31,8,11" FontFamily="telegramoA-Bold" Name="last" FontSize="15" Foreground="LightGray" Grid.Column="1" Grid.Row="0" Text="" Width="215"></TextBlock>
                     <Separator Background="Silver" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,0" Grid.Row="1"></Separator>
                 </Grid>
 

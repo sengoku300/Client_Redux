@@ -105,11 +105,11 @@
 
         <Button x:Name="Button_delete" Background="#999999" BorderBrush="DarkGray"
   Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-  ToolTip="Удалить фотографию" Margin="186,0,0,231" Opacity="0" Height="Auto" Click="Button_delete_Click" Width="Auto">
+  ToolTip="Удалить фотографию" Margin="186,0,0,231" Opacity="1" Height="Auto" Click="Button_delete_Click" Width="Auto">
             <materialDesign:PackIcon
     Kind="CloseCircle"
-    Height="39"
-    Width="34" />
+    Height="36"
+    Width="35" />
         </Button>
 
         <Button x:Name="Button_main" Content="Сделать аватаркой" Foreground="Black" Margin="10,225,10,10" Height="Auto" Background="#dedede" BorderBrush="Transparent" Opacity="0" Click="Button_main_Click" FontSize="16" VerticalContentAlignment="Center"/>

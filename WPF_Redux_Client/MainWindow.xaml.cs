@@ -22,10 +22,13 @@ namespace WPF_Redux_Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public User user;
+        private User user;
+        private Service1Client client;
 
-        public MainWindow()
+        public MainWindow(User User, Service1Client Client)
         {
+            this.user = User;
+            this.client = Client;
             InitializeComponent();
         }
 
@@ -50,7 +53,7 @@ namespace WPF_Redux_Client
                     frame.Navigate(new BlackListPage(user));
                     break;
                 case "gallery":
-                    PhotoGallery photoGallery = new PhotoGallery();
+                    PhotoGallery photoGallery = new PhotoGallery(user, client);
                     photoGallery.User = user;
                     frame.Navigate(photoGallery);
                     break;

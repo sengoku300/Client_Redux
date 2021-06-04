@@ -15,5 +15,6 @@ namespace WPF_Redux_Client.CustomControls
 		public delegate void BanProfile(LikedUser sender);
 		public delegate void UnbanAndLikeProfile(BlackListItem sender);
 		public delegate void OpenProfile(BlackListItem sender);
+		public delegate void OpenProfileInLikes(LikedUser sender);
 	}
 }

@@ -52,6 +52,14 @@ namespace WPF_Redux_Client.Pages
                 blacklist.Items.Add(bi);
             }
 		}
+        private BitmapImage ImageFromByte(byte[] image)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.StreamSource = new MemoryStream(image);
+            bitmap.EndInit();
+            return bitmap;
+        }
 
         private void Bi_OpenProfileEvent(BlackListItem sender)
         {
@@ -59,17 +67,16 @@ namespace WPF_Redux_Client.Pages
             else
             {
                 List<Image> images = new List<Image>();
+                byte[] MainPhoto = service.GetImage(sender.User);
+                images.Add(new Image { Source = ImageFromByte(MainPhoto) });
                 byte[][] Photos = service.GetPhotosAsync(sender.User).Result;
-                if (Photos != null)
+                if (Photos?.Length > 0)
                     foreach (byte[] image in service.GetPhotos(sender.User))
                     {
-                        BitmapImage bitmap = new BitmapImage();
-                        bitmap.BeginInit();
-                        bitmap.StreamSource = new MemoryStream(image);
-                        bitmap.EndInit();
-                        images.Add(new Image { Source = bitmap });
+                        if (image.SequenceEqual(MainPhoto)) break;
+                        images.Add(new Image { Source = ImageFromByte(image) });
                     }
-                List<Hobbies> hobbies = service.GetHobbies(You)?.ToList();
+                List<Hobbies> hobbies = service.GetHobbies(sender.User)?.ToList();
                 if (hobbies == null) hobbies = new List<Hobbies>();
                 double distance = service.GetDistanceBetweenPoints(You.LatiTude, You.LongiTude, sender.User.LatiTude, sender.User.LongiTude);
                 try
@@ -78,9 +85,9 @@ namespace WPF_Redux_Client.Pages
                     FullProfile.Opacity = 1;
                 }
                 catch (Exception ex)
-				{
+                {
                     MessageBox.Show(ex.Message);
-				}
+                }
             }
         }
 

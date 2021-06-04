@@ -68,11 +68,11 @@ namespace WPF_Redux_Client.Pages
                     {
                         if (m.UserId != userid)
                         {
-                            messages.Items.Add(new Mess() { Mes = m.Message, ImagePath = item.ImagePath, TimeSending = m.SendingTime.ToString("hh:mm tt") });
+                          //  messages.Items.Add(new Mess() { Mes = m.Message, ImagePath = item.ImagePath, TimeSending = m.SendingTime });
                         }
                         else
                         {
-                            messages.Items.Add(new Mymes() { Mes = m.Message, TimeSending = m.SendingTime.ToString("hh:mm tt") });
+                           // messages.Items.Add(new Mymes() { Mes = m.Message, TimeSending = m.SendingTime });
                         }
                     }
                     break;
@@ -84,10 +84,10 @@ namespace WPF_Redux_Client.Pages
             }
 
             scroll.ScrollToEnd();
-            //DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            //dispatcherTimer.Tick += DispatcherTimer_Tick; ;
-            //dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
-            //dispatcherTimer.Start();
+            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += DispatcherTimer_Tick; ;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
+            dispatcherTimer.Start();
         }
         public BitmapSource ByteToBitmapSource(byte[] image)
         {
@@ -120,6 +120,8 @@ namespace WPF_Redux_Client.Pages
             {
                 Chatlistitem chatlistitem = sender as Chatlistitem;
                 messages.Items.Clear();
+
+                chatItems = client.GetChatItems(id);
                 current = chatItems.Where(x => x.Title == chatlistitem.NameUser).FirstOrDefault();
                 headername.Text = current.Title;
 
@@ -132,11 +134,11 @@ namespace WPF_Redux_Client.Pages
 
                     if (m.UserId != id)
                     {
-                        messages.Items.Add(new Mess() { Mes = m.Message, ImagePath = current.ImagePath, TimeSending = m.SendingTime.ToString("hh:mm tt") });
+                       // messages.Items.Add(new Mess() { Mes = m.Message, ImagePath = current.ImagePath, TimeSending = m.SendingTime});
                     }
                     else
                     {
-                        messages.Items.Add(new Mymes() { Mes = m.Message, TimeSending = m.SendingTime.ToString("hh:mm tt") });
+                       // messages.Items.Add(new Mymes() { Mes = m.Message, TimeSending = m.SendingTime });
                     }
 
                 }
@@ -144,26 +146,26 @@ namespace WPF_Redux_Client.Pages
             }
             catch
             {
-
             }
           
-
-            
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            //tmpMessage[] tmpMessages = client.GetnewMes(current.Chatid, current.messages.Count(), id);
-            //if (tmpMessages!=null)
+            //tmpMessage[] tmpMessages = client.GetnewMes(current.Chatid, current.messages.Where(x=>x.UserId!=id).Count(), id);
+            //if (tmpMessages != null)
             //{
+            //    chatItems = client.GetChatItems(id);
+            //    int i = current.Chatid;
+            //    current = chatItems.Where(x => x.Chatid == i).FirstOrDefault();
             //    foreach (var item in tmpMessages)
             //    {
-            //        messages.Items.Add(new Mess() {Mes=item.Message,TimeSending=item.Message,ImagePath=current.ImagePath });
+            //        messages.Items.Add(new Mess() { Mes = item.Message, TimeSending = item.SendingTime, ImagePath = current.ImagePath });
             //    }
-            //   current.LastMessage=tmpMessages.Last().Message;
+            //    current.LastMessage = tmpMessages.Last().Message;
             //    scroll.ScrollToEnd();
             //}
-            
+
         }
 
         private void sendMsg_TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -179,6 +181,18 @@ namespace WPF_Redux_Client.Pages
                 // иначе отправить сообщение
                 else
                 {
+                    var r = client.GetBlackListsWithUserAsync(id, current).Result;
+                    if (r.Length != 0)
+                    {
+                        if (r.Length == 1)
+                            if (r[0].UserEnemyID == id)
+                                MessageBox.Show("Пользователь добавил Вас в Чёрный Список, поэтому Вы не можете писать ему сообщения.");
+                            else
+                                MessageBox.Show("Вы добавили этого пользователя в Чёрный Список, поэтому не можете писать ему сообщения.");
+                        else
+                            MessageBox.Show("Вы и этот пользователь добавили друг друга в ЧС, поэтому не можете писать ему сообщения.");
+                        return;
+                    }
                     if (sendMsg_TextBox.Text != "")
                     {
                         Message message = new Message()
@@ -188,6 +202,10 @@ namespace WPF_Redux_Client.Pages
                             IsRecieved=false
                            
                         };
+                        chatItems = client.GetChatItems(id);
+                        int i = current.Chatid;
+                        current = chatItems.Where(x=>x.Chatid==i).FirstOrDefault();
+
                         messages.Items.Add(new Mymes()
                         {
                             TimeSending = DateTime.Now.ToString("hh:mm tt"),
@@ -195,7 +213,6 @@ namespace WPF_Redux_Client.Pages
                         });
                         client.SendMes(message,current,id);
 
-                      
                         foreach (var item in lst1.Items)
                         {
                             if (item is Chatlistitem)
@@ -209,18 +226,12 @@ namespace WPF_Redux_Client.Pages
 
                         }
                         sendMsg_TextBox.Text = "";
-                        
-                        
                     }
                 }
 
                 e.Handled = true;
             }
         }
-
-       
-
-       
 
         public void OnCallback()
         {

@@ -832,18 +832,21 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="tmpMessage", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class tmpMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private string MessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private System.DateTime SendingTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -856,27 +859,40 @@ namespace WPF_Redux_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public string Message {
             get {
-                return this.BoolValueField;
+                return this.MessageField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public System.DateTime SendingTime {
             get {
-                return this.StringValueField;
+                return this.SendingTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((this.SendingTimeField.Equals(value) != true)) {
+                    this.SendingTimeField = value;
+                    this.RaisePropertyChanged("SendingTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -1079,83 +1095,6 @@ namespace WPF_Redux_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="tmpMessage", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
-    [System.SerializableAttribute()]
-    public partial class tmpMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime SendingTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime SendingTime {
-            get {
-                return this.SendingTimeField;
-            }
-            set {
-                if ((this.SendingTimeField.Equals(value) != true)) {
-                    this.SendingTimeField = value;
-                    this.RaisePropertyChanged("SendingTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Filters", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
     [System.SerializableAttribute()]
     public partial class Filters : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1311,6 +1250,144 @@ namespace WPF_Redux_Client.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BlackList", Namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibrary2.Classes")]
+    [System.SerializableAttribute()]
+    public partial class BlackList : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserEnemyIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserEnemyID {
+            get {
+                return this.UserEnemyIDField;
+            }
+            set {
+                if ((this.UserEnemyIDField.Equals(value) != true)) {
+                    this.UserEnemyIDField = value;
+                    this.RaisePropertyChanged("UserEnemyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1", CallbackContract=typeof(WPF_Redux_Client.ServiceReference1.IService1Callback))]
     public interface IService1 {
@@ -1352,10 +1429,10 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task UpdateUserAsync(string name, string lastname, System.DateTime birthday, string coloreye, string colorhaircut, string faith, string gender, string job, string descriptions, string education, string[] hobbies, WPF_Redux_Client.ServiceReference1.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPhoto", ReplyAction="http://tempuri.org/IService1/AddPhotoResponse")]
-        void AddPhoto(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext);
+        void AddPhoto(byte[] arr, WPF_Redux_Client.ServiceReference1.User user, string ext);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPhoto", ReplyAction="http://tempuri.org/IService1/AddPhotoResponse")]
-        System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext);
+        System.Threading.Tasks.Task AddPhotoAsync(byte[] arr, WPF_Redux_Client.ServiceReference1.User user, string ext);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
         byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user);
@@ -1388,10 +1465,16 @@ namespace WPF_Redux_Client.ServiceReference1 {
         System.Threading.Tasks.Task<int> GetCodeAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAvatar", ReplyAction="http://tempuri.org/IService1/SetAvatarResponse")]
-        void SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
+        string SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetAvatar", ReplyAction="http://tempuri.org/IService1/SetAvatarResponse")]
-        System.Threading.Tasks.Task SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
+        System.Threading.Tasks.Task<string> SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetnewMes", ReplyAction="http://tempuri.org/IService1/GetnewMesResponse")]
+        WPF_Redux_Client.ServiceReference1.tmpMessage[] GetnewMes(int chatid, int count, int userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetnewMes", ReplyAction="http://tempuri.org/IService1/GetnewMesResponse")]
+        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.tmpMessage[]> GetnewMesAsync(int chatid, int count, int userid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DefaultFilter", ReplyAction="http://tempuri.org/IService1/DefaultFilterResponse")]
         WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(WPF_Redux_Client.ServiceReference1.User user);
@@ -1518,6 +1601,24 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUsersWhoWasBannedByYou", ReplyAction="http://tempuri.org/IService1/GetUsersWhoWasBannedByYouResponse")]
         System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> GetUsersWhoWasBannedByYouAsync(WPF_Redux_Client.ServiceReference1.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBlackListsWithUser", ReplyAction="http://tempuri.org/IService1/GetBlackListsWithUserResponse")]
+        WPF_Redux_Client.ServiceReference1.BlackList[] GetBlackListsWithUser(int user1, WPF_Redux_Client.ServiceReference1.TmpChatItem chatitem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBlackListsWithUser", ReplyAction="http://tempuri.org/IService1/GetBlackListsWithUserResponse")]
+        System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.BlackList[]> GetBlackListsWithUserAsync(int user1, WPF_Redux_Client.ServiceReference1.TmpChatItem chatitem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePhoto", ReplyAction="http://tempuri.org/IService1/DeletePhotoResponse")]
+        void DeletePhoto(byte[] Image, WPF_Redux_Client.ServiceReference1.User User);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePhoto", ReplyAction="http://tempuri.org/IService1/DeletePhotoResponse")]
+        System.Threading.Tasks.Task DeletePhotoAsync(byte[] Image, WPF_Redux_Client.ServiceReference1.User User);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HaveUserAddThisPhoto", ReplyAction="http://tempuri.org/IService1/HaveUserAddThisPhotoResponse")]
+        bool HaveUserAddThisPhoto(byte[] Image, WPF_Redux_Client.ServiceReference1.User User);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/HaveUserAddThisPhoto", ReplyAction="http://tempuri.org/IService1/HaveUserAddThisPhotoResponse")]
+        System.Threading.Tasks.Task<bool> HaveUserAddThisPhotoAsync(byte[] Image, WPF_Redux_Client.ServiceReference1.User User);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1606,12 +1707,12 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.UpdateUserAsync(name, lastname, birthday, coloreye, colorhaircut, faith, gender, job, descriptions, education, hobbies, user);
         }
         
-        public void AddPhoto(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext) {
-            base.Channel.AddPhoto(image, user, ext);
+        public void AddPhoto(byte[] arr, WPF_Redux_Client.ServiceReference1.User user, string ext) {
+            base.Channel.AddPhoto(arr, user, ext);
         }
         
-        public System.Threading.Tasks.Task AddPhotoAsync(System.Windows.Media.Imaging.BitmapImage image, WPF_Redux_Client.ServiceReference1.User user, string ext) {
-            return base.Channel.AddPhotoAsync(image, user, ext);
+        public System.Threading.Tasks.Task AddPhotoAsync(byte[] arr, WPF_Redux_Client.ServiceReference1.User user, string ext) {
+            return base.Channel.AddPhotoAsync(arr, user, ext);
         }
         
         public byte[] GetImage(WPF_Redux_Client.ServiceReference1.User user) {
@@ -1654,12 +1755,20 @@ namespace WPF_Redux_Client.ServiceReference1 {
             return base.Channel.GetCodeAsync(email);
         }
         
-        public void SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
-            base.Channel.SetAvatar(user, array);
+        public string SetAvatar(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
+            return base.Channel.SetAvatar(user, array);
         }
         
-        public System.Threading.Tasks.Task SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
+        public System.Threading.Tasks.Task<string> SetAvatarAsync(WPF_Redux_Client.ServiceReference1.User user, byte[] array) {
             return base.Channel.SetAvatarAsync(user, array);
+        }
+        
+        public WPF_Redux_Client.ServiceReference1.tmpMessage[] GetnewMes(int chatid, int count, int userid) {
+            return base.Channel.GetnewMes(chatid, count, userid);
+        }
+        
+        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.tmpMessage[]> GetnewMesAsync(int chatid, int count, int userid) {
+            return base.Channel.GetnewMesAsync(chatid, count, userid);
         }
         
         public WPF_Redux_Client.ServiceReference1.User[] DefaultFilter(WPF_Redux_Client.ServiceReference1.User user) {
@@ -1828,6 +1937,30 @@ namespace WPF_Redux_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.User[]> GetUsersWhoWasBannedByYouAsync(WPF_Redux_Client.ServiceReference1.User user) {
             return base.Channel.GetUsersWhoWasBannedByYouAsync(user);
+        }
+        
+        public WPF_Redux_Client.ServiceReference1.BlackList[] GetBlackListsWithUser(int user1, WPF_Redux_Client.ServiceReference1.TmpChatItem chatitem) {
+            return base.Channel.GetBlackListsWithUser(user1, chatitem);
+        }
+        
+        public System.Threading.Tasks.Task<WPF_Redux_Client.ServiceReference1.BlackList[]> GetBlackListsWithUserAsync(int user1, WPF_Redux_Client.ServiceReference1.TmpChatItem chatitem) {
+            return base.Channel.GetBlackListsWithUserAsync(user1, chatitem);
+        }
+        
+        public void DeletePhoto(byte[] Image, WPF_Redux_Client.ServiceReference1.User User) {
+            base.Channel.DeletePhoto(Image, User);
+        }
+        
+        public System.Threading.Tasks.Task DeletePhotoAsync(byte[] Image, WPF_Redux_Client.ServiceReference1.User User) {
+            return base.Channel.DeletePhotoAsync(Image, User);
+        }
+        
+        public bool HaveUserAddThisPhoto(byte[] Image, WPF_Redux_Client.ServiceReference1.User User) {
+            return base.Channel.HaveUserAddThisPhoto(Image, User);
+        }
+        
+        public System.Threading.Tasks.Task<bool> HaveUserAddThisPhotoAsync(byte[] Image, WPF_Redux_Client.ServiceReference1.User User) {
+            return base.Channel.HaveUserAddThisPhotoAsync(Image, User);
         }
     }
 }

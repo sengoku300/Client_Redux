@@ -80,7 +80,7 @@ namespace WPF_Redux_Client.CustomControls
 			Button_main.BeginAnimation(Button.OpacityProperty, opacityMainButton);	
         }
 
-		private async void TryIncreaseScale()
+		private async void TryIncreaseScale(bool Selecting = false)
 		{
 			//double Scale = DefaultScale; 
 			//if (IncreasedInScale) Scale += 0.2;
@@ -98,10 +98,10 @@ namespace WPF_Redux_Client.CustomControls
 
 			double Scale = DefaultScale + DefaultScaleIncreasement / 2;
 
-			await Task.Run(() =>EmptyTask());
+			await Task.Run(() => { });
 			growImageX.KeyFrames.Add(new LinearDoubleKeyFrame(Scale, KeyTime.FromPercent(0)));
 			growImageY.KeyFrames.Add(new LinearDoubleKeyFrame(Scale, KeyTime.FromPercent(0)));
-			if (IsMouseOver) Scale += DefaultScaleIncreasement / 2;
+			if (IsMouseOver || Selecting) Scale += DefaultScaleIncreasement / 2;
 			else Scale -= DefaultScaleIncreasement / 2;
 			growImageX.KeyFrames.Add(new LinearDoubleKeyFrame(Scale, KeyTime.FromPercent(0.1)));
 			growImageY.KeyFrames.Add(new LinearDoubleKeyFrame(Scale, KeyTime.FromPercent(0.1)));
@@ -109,21 +109,13 @@ namespace WPF_Redux_Client.CustomControls
 
 			growImageX.Duration = new Duration(TimeSpan.FromMilliseconds(20));
 			ScaleTransform RectXForm = new ScaleTransform();
-			switch (IsMouseOver)
-			{
-				case true:
-					Scale = DefaultScale;
-					break;
-				case false:
-					Scale = DefaultScale + DefaultScaleIncreasement / 2;
-					break;
-			}
+			if (IsMouseOver || Selecting) Scale = DefaultScale;
+			else  Scale = DefaultScale + DefaultScaleIncreasement / 2;
 		    UC.RenderTransform = RectXForm;
 
 			RectXForm.BeginAnimation(ScaleTransform.ScaleXProperty, growImageX);
 			RectXForm.BeginAnimation(ScaleTransform.ScaleYProperty, growImageY);
 		}
-		void EmptyTask() {; }
 
         private void Button_delete_Click(object sender, RoutedEventArgs e)
         {
@@ -145,5 +137,17 @@ namespace WPF_Redux_Client.CustomControls
 				TryIncreaseScale();
             }
         }
+
+		public void Select()
+		{
+			if (!Dispatcher.CheckAccess()) { Dispatcher.Invoke(() => Unselect()); }
+			else
+			{
+				IsMainPhotography = true;
+				ChangeButton();
+				TryToChangeOpacityForMainButton();
+				TryIncreaseScale(true);
+			}
+		}
     }
 }

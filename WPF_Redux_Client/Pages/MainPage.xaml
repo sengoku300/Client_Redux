@@ -72,8 +72,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="400"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
 
 
@@ -101,21 +100,6 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Редактирование"/>
                         <materialDesign:PackIcon Kind="Pencil" Margin="9,0,0,0" Height="30" Width="20" />
-                    </StackPanel>
-                </Button.Content>
-            </Button>
-
-            <Button Grid.Row="2"
-                    Margin="20"
-                    FontWeight="DemiBold"
-                    FontSize="20"
-                    Click="Button_Click"
-                    ToolTip="Галерея ваших фотографий" Height="Auto">
-
-                <Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Галерея"/>
-                        <materialDesign:PackIcon Kind="ImageAlbum" Margin="9,0,0,0" Height="30" Width="40" />
                     </StackPanel>
                 </Button.Content>
             </Button>

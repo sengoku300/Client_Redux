@@ -30,10 +30,10 @@ namespace WPF_Redux_Client.CustomControls
             InitializeComponent();
             NameUser = name;
             ImagePath = imagePath;
-            Lastmes = lastmes;
+            last.Text = lastmes;
         }
         public byte[] ImagePath { get; set; }
         public string NameUser { get; set; }
-        public string Lastmes { get; set; }
+       
     }
 }
